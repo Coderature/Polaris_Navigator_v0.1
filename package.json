@@ -1,0 +1,37 @@
+{
+  "name": "polaris-navigator",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Polaris Navigator — GICS 11 3D market treemap (Sprint 1)",
+  "scripts": {
+    "dev": "concurrently \"tsx server/quotesServer.ts\" \"vite\"",
+    "dev:ui": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "crawl:dart": "tsx scripts/crawl/dartCrawler.ts",
+    "crawl:naver": "tsx scripts/crawl/naverNewsCrawler.ts",
+    "crawl:pdf": "tsx scripts/crawl/pdfExtract.ts",
+    "build:data": "tsx scripts/buildDataPipeline.ts",
+    "crawl": "npm run build:data"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.6",
+    "axios": "^1.7.0",
+    "cheerio": "^1.0.0-rc.12",
+    "concurrently": "^9.2.1",
+    "express": "^5.2.1",
+    "groq-sdk": "^1.2.0",
+    "openai": "^4.14.0",
+    "pdf-parse": "^1.1.1",
+    "three": "^0.160.0",
+    "yahoo-finance2": "^3.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.0",
+    "dotenv": "^16.3.0",
+    "tsx": "^3.12.7",
+    "typescript": "~5.6.0",
+    "vite": "^5.4.0"
+  }
+}
