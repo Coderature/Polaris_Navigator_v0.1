@@ -73,43 +73,74 @@
     </div>
 
     <aside class="panel" id="panel">
+      <!-- 섹터 컬러 Accent Bar -->
+      <div class="panel-accent-bar" id="p-accent-bar"></div>
+
       <div class="panel-head">
-        <div class="ticker-row">
-          <span class="ticker" id="p-ticker">—</span>
-          <span class="market-badge" id="p-market">—</span>
+        <div class="panel-head-main">
+          <div class="panel-head-info">
+            <h2 id="p-name">—</h2>
+            <div class="ticker-row">
+              <span class="ticker" id="p-ticker">—</span>
+              <span class="market-badge" id="p-market">—</span>
+            </div>
+            <div class="sector-tag"><span class="dot" id="p-sec-dot"></span><span id="p-sec-name">—</span></div>
+          </div>
         </div>
-        <h2 id="p-name">—</h2>
-        <div class="sector-tag"><span class="dot" id="p-sec-dot"></span><span id="p-sec-name">—</span></div>
-        <button class="watch-btn" id="p-watch" type="button" title="관심 종목에 저장">☆ Save</button>
-        <button class="panel-close" id="p-close" type="button" aria-label="Close">×</button>
+        <div class="panel-head-actions">
+          <button class="watch-btn" id="p-watch" type="button" title="관심 종목에 저장">☆ Save</button>
+          <button class="panel-close" id="p-close" type="button" aria-label="Close">×</button>
+        </div>
       </div>
 
-      <div class="price-block">
+      <div class="price-block" id="p-price-block">
+        <div class="price-label">현재가</div>
         <div class="price" id="p-price">—</div>
-        <div class="chg" id="p-chg">—</div>
-      </div>
-      <div class="panel-provenance">
-        <div class="prov-row"><span class="prov-k">데이터 기준</span><span id="p-source">—</span></div>
-        <div class="prov-row"><span class="prov-k">공시·뉴스 갱신</span><span id="p-asof">—</span></div>
+        <div class="price-footer">
+          <div class="chg" id="p-chg">—</div>
+          <div class="price-source">
+            <span id="p-source">—</span><br>
+            <span id="p-asof">—</span>
+          </div>
+        </div>
       </div>
 
       <div class="panel-body">
         <section class="section">
           <h3>주요 지표</h3>
-          <div class="metrics-grid">
-            <div class="metric"><div class="lbl">시가총액</div><div class="val" id="m-cap">—</div></div>
-            <div class="metric"><div class="lbl">거래량</div><div class="val" id="m-vol">—</div></div>
-            <div class="metric"><div class="lbl">PER</div><div class="val" id="m-per">—</div></div>
-            <div class="metric"><div class="lbl">PBR</div><div class="val" id="m-pbr">—</div></div>
-            <div class="metric"><div class="lbl">구역 내 순위</div><div class="val" id="m-rank">—</div></div>
-            <div class="metric"><div class="lbl">배당수익률</div><div class="val" id="m-div">—</div></div>
+          <div class="metrics-list">
+            <div class="metric-row">
+              <div class="metric-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">🏛</div>
+              <span class="m-lbl">시가총액</span>
+              <span class="m-val" id="m-cap">—</span>
+            </div>
+            <div class="metric-row">
+              <div class="metric-icon" style="background:linear-gradient(135deg,#1d4ed8,#60a5fa)">📊</div>
+              <span class="m-lbl">거래량</span>
+              <span class="m-val" id="m-vol">—</span>
+            </div>
+            <div class="metric-row">
+              <div class="metric-icon" style="background:linear-gradient(135deg,#065f46,#34d399)">P</div>
+              <span class="m-lbl">PER</span>
+              <span class="m-val" id="m-per">—</span>
+            </div>
+            <div class="metric-row">
+              <div class="metric-icon" style="background:linear-gradient(135deg,#92400e,#fcd34d)">B</div>
+              <span class="m-lbl">PBR</span>
+              <span class="m-val" id="m-pbr">—</span>
+            </div>
+            <div class="metric-row">
+              <div class="metric-icon" style="background:linear-gradient(135deg,#155e75,#22d3ee)">%</div>
+              <span class="m-lbl">배당수익률</span>
+              <span class="m-val" id="m-div">—</span>
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <h3>요약</h3>
+          <h3>AI 요약</h3>
           <div class="ai-block">
-            <div class="ai-meta"><span class="ai-dot"></span><span id="ai-status">대기 중…</span></div>
+            <div class="ai-meta"><span class="ai-dot" id="ai-dot"></span><span id="ai-status">대기 중…</span></div>
             <div class="ai-content" id="ai-content">
               <div class="skel skel-line w90"></div>
               <div class="skel skel-line w70"></div>
@@ -121,16 +152,16 @@
         </section>
 
         <section class="section">
-          <h3>리스크 분석 · 관련 뉴스</h3>
+          <h3>리스크 · 뉴스</h3>
           <div id="news-list">
-            <div class="news-item"><div class="news-meta">종목을 클릭하면 LLM 리스크 분석이 표시됩니다.</div></div>
+            <div class="news-item news-empty"><div class="news-meta">종목을 클릭하면 LLM 리스크 분석이 표시됩니다.</div></div>
           </div>
         </section>
 
         <section class="section">
           <h3>DART 공시</h3>
           <div id="dart-list">
-            <div class="news-item"><div class="news-meta">종목을 클릭하면 관련 공시가 표시됩니다.</div></div>
+            <div class="news-item news-empty"><div class="news-meta">종목을 클릭하면 관련 공시가 표시됩니다.</div></div>
           </div>
         </section>
 

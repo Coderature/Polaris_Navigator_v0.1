@@ -342,8 +342,6 @@ async function main() {
     }
   }
 
-  const severityLabel: Record<string, string> = { high: '🔴 고', medium: '🟡 중', low: '🟢 저' };
-
   function renderRisksForStock(st: StockRow) {
     const newsList = document.getElementById('news-list')!;
     const dartList = document.getElementById('dart-list')!;
@@ -359,34 +357,50 @@ async function main() {
       (d) => d.source === 'naver' && (d.title.includes(st.n) || (d.metadata?.query as string ?? '').length > 0),
     );
 
+    const severityBg: Record<string, string> = {
+      high:   'linear-gradient(135deg,#7f1d1d,#ef4444)',
+      medium: 'linear-gradient(135deg,#78350f,#f59e0b)',
+      low:    'linear-gradient(135deg,#064e3b,#10b981)',
+    };
+    const severityText: Record<string, string> = { high: '고위험', medium: '중위험', low: '저위험' };
+
     if (risks.length > 0) {
       newsList.innerHTML = risks.slice(0, 4).map((r) => `
         <div class="news-item">
-          <div class="news-title"><span class="risk-badge">${severityLabel[r.riskSeverity] ?? r.riskSeverity}</span> ${r.riskType}</div>
-          <div class="news-summary">${r.summary}</div>
-          ${r.keywords.length ? `<div class="news-meta">${r.keywords.slice(0, 4).join(' · ')}</div>` : ''}
-          <a class="news-link" href="${r.sourceUrl}" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="news-icon" style="background:${severityBg[r.riskSeverity] ?? 'linear-gradient(135deg,#374151,#6b7280)'}">!</div>
+          <div class="news-content">
+            <div class="news-title">[${severityText[r.riskSeverity] ?? r.riskSeverity}] ${r.riskType}</div>
+            <div class="news-summary">${r.summary}</div>
+            ${r.keywords.length ? `<div class="news-meta">${r.keywords.slice(0, 4).join(' · ')}</div>` : ''}
+          </div>
+          <a class="news-action" href="${r.sourceUrl}" target="_blank" rel="noopener">›</a>
         </div>`).join('');
     } else if (naverDocs.length > 0) {
       newsList.innerHTML = naverDocs.slice(0, 3).map((d) => `
         <div class="news-item">
-          <div class="news-title">${d.title}</div>
-          <div class="news-meta">${d.date}</div>
-          <a class="news-link" href="${d.url}" target="_blank" rel="noopener">기사 보기 ↗</a>
+          <div class="news-icon" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6)">N</div>
+          <div class="news-content">
+            <div class="news-title">${d.title}</div>
+            <div class="news-meta">${d.date}</div>
+          </div>
+          <a class="news-action" href="${d.url}" target="_blank" rel="noopener">›</a>
         </div>`).join('');
     } else {
-      newsList.innerHTML = '<div class="news-item"><div class="news-meta">이 종목의 리스크 데이터가 없습니다. 파이프라인을 재실행하세요.</div></div>';
+      newsList.innerHTML = '<div class="news-item news-empty"><div class="news-meta">이 종목의 리스크 데이터가 없습니다.</div></div>';
     }
 
     if (dartDocs.length > 0) {
       dartList.innerHTML = dartDocs.slice(0, 3).map((d) => `
         <div class="news-item">
-          <div class="news-title">${d.title}</div>
-          <div class="news-meta">${d.date}</div>
-          <a class="news-link" href="${d.url}" target="_blank" rel="noopener">공시 보기 ↗</a>
+          <div class="news-icon" style="background:linear-gradient(135deg,#064e3b,#10b981)">D</div>
+          <div class="news-content">
+            <div class="news-title">${d.title}</div>
+            <div class="news-meta">${d.date}</div>
+          </div>
+          <a class="news-action" href="${d.url}" target="_blank" rel="noopener">›</a>
         </div>`).join('');
     } else {
-      dartList.innerHTML = '<div class="news-item"><div class="news-meta">공시 데이터가 없습니다.</div></div>';
+      dartList.innerHTML = '<div class="news-item news-empty"><div class="news-meta">공시 데이터가 없습니다.</div></div>';
     }
   }
 
@@ -395,27 +409,37 @@ async function main() {
     treemap.setHoveredSector(st.s);
     const sec = secById[st.s];
 
+    // ── 기본 텍스트 채우기 ──
     pTicker.textContent = st.t;
     pMarket.textContent = st.m;
     pName.textContent = st.n;
     pSecDot.style.background = sec.color;
     pSecName.textContent = sec.ko;
 
+    // ── Accent Bar: 섹터 색 ──
+    const accentBar = document.getElementById('p-accent-bar')!;
+    accentBar.style.background = sec.color;
+
+    // ── 가격 및 등락 ──
     pPrice.textContent = st.halted ? '—' : fmtPrice(st.price ?? 0, st.m);
     pChg.classList.remove('up', 'down');
+    const priceBlock = document.getElementById('p-price-block')!;
+    priceBlock.classList.remove('up', 'down');
     if (st.halted) {
       pChg.textContent = '⊘ halted';
     } else {
       const sign = (st.chg ?? 0) >= 0 ? '+' : '';
       pChg.textContent = `${sign}${(st.chg ?? 0).toFixed(2)}%`;
-      pChg.classList.add((st.chg ?? 0) >= 0 ? 'up' : 'down');
+      const dir = (st.chg ?? 0) >= 0 ? 'up' : 'down';
+      pChg.classList.add(dir);
+      priceBlock.classList.add(dir);
     }
 
+    // ── 지표 ──
     document.getElementById('m-cap')!.textContent = `$${fmtBn(st.cap)}`;
     document.getElementById('m-vol')!.textContent = `${st.vol.toFixed(1)}M`;
     document.getElementById('m-per')!.textContent = st.per == null ? '—' : st.per.toFixed(1);
     document.getElementById('m-pbr')!.textContent = st.pbr == null ? '—' : st.pbr.toFixed(2);
-    document.getElementById('m-rank')!.textContent = sectorRankFor(stocks, st);
     document.getElementById('m-div')!.textContent = `${st.div.toFixed(2)}%`;
 
     const pSource = document.getElementById('p-source');
@@ -423,6 +447,7 @@ async function main() {
     if (pSource) pSource.textContent = st.sourceLabel ?? dataSourceDetailLabel(st.source);
     if (pAsof) pAsof.textContent = formatSyncTime(generatedAt);
 
+    // ── 건물 하이라이트 ──
     if (highlighted && highlighted !== mesh) resetBuildingInteractionScale(highlighted);
     if (mesh) {
       setBuildingInteractionScale(mesh, 1.08);
@@ -432,13 +457,25 @@ async function main() {
       highlighted = null;
     }
 
+    // ── 패널 열기 + 섹션 fade-in 애니메이션 재트리거 ──
     panel.classList.add('open');
     hintEl.classList.add('hide');
+
+    const sections = panel.querySelectorAll('.panel-body .section');
+    sections.forEach((s) => s.classList.remove('animate-in'));
+    void (panel.querySelector('.panel-body') as HTMLElement).offsetWidth; // reflow
+    sections.forEach((s) => s.classList.add('animate-in'));
+
+    // ── 뉴스/공시 ──
     renderRisksForStock(st);
 
+    // ── 워치리스트 버튼 ──
     pWatch.classList.toggle('on', isWatched(st.t));
     pWatch.textContent = isWatched(st.t) ? '★ Saved' : '☆ Save';
 
+    // ── AI 요약 ──
+    const aiDot = document.getElementById('ai-dot')!;
+    aiDot.classList.add('loading');
     aiStatus.textContent = 'Groq AI 요약 생성 중…';
     aiContent.innerHTML = `
     <div class="skel skel-line w90"></div>
@@ -471,10 +508,12 @@ async function main() {
       documents: relatedDocs,
       sectorPeers,
     }).then((summary) => {
+      aiDot.classList.remove('loading');
       aiStatus.textContent = 'Groq AI · llama-3.3-70b';
       aiContent.innerHTML = renderSummary(summary);
       aiDisclaimer.textContent = '⚠ AI 생성 요약이며 투자 조언이 아닙니다.';
     }).catch(() => {
+      aiDot.classList.remove('loading');
       aiStatus.textContent = '요약 · 규칙 기반 (폴백)';
       aiContent.innerHTML = aiSummary(stocks, sectors, st);
       aiDisclaimer.textContent = '⚠ 규칙 기반 요약이며 투자 조언이 아닙니다.';
