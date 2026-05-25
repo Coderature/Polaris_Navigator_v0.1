@@ -694,7 +694,7 @@ async function main() {
     const ht = stocks.filter((s) => s.halted).length;
     document.getElementById('s-stocks')!.textContent = String(stocks.length);
     const secCount = document.getElementById('s-sectors');
-    if (secCount) secCount.textContent = String(sectors.length);
+    if (secCount) secCount.textContent = String(treemap.layoutSectorCount);
     document.getElementById('s-up')!.textContent = String(up);
     document.getElementById('s-down')!.textContent = String(dn);
     document.getElementById('s-halt')!.textContent = String(ht);

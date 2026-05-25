@@ -142,11 +142,16 @@ export function computeLayout(
   stocks: StockRow[],
   W: number,
   H: number,
-  options?: { weightMode?: LayoutWeightMode; balanceMode?: LayoutBalanceMode },
+  options?: {
+    weightMode?: LayoutWeightMode;
+    balanceMode?: LayoutBalanceMode;
+    consolidateSingletons?: boolean;
+  },
 ): { sectorRects: RectWithRef<string>[]; stockRects: StockRect[] } {
   const weightMode = options?.weightMode ?? 'linear';
   const balanceMode = options?.balanceMode ?? 'balanced';
-  const normalized = consolidateSingletons(stocks);
+  const shouldConsolidate = options?.consolidateSingletons !== false;
+  const normalized = shouldConsolidate ? consolidateSingletons(stocks) : stocks;
   const layoutSectorByTicker = new Map(normalized.map((s) => [s.t, s.s]));
   const balancedWeights =
     balanceMode === 'balanced' ? buildBalancedWeightMap(stocks, layoutSectorByTicker) : new Map<string, number>();
@@ -183,7 +188,7 @@ export function computeLayout(
 
   const stockRects: StockRect[] = [];
   for (const r of sectorRects) {
-    const pad = balanceMode === 'cap' ? 0.22 : 0.32;
+    const pad = 4.0;
     const innerX = r.x + pad;
     const innerY = r.y + pad;
     const innerW = Math.max(0.1, r.w - pad * 2);
