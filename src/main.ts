@@ -10,6 +10,7 @@ import {
   dataSnapshotBaselineLabel,
 } from './types';
 import { TreemapScene } from './scene/TreemapScene';
+import { MetricsPanel } from './features/metrics/MetricsPanel';
 
 const GURU_QUOTES: { text: string; author: string }[] = [
   
@@ -195,6 +196,7 @@ async function main() {
   const ttCap = document.getElementById('tt-cap')!;
 
   const panel = document.getElementById('panel')!;
+  const metricsPanel = new MetricsPanel(document.getElementById('fav-metrics-panel')!);
   const pTicker = document.getElementById('p-ticker')!;
   const pMarket = document.getElementById('p-market')!;
   const pName = document.getElementById('p-name')!;
@@ -481,6 +483,9 @@ async function main() {
     currentStock = st;
     treemap.setHoveredSector(st.s);
     const sec = secById[st.s];
+
+    // ── MetricsPanel 업데이트 ──
+    metricsPanel.open(st, sec);
 
     // ── 기본 텍스트 채우기 ──
     pTicker.textContent = st.t;
