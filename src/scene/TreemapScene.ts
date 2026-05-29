@@ -95,7 +95,7 @@ function createSectorBoundaryLine(
   const mat = new THREE.LineBasicMaterial({
     color: new THREE.Color(hex),
     transparent: true,
-    opacity: 0.98,
+    opacity: 0.85,
     depthWrite: false,
   });
   const line = new THREE.Line(geo, mat);
@@ -128,7 +128,7 @@ function createSectorBoundaryLine(
 }
 
 /** Overview 섹터만 보기 — 종목 타일 면 (섹터 색 + 밝기 변화). */
-const STOCK_LOT_GAP = 0.12;
+const STOCK_LOT_GAP = 0.15;
 
 function stockLotFillColor(hex: string, ticker: string): THREE.Color {
   const c = new THREE.Color(hex);
@@ -146,7 +146,7 @@ function createStockLotFillMesh(r: StockRect, hex: string, layoutSectorId: strin
   const mat = new THREE.MeshBasicMaterial({
     color: stockLotFillColor(hex, r.ref.t),
     transparent: true,
-    opacity: 0.52,
+    opacity: 0.38,
     depthWrite: false,
     side: THREE.DoubleSide,
   });
@@ -176,11 +176,11 @@ function createStockLotBoundaryLine(r: StockRect, hex: string, layoutSectorId: s
     new THREE.Vector3(x, y, z),
   ];
   const geo = new THREE.BufferGeometry().setFromPoints(pts);
-  const col = new THREE.Color('#5a6b80');
+  const col = new THREE.Color('#1e293b');
   const mat = new THREE.LineBasicMaterial({
     color: col,
     transparent: true,
-    opacity: 0.32,
+    opacity: 0.78,
     depthWrite: false,
   });
   const line = new THREE.Line(geo, mat);
@@ -522,13 +522,12 @@ export class TreemapScene {
       if (!(child instanceof THREE.Mesh)) continue;
       const mat = child.material as THREE.MeshBasicMaterial;
       const stock = child.userData.stock as StockRow;
-      mat.opacity = hi && stock === hi ? 0.78 : 0.52;
+      mat.opacity = hi && stock === hi ? 0.78 : 0.38;
     }
     for (const line of this.stockLotBoundaryLines) {
       const mat = line.material as THREE.LineBasicMaterial;
       const stock = line.userData.stock as StockRow;
-      const active = hi && stock === hi;
-      mat.opacity = active ? 0.68 : 0.32;
+      mat.opacity = hi && stock === hi ? 0.95 : 0.78;
     }
   }
 
@@ -560,8 +559,8 @@ export class TreemapScene {
   }
 
   private boundaryBaseOpacity(): number {
-    if (this.overviewSectorOnly) return 0.98;
-    return this.visualMode === 'overview' ? 0.95 : 0.92;
+    if (this.overviewSectorOnly) return 0.92;
+    return this.visualMode === 'overview' ? 0.82 : 0.85;
   }
 
   private boundaryHoverOpacity(): number {
