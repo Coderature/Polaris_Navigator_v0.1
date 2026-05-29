@@ -73,43 +73,196 @@
     </div>
 
     <aside class="panel" id="panel">
+      <!-- 섹터 컬러 Accent Bar -->
+      <div class="panel-accent-bar" id="p-accent-bar"></div>
+
       <div class="panel-head">
-        <div class="ticker-row">
-          <span class="ticker" id="p-ticker">—</span>
-          <span class="market-badge" id="p-market">—</span>
+        <div class="panel-head-main">
+          <div class="panel-head-info">
+            <h2 id="p-name">—</h2>
+            <div class="ticker-row">
+              <span class="ticker" id="p-ticker">—</span>
+              <span class="market-badge" id="p-market">—</span>
+            </div>
+            <div class="sector-tag"><span class="dot" id="p-sec-dot"></span><span id="p-sec-name">—</span></div>
+          </div>
         </div>
-        <h2 id="p-name">—</h2>
-        <div class="sector-tag"><span class="dot" id="p-sec-dot"></span><span id="p-sec-name">—</span></div>
-        <button class="watch-btn" id="p-watch" type="button" title="관심 종목에 저장">☆ Save</button>
-        <button class="panel-close" id="p-close" type="button" aria-label="Close">×</button>
+        <div class="panel-head-actions">
+          <button class="watch-btn" id="p-watch" type="button" title="관심 종목에 저장">☆ Save</button>
+          <button class="panel-close" id="p-close" type="button" aria-label="Close">×</button>
+        </div>
       </div>
 
-      <div class="price-block">
-        <div class="price" id="p-price">—</div>
-        <div class="chg" id="p-chg">—</div>
-      </div>
-      <div class="panel-provenance">
-        <div class="prov-row"><span class="prov-k">데이터 기준</span><span id="p-source">—</span></div>
-        <div class="prov-row"><span class="prov-k">공시·뉴스 갱신</span><span id="p-asof">—</span></div>
+      <div class="price-block" id="p-price-block">
+        <div class="price-info-col">
+          <div class="price-label">현재가</div>
+          <div class="price" id="p-price">—</div>
+          <div class="price-footer">
+            <div class="chg" id="p-chg">—</div>
+          </div>
+        </div>
+        <div class="sparkline-wrap">
+          <canvas id="p-sparkline" width="110" height="52"></canvas>
+        </div>
       </div>
 
       <div class="panel-body">
+        <!-- MetricsPanel 마운트 포인트 -->
+        <section class="section">
+          <div id="fav-metrics-panel"></div>
+        </section>
+
         <section class="section">
           <h3>주요 지표</h3>
           <div class="metrics-grid">
-            <div class="metric"><div class="lbl">시가총액</div><div class="val" id="m-cap">—</div></div>
-            <div class="metric"><div class="lbl">거래량</div><div class="val" id="m-vol">—</div></div>
-            <div class="metric"><div class="lbl">PER</div><div class="val" id="m-per">—</div></div>
-            <div class="metric"><div class="lbl">PBR</div><div class="val" id="m-pbr">—</div></div>
-            <div class="metric"><div class="lbl">구역 내 순위</div><div class="val" id="m-rank">—</div></div>
-            <div class="metric"><div class="lbl">배당수익률</div><div class="val" id="m-div">—</div></div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#7c3aed,#a78bfa)"></div>
+              <span class="m-lbl">시가총액</span>
+              <span class="m-val" id="m-cap">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#1d4ed8,#60a5fa)"></div>
+              <span class="m-lbl">거래량</span>
+              <span class="m-val" id="m-vol">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#065f46,#34d399)"></div>
+              <span class="m-lbl">PER</span>
+              <span class="m-val" id="m-per">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#92400e,#fcd34d)"></div>
+              <span class="m-lbl">PBR</span>
+              <span class="m-val" id="m-pbr">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#155e75,#22d3ee)"></div>
+              <span class="m-lbl">배당수익률</span>
+              <span class="m-val" id="m-div">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#be185d,#f472b6)"></div>
+              <span class="m-lbl">ROE</span>
+              <span class="m-val" id="m-roe">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#166534,#86efac)"></div>
+              <span class="m-lbl">영업이익률</span>
+              <span class="m-val" id="m-opm">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#7f1d1d,#fca5a5)"></div>
+              <span class="m-lbl">부채비율</span>
+              <span class="m-val" id="m-debt">—</span>
+            </div>
+            <div class="metric-cell metric-cell--52w">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#1e3a5f,#93c5fd)"></div>
+              <span class="m-lbl">52주 고/저</span>
+              <div class="m-val m-52w-pair" id="m-52w">—</div>
+            </div>
+
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#134e4a,#2dd4bf)"></div>
+              <span class="m-lbl">PSR</span>
+              <span class="m-val" id="m-psr">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#7c2d12,#fdba74)"></div>
+              <span class="m-lbl">EV/EBITDA</span>
+              <span class="m-val" id="m-ev">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#4a1d96,#c4b5fd)"></div>
+              <span class="m-lbl">PEG</span>
+              <span class="m-val" id="m-peg">—</span>
+            </div>
+
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#1e3a5f,#7dd3fc)"></div>
+              <span class="m-lbl">PCR</span>
+              <span class="m-val" id="m-pcr">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#064e3b,#6ee7b7)"></div>
+              <span class="m-lbl">ROA</span>
+              <span class="m-val" id="m-roa">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#155e75,#67e8f9)"></div>
+              <span class="m-lbl">순이익률</span>
+              <span class="m-val" id="m-net">—</span>
+            </div>
+
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#3b0764,#e879f9)"></div>
+              <span class="m-lbl">매출총이익률</span>
+              <span class="m-val" id="m-gp">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#365314,#bef264)"></div>
+              <span class="m-lbl">매출성장률</span>
+              <span class="m-val" id="m-revg">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#713f12,#fde68a)"></div>
+              <span class="m-lbl">EPS성장률</span>
+              <span class="m-val" id="m-epsg">—</span>
+            </div>
+
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#0c4a6e,#38bdf8)"></div>
+              <span class="m-lbl">유동비율</span>
+              <span class="m-val" id="m-cr">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#14532d,#4ade80)"></div>
+              <span class="m-lbl">FCF</span>
+              <span class="m-val" id="m-fcf">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#052e16,#86efac)"></div>
+              <span class="m-lbl">FCF수익률</span>
+              <span class="m-val" id="m-fcfy">—</span>
+            </div>
+
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#78350f,#fcd34d)"></div>
+              <span class="m-lbl">EPS</span>
+              <span class="m-val" id="m-eps">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#1f2937,#9ca3af)"></div>
+              <span class="m-lbl">베타</span>
+              <span class="m-val" id="m-beta">—</span>
+            </div>
+
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#1c1917,#a8a29e)"></div>
+              <span class="m-lbl">ROIC</span>
+              <span class="m-val" id="m-roic">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#14532d,#bbf7d0)"></div>
+              <span class="m-lbl">영업이익률 추세</span>
+              <span class="m-val" id="m-opm-trend">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#3b0764,#d8b4fe)"></div>
+              <span class="m-lbl">매출총이익률 추세</span>
+              <span class="m-val" id="m-gpm-trend">—</span>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-cell-bar" style="background:linear-gradient(90deg,#7c2d12,#fed7aa)"></div>
+              <span class="m-lbl">주주환원율</span>
+              <span class="m-val" id="m-sr">—</span>
+            </div>
           </div>
         </section>
 
         <section class="section">
-          <h3>요약</h3>
+          <h3>AI 요약</h3>
           <div class="ai-block">
-            <div class="ai-meta"><span class="ai-dot"></span><span id="ai-status">대기 중…</span></div>
+            <div class="ai-meta"><span class="ai-dot" id="ai-dot"></span><span id="ai-status">대기 중…</span></div>
             <div class="ai-content" id="ai-content">
               <div class="skel skel-line w90"></div>
               <div class="skel skel-line w70"></div>
@@ -121,16 +274,16 @@
         </section>
 
         <section class="section">
-          <h3>리스크 분석 · 관련 뉴스</h3>
+          <h3>리스크 · 뉴스</h3>
           <div id="news-list">
-            <div class="news-item"><div class="news-meta">종목을 클릭하면 LLM 리스크 분석이 표시됩니다.</div></div>
+            <div class="news-item news-empty"><div class="news-meta">종목을 클릭하면 LLM 리스크 분석이 표시됩니다.</div></div>
           </div>
         </section>
 
         <section class="section">
           <h3>DART 공시</h3>
           <div id="dart-list">
-            <div class="news-item"><div class="news-meta">종목을 클릭하면 관련 공시가 표시됩니다.</div></div>
+            <div class="news-item news-empty"><div class="news-meta">종목을 클릭하면 관련 공시가 표시됩니다.</div></div>
           </div>
         </section>
 
