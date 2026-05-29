@@ -773,7 +773,21 @@ body::before {
   border-bottom: 1px solid rgba(255,255,255,0.06);
   flex: none;
   transition: background 350ms ease;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
+.price-info-col { flex: 1; min-width: 0; }
+.sparkline-wrap {
+  flex: none;
+  width: 110px;
+  height: 52px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+#p-sparkline { display: block; }
 
 .price-block.up   { background: linear-gradient(160deg, rgba(248,113,113,0.10) 0%, transparent 65%); }
 .price-block.down { background: linear-gradient(160deg, rgba(96,165,250,0.10) 0%, transparent 65%); }
@@ -798,7 +812,6 @@ body::before {
 .price-block .price-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .price-block .chg {
@@ -824,12 +837,6 @@ body::before {
   border: 1px solid var(--change-down-border);
 }
 
-.price-block .price-source {
-  font-size: 10px;
-  color: var(--text-disabled);
-  text-align: right;
-  line-height: 1.5;
-}
 
 /* ── Panel Body ── */
 .panel-body {
@@ -894,27 +901,60 @@ body::before {
 .panel-body .section.animate-in:nth-child(4) { animation-delay: 240ms; }
 .panel-body .section.animate-in:nth-child(5) { animation-delay: 300ms; }
 
-/* ── Metrics List — 카드형 행 ── */
-.metrics-list {
-  display: flex;
-  flex-direction: column;
+/* ── Metrics Grid — 3×2 카드 그리드 ── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
+/* 마지막 행에 셀이 1개만 남을 경우 전체 너비로 확장 */
+.metrics-grid > .metric-cell:last-child:nth-child(3n+1) {
+  grid-column: 1 / -1;
+}
 
-.metric-row {
+.metric-cell {
   display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 11px 14px;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 11px 10px;
   background: var(--card-bg);
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
   transition: background var(--motion-fast);
 }
 
-.metric-row:hover { background: var(--card-hover); }
-.metric-row:last-child { border-bottom: none; }
+.metric-cell:hover { background: var(--card-hover); }
 
+.metric-cell-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.metric-cell .m-lbl {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.metric-cell .m-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.m-52w-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 11px !important;
+}
+.m-52w-high { color: var(--change-up); }
+.m-52w-low  { color: var(--change-down); }
+
+/* 하위 호환 — 구 metric-row 스타일 유지 (혹시 다른 곳에서 사용 시) */
 .metric-icon {
   width: 34px;
   height: 34px;

@@ -48,6 +48,36 @@ export interface StockRow {
   /** Volume in millions */
   vol: number;
   div: number;
+  roe?: number | null;
+  operatingMargin?: number | null;
+  debtRatio?: number | null;
+  week52High?: number | null;
+  week52Low?: number | null;
+  psr?: number | null;
+  evEbitda?: number | null;
+  peg?: number | null;
+  pcr?: number | null;
+  roa?: number | null;
+  netMargin?: number | null;
+  grossMargin?: number | null;
+  revenueGrowth?: number | null;
+  epsGrowth?: number | null;
+  currentRatio?: number | null;
+  /** Free cash flow in billions USD */
+  fcf?: number | null;
+  fcfYield?: number | null;
+  /** EPS in local currency */
+  eps?: number | null;
+  payoutRatio?: number | null;
+  beta?: number | null;
+  /** Return on Invested Capital (%) */
+  roic?: number | null;
+  /** Operating margin change over ~3 years (percentage points) */
+  opmTrend3y?: number | null;
+  /** Gross margin change over ~3 years (percentage points) */
+  gpmTrend3y?: number | null;
+  /** Total shareholder return = (dividends + buybacks) / net income (%) */
+  shareholderReturn?: number | null;
   halted?: boolean;
   /** Runtime: daily change % */
   chg?: number;

@@ -8,7 +8,11 @@ import { fetchKrStocks } from './crawl/krStockCrawler.js';
 import { extractFinancialRisks } from './llm/extractor.js';
 import type { PipelineOutput, RawDocument, SectorDef, StockRow } from './types.js';
 
-const KR_COMPANIES = ['삼성전자', 'SK하이닉스', '현대자동차', '네이버', '카카오', '에스오il'];
+const KR_COMPANIES = [
+  '삼성전자', 'SK하이닉스', '현대자동차', '네이버', '카카오',
+  '삼성바이오로직스', '셀트리온', 'KB금융', '에스오일',
+  'LG에너지솔루션', '현대모비스', '삼성SDI', '포스코홀딩스', '기아',
+];
 
 async function loadExistingTreemapData() {
   const sourcePath = path.resolve('public', 'treemap_data.json');
@@ -25,7 +29,7 @@ async function main() {
   console.log('1/5 DART 공시 크롤링 시작...');
   const dartDocs: RawDocument[] = [];
   for (const company of KR_COMPANIES) {
-    const docs = await fetchDartReports(company, 1, 3);
+    const docs = await fetchDartReports(company, 1, 10);
     dartDocs.push(...docs);
     console.log(`  ✓ ${company}: ${docs.length}건`);
   }

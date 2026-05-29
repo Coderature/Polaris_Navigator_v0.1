@@ -8,7 +8,6 @@ import {
   type SectorDef,
   type StockRow,
   dataSnapshotBaselineLabel,
-  dataSourceDetailLabel,
 } from './types';
 import { TreemapScene } from './scene/TreemapScene';
 
@@ -178,7 +177,7 @@ async function main() {
   await waitForConsent();
   await runSplashSequence();
 
-  const { sectors, stocks, generatedAt, extractedRisks, documents } = await loadTreemapData();
+  const { sectors, stocks, extractedRisks, documents } = await loadTreemapData();
   const secById = Object.fromEntries(sectors.map((s) => [s.id, s])) as Record<string, SectorDef>;
 
   const canvas = document.getElementById('scene') as HTMLCanvasElement;
@@ -390,19 +389,93 @@ async function main() {
     }
 
     if (dartDocs.length > 0) {
-      dartList.innerHTML = dartDocs.slice(0, 3).map((d) => `
+      // 우선순위(중요 공시 먼저) → 날짜 내림차순 정렬
+      const sortedDart = [...dartDocs].sort((a, b) => {
+        const pa = (a.metadata?.priority as number ?? 99);
+        const pb = (b.metadata?.priority as number ?? 99);
+        if (pa !== pb) return pa - pb;
+        return String(b.date).localeCompare(String(a.date));
+      });
+      dartList.innerHTML = sortedDart.slice(0, 8).map((d) => {
+        const badge      = String(d.metadata?.badge      ?? 'D');
+        const badgeColor = String(d.metadata?.badgeColor ?? '#064e3b');
+        const fmtDate    = String(d.metadata?.formattedDate ?? d.date);
+        const dtype      = String(d.metadata?.disclosureType ?? '');
+        return `
         <div class="news-item">
-          <div class="news-icon" style="background:linear-gradient(135deg,#064e3b,#10b981)">D</div>
+          <div class="news-icon" style="background:${badgeColor};font-size:10px">${badge}</div>
           <div class="news-content">
             <div class="news-title">${d.title}</div>
-            <div class="news-meta">${d.date}</div>
+            <div class="news-meta"><span style="color:${badgeColor};font-weight:600">${dtype}</span> · ${fmtDate}</div>
           </div>
           <a class="news-action" href="${d.url}" target="_blank" rel="noopener">›</a>
-        </div>`).join('');
+        </div>`;
+      }).join('');
     } else {
       dartList.innerHTML = '<div class="news-item news-empty"><div class="news-meta">공시 데이터가 없습니다.</div></div>';
     }
   }
+
+  // ── Sparkline helpers ──────────────────────────────────────────────────────
+
+  function yahooSymbol(t: string, m: MarketCode): string {
+    return m === 'US' ? t : `${t}.KS`;
+  }
+
+  async function fetchSparklinePrices(symbol: string): Promise<number[]> {
+    const url = `/yahoo-chart/v8/finance/chart/${symbol}?interval=5m&range=1d&includePrePost=false`;
+    const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+    if (!res.ok) throw new Error(`Yahoo chart ${res.status}`);
+    const json = await res.json();
+    const closes: (number | null)[] =
+      json?.chart?.result?.[0]?.indicators?.quote?.[0]?.close ?? [];
+    return closes.filter((v): v is number => v != null && isFinite(v));
+  }
+
+  function drawSparkline(canvas: HTMLCanvasElement, prices: number[], isUp: boolean) {
+    const ctx = canvas.getContext('2d');
+    if (!ctx || prices.length < 2) return;
+    const w = canvas.width;
+    const h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+
+    const min = Math.min(...prices);
+    const max = Math.max(...prices);
+    const range = max - min || 1;
+    const pad = 5;
+
+    const color = isUp ? '#D85A52' : '#4F7FD8';
+    const colorFill = isUp ? 'rgba(216,90,82,0.18)' : 'rgba(79,127,216,0.18)';
+
+    const pts = prices.map((p, i) => ({
+      x: (i / (prices.length - 1)) * w,
+      y: h - pad - ((p - min) / range) * (h - pad * 2),
+    }));
+
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, h);
+    pts.forEach((pt) => ctx.lineTo(pt.x, pt.y));
+    ctx.lineTo(pts[pts.length - 1].x, h);
+    ctx.closePath();
+    ctx.fillStyle = colorFill;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+    pts.forEach((pt) => ctx.lineTo(pt.x, pt.y));
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+
+    const last = pts[pts.length - 1];
+    ctx.beginPath();
+    ctx.arc(last.x, last.y, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+
+  // ──────────────────────────────────────────────────────────────────────────
 
   function openPanel(st: StockRow, mesh: THREE.Group | null) {
     currentStock = st;
@@ -441,11 +514,56 @@ async function main() {
     document.getElementById('m-per')!.textContent = st.per == null ? '—' : st.per.toFixed(1);
     document.getElementById('m-pbr')!.textContent = st.pbr == null ? '—' : st.pbr.toFixed(2);
     document.getElementById('m-div')!.textContent = `${st.div.toFixed(2)}%`;
+    document.getElementById('m-roe')!.textContent    = st.roe            == null ? '—' : `${st.roe.toFixed(1)}%`;
+    document.getElementById('m-opm')!.textContent    = st.operatingMargin== null ? '—' : `${st.operatingMargin.toFixed(1)}%`;
+    document.getElementById('m-debt')!.textContent   = st.debtRatio      == null ? '—' : `${st.debtRatio.toFixed(0)}%`;
+    const m52El = document.getElementById('m-52w')!;
+    if (st.week52High == null || st.week52Low == null) {
+      m52El.textContent = '—';
+    } else {
+      m52El.innerHTML =
+        `<span class="m-52w-high">↑ ${fmtPrice(st.week52High, st.m)}</span>` +
+        `<span class="m-52w-low">↓ ${fmtPrice(st.week52Low, st.m)}</span>`;
+    }
 
-    const pSource = document.getElementById('p-source');
-    const pAsof = document.getElementById('p-asof');
-    if (pSource) pSource.textContent = st.sourceLabel ?? dataSourceDetailLabel(st.source);
-    if (pAsof) pAsof.textContent = formatSyncTime(generatedAt);
+    const fmtX   = (v: number | null | undefined, d = 1) => v == null ? '—' : `${v.toFixed(d)}x`;
+    const fmtPct = (v: number | null | undefined, d = 1) => v == null ? '—' : `${v.toFixed(d)}%`;
+    const fmtGrowth = (v: number | null | undefined) =>
+      v == null ? '—' : `${v >= 0 ? '+' : ''}${v.toFixed(1)}%`;
+    const fmtFcf = (v: number | null | undefined) => {
+      if (v == null) return '—';
+      return v < 0 ? `-$${fmtBn(-v)}` : `$${fmtBn(v)}`;
+    };
+
+    document.getElementById('m-psr')!.textContent    = fmtX(st.psr);
+    document.getElementById('m-ev')!.textContent     = fmtX(st.evEbitda);
+    document.getElementById('m-peg')!.textContent    = st.peg    == null ? '—' : st.peg.toFixed(2);
+    document.getElementById('m-pcr')!.textContent    = fmtX(st.pcr);
+    document.getElementById('m-roa')!.textContent    = fmtPct(st.roa);
+    document.getElementById('m-net')!.textContent    = fmtPct(st.netMargin);
+    document.getElementById('m-gp')!.textContent     = fmtPct(st.grossMargin);
+    document.getElementById('m-revg')!.textContent   = fmtGrowth(st.revenueGrowth);
+    document.getElementById('m-epsg')!.textContent   = fmtGrowth(st.epsGrowth);
+    document.getElementById('m-cr')!.textContent     = st.currentRatio == null ? '—' : st.currentRatio.toFixed(2);
+    document.getElementById('m-fcf')!.textContent    = fmtFcf(st.fcf);
+    document.getElementById('m-fcfy')!.textContent   = fmtPct(st.fcfYield, 2);
+    document.getElementById('m-eps')!.textContent    = st.eps == null ? '—' : fmtPrice(st.eps, st.m);
+    document.getElementById('m-beta')!.textContent   = st.beta   == null ? '—' : st.beta.toFixed(2);
+    document.getElementById('m-roic')!.textContent      = fmtPct(st.roic);
+    document.getElementById('m-opm-trend')!.textContent = st.opmTrend3y == null ? '—' : `${st.opmTrend3y >= 0 ? '+' : ''}${st.opmTrend3y.toFixed(1)}pp`;
+    document.getElementById('m-gpm-trend')!.textContent = st.gpmTrend3y == null ? '—' : `${st.gpmTrend3y >= 0 ? '+' : ''}${st.gpmTrend3y.toFixed(1)}pp`;
+    document.getElementById('m-sr')!.textContent        = fmtPct(st.shareholderReturn);
+
+    // ── Sparkline ──
+    const sparkCanvas = document.getElementById('p-sparkline') as HTMLCanvasElement | null;
+    if (sparkCanvas) {
+      const ctx = sparkCanvas.getContext('2d');
+      if (ctx) ctx.clearRect(0, 0, sparkCanvas.width, sparkCanvas.height);
+      const isUp = (st.chg ?? 0) >= 0;
+      fetchSparklinePrices(yahooSymbol(st.t, st.m))
+        .then((prices) => { if (prices.length >= 2) drawSparkline(sparkCanvas, prices, isUp); })
+        .catch(() => {});
+    }
 
     // ── 건물 하이라이트 ──
     if (highlighted && highlighted !== mesh) resetBuildingInteractionScale(highlighted);
