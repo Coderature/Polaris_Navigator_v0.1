@@ -132,7 +132,7 @@ function createSectorBoundaryLine(
 }
 
 /** Overview 섹터만 보기 — 종목 타일 면 (섹터 색 + 밝기 변화). */
-const STOCK_LOT_GAP = 0.08;
+const STOCK_LOT_GAP = 0.04;
 
 function stockLotFillColor(hex: string, ticker: string): THREE.Color {
   const c = new THREE.Color(hex);
@@ -233,8 +233,8 @@ export class TreemapScene {
   private footprintGlobalLerpStart = 0;
   private footprintGlobalLerpEnd = 0;
 
-  private layoutWeightMode: LayoutWeightMode = 'log';
-  private layoutBalanceMode: LayoutBalanceMode = 'balanced';
+  private layoutWeightMode: LayoutWeightMode = 'linear';
+  private layoutBalanceMode: LayoutBalanceMode = 'cap';
   private pendingStockRects: StockRect[] = [];
   private savedCameraBeforeChg: { pos: THREE.Vector3; target: THREE.Vector3 } | null = null;
   private readonly capWeightMap: Map<string, CapWeightPct>;
@@ -297,8 +297,8 @@ export class TreemapScene {
     const TREE_H = TREE_MAP_HEIGHT;
     const { sectorRects, stockRects } = computeLayout(stocks, TREE_W, TREE_H, {
       consolidateSingletons: false,
-      weightMode: 'log',
-      balanceMode: 'balanced',
+      weightMode: 'linear',
+      balanceMode: 'cap',
     });
     this.pendingStockRects = stockRects;
     this.sectorLayoutRects = sectorRects;
@@ -407,7 +407,7 @@ export class TreemapScene {
         }
         this.applyLayout('log', 'balanced');
       } else if (prev === 'chg' || prev === 'marketCap') {
-        this.applyLayout('log', 'balanced');
+        this.applyLayout('linear', 'cap');
         if (prev === 'chg' && this.savedCameraBeforeChg) {
           this.camera.position.copy(this.savedCameraBeforeChg.pos);
           this.controls.target.copy(this.savedCameraBeforeChg.target);

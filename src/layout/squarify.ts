@@ -100,6 +100,9 @@ const MAX_LAYOUT_WEIGHT_RATIO = 4;
 /** 1종목만 있는 GICS 섹터는 단독 타일이 과대해지지 않도록 면적을 줄임 */
 const SINGLETON_SECTOR_WEIGHT_FACTOR = 0.68;
 
+/** Layout input: portfolio weight if set, else market cap. */
+const holdW = (s: StockRow) => s.weight ?? Math.max(s.cap || 0, 1e-9);
+
 function compressCapWeights(caps: number[], maxRatio = MAX_LAYOUT_WEIGHT_RATIO): number[] {
   if (caps.length === 0) return [];
   const vals = caps.map((c) => Math.max(c || 0, 1e-9));
@@ -118,7 +121,7 @@ function buildBalancedWeightMap(stocks: StockRow[], layoutSectorByTicker: Map<st
   }
   const map = new Map<string, number>();
   for (const list of Object.values(bySec)) {
-    const compressed = compressCapWeights(list.map((s) => s.cap || 0));
+    const compressed = compressCapWeights(list.map((s) => holdW(s)));
     list.forEach((st, i) => map.set(st.t, compressed[i]));
   }
   return map;
@@ -134,10 +137,11 @@ function stockLayoutWeight(
   weightMode: LayoutWeightMode,
   balanceMode: LayoutBalanceMode,
 ): number {
+  const base = holdW(st);
   const raw =
     balanceMode === 'cap'
-      ? Math.max(st.cap || 0, 1e-9)
-      : (balancedWeights.get(st.t) ?? Math.max(st.cap || 0, 1e-9));
+      ? Math.max(base, 1e-9)
+      : (balancedWeights.get(st.t) ?? Math.max(base, 1e-9));
   return layoutWeight(raw, weightMode);
 }
 

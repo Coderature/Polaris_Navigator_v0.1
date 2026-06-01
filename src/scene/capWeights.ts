@@ -7,17 +7,19 @@ export interface CapWeightPct {
   sectorPct: number;
 }
 
+const holdW = (s: StockRow) => s.weight ?? Math.max(s.cap || 0, 0);
+
 export function computeCapWeightMap(stocks: StockRow[]): Map<string, CapWeightPct> {
-  const totalCap = stocks.reduce((a, s) => a + Math.max(s.cap || 0, 0), 0);
+  const totalCap = stocks.reduce((a, s) => a + holdW(s), 0);
   const sectorCap = new Map<string, number>();
   for (const s of stocks) {
     const sec = s.s;
-    sectorCap.set(sec, (sectorCap.get(sec) ?? 0) + Math.max(s.cap || 0, 0));
+    sectorCap.set(sec, (sectorCap.get(sec) ?? 0) + holdW(s));
   }
 
   const out = new Map<string, CapWeightPct>();
   for (const s of stocks) {
-    const cap = Math.max(s.cap || 0, 0);
+    const cap = holdW(s);
     const secTotal = sectorCap.get(s.s) ?? 0;
     out.set(s.t, {
       totalPct: totalCap > 0 ? (cap / totalCap) * 100 : 0,

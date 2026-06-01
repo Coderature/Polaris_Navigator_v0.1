@@ -93,7 +93,8 @@
       "epsGrowth": 21.8,
       "payoutRatio": 12.590000000000002,
       "week52High": 315,
-      "week52Low": 195.07
+      "week52Low": 195.07,
+      "weight": 0.07
     },
     {
       "t": "MSFT",
@@ -119,7 +120,8 @@
       "epsGrowth": 23.400000000000002,
       "payoutRatio": 20.729999,
       "week52High": 555.45,
-      "week52Low": 356.28
+      "week52Low": 356.28,
+      "weight": 0.06
     },
     {
       "t": "NVDA",
@@ -145,7 +147,8 @@
       "epsGrowth": 214.5,
       "payoutRatio": 0.61000003,
       "week52High": 236.54,
-      "week52Low": 135.4
+      "week52Low": 135.4,
+      "weight": 0.07
     },
     {
       "t": "GOOGL",
@@ -171,7 +174,8 @@
       "epsGrowth": 82,
       "payoutRatio": 6.41,
       "week52High": 408.61,
-      "week52Low": 162
+      "week52Low": 162,
+      "weight": 0.06
     },
     {
       "t": "TSLA",
@@ -197,7 +201,8 @@
       "epsGrowth": 8.3,
       "payoutRatio": null,
       "week52High": 498.83,
-      "week52Low": 273.21
+      "week52Low": 273.21,
+      "weight": 0.05
     },
     {
       "t": "AMZN",
@@ -223,7 +228,8 @@
       "epsGrowth": 74.8,
       "payoutRatio": null,
       "week52High": 278.56,
-      "week52Low": 196
+      "week52Low": 196,
+      "weight": 0.06
     },
     {
       "t": "BA",
@@ -249,7 +255,8 @@
       "epsGrowth": null,
       "payoutRatio": null,
       "week52High": 254.35,
-      "week52Low": 176.77
+      "week52Low": 176.77,
+      "weight": 0.05
     },
     {
       "t": "KO",
@@ -275,7 +282,8 @@
       "epsGrowth": 18.2,
       "payoutRatio": 64.779997,
       "week52High": 82.66,
-      "week52Low": 65.35
+      "week52Low": 65.35,
+      "weight": 0.04
     },
     {
       "t": "NEE",
@@ -301,7 +309,8 @@
       "epsGrowth": 160,
       "payoutRatio": 58.95,
       "week52High": 98.75,
-      "week52Low": 67.2
+      "week52Low": 67.2,
+      "weight": 0.05
     },
     {
       "t": "O",
@@ -327,7 +336,8 @@
       "epsGrowth": 17.9,
       "payoutRatio": 265,
       "week52High": 67.94,
-      "week52Low": 55.52
+      "week52Low": 55.52,
+      "weight": 0.04
     },
     {
       "t": "ALB",
@@ -353,7 +363,8 @@
       "epsGrowth": null,
       "payoutRatio": 57.97,
       "week52High": 221,
-      "week52Low": 53.7
+      "week52Low": 53.7,
+      "weight": 0.05
     },
     {
       "t": "005930",
@@ -394,7 +405,8 @@
       "chg": 10.09,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:15.230Z"
+      "asOf": "2026-06-01T09:42:15.230Z",
+      "weight": 0.06
     },
     {
       "t": "000660",
@@ -435,7 +447,8 @@
       "chg": 1.29,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:16.124Z"
+      "asOf": "2026-06-01T09:42:16.124Z",
+      "weight": 0.05
     },
     {
       "t": "005380",
@@ -476,7 +489,8 @@
       "chg": 3.73,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:17.081Z"
+      "asOf": "2026-06-01T09:42:17.081Z",
+      "weight": 0.05
     },
     {
       "t": "035420",
@@ -517,7 +531,8 @@
       "chg": 16.03,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:17.973Z"
+      "asOf": "2026-06-01T09:42:17.973Z",
+      "weight": 0.04
     },
     {
       "t": "035720",
@@ -558,7 +573,8 @@
       "chg": 1.79,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:18.855Z"
+      "asOf": "2026-06-01T09:42:18.855Z",
+      "weight": 0.04
     },
     {
       "t": "207940",
@@ -599,7 +615,8 @@
       "chg": 1.03,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:19.904Z"
+      "asOf": "2026-06-01T09:42:19.904Z",
+      "weight": 0.04
     },
     {
       "t": "068270",
@@ -640,7 +657,8 @@
       "chg": -0.62,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:21.153Z"
+      "asOf": "2026-06-01T09:42:21.153Z",
+      "weight": 0.04
     },
     {
       "t": "105560",
@@ -681,7 +699,8 @@
       "chg": 1,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:22.380Z"
+      "asOf": "2026-06-01T09:42:22.380Z",
+      "weight": 0.04
     },
     {
       "t": "010950",
@@ -722,7 +741,8 @@
       "chg": -2.51,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:23.936Z"
+      "asOf": "2026-06-01T09:42:23.936Z",
+      "weight": 0.04
     }
   ],
   "documents": [

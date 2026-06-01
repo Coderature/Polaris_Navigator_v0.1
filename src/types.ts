@@ -43,6 +43,8 @@ export interface StockRow {
   s: string;
   /** Market cap in billions USD */
   cap: number;
+  /** Portfolio holding weight, 0–1 (sums to ~1 across holdings). Falls back to cap if absent. */
+  weight?: number;
   per: number | null;
   pbr: number | null;
   /** Volume in millions */
