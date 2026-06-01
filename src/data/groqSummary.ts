@@ -2,6 +2,8 @@ import type { RawDocument, RiskExtraction } from '../types';
 
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY as string | undefined;
 
+const _summaryCache = new Map<string, string>();
+
 export async function generateStockSummary(params: {
   name: string;
   sector: string;
@@ -17,6 +19,9 @@ export async function generateStockSummary(params: {
   sectorPeers: Array<{ name: string; cap: number; chg: number }>;
 }): Promise<string> {
   if (!GROQ_API_KEY) throw new Error('VITE_GROQ_API_KEY가 설정되지 않았습니다.');
+
+  const cacheKey = `${params.name}:${params.market}`;
+  if (_summaryCache.has(cacheKey)) return _summaryCache.get(cacheKey)!;
 
   const { name, sector, market, cap, chg, per, pbr, div, vol, risks, documents, sectorPeers } = params;
 
@@ -45,7 +50,7 @@ export async function generateStockSummary(params: {
   const newsDocs = documents.filter((d) => d.source !== 'dart' || !isRoutineDart(d));
   const newsBlock = newsDocs.length > 0
     ? newsDocs.slice(0, 4).map((d) =>
-        `[${d.source.toUpperCase()} · ${d.date}] ${d.title}\n  ${d.text.slice(0, 200).replace(/\s+/g, ' ')}…`
+        `[${d.source.toUpperCase()} · ${d.date}] ${d.title}\n  ${d.text.slice(0, 100).replace(/\s+/g, ' ')}…`
       ).join('\n')
     : '• 수집된 뉴스 없음';
 
@@ -99,11 +104,13 @@ ${peerBlock}
       model: 'llama-3.3-70b-versatile',
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.4,
-      max_tokens: 900,
+      max_tokens: 600,
     }),
   });
 
   if (!res.ok) throw new Error(`Groq API ${res.status}: ${await res.text()}`);
   const data = await res.json() as { choices: { message: { content: string } }[] };
-  return data.choices[0]?.message?.content?.trim() ?? '';
+  const result = data.choices[0]?.message?.content?.trim() ?? '';
+  if (result) _summaryCache.set(cacheKey, result);
+  return result;
 }
