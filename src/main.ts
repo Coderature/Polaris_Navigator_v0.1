@@ -39,20 +39,38 @@ function pickRandomQuote() {
   return GURU_QUOTES[Math.floor(Math.random() * GURU_QUOTES.length)];
 }
 
-function showVillageGuruQuote() {
-  const wrap = document.getElementById('village-guru-quote');
-  const quoteText = document.getElementById('village-quote-text');
-  const quoteAuthor = document.getElementById('village-quote-author');
-  if (!wrap || !quoteText || !quoteAuthor) return;
+/** Splash와 동일: show → 3.5s → fade-out → 1.2s 후 숨김 */
+function runGuruQuoteOverlaySequence(
+  quoteWrap: HTMLElement,
+  quoteText: HTMLElement,
+  quoteAuthor: HTMLElement,
+): Promise<void> {
   const q = pickRandomQuote();
   quoteText.textContent = q.text;
   quoteAuthor.textContent = q.author;
-  wrap.hidden = false;
+  quoteWrap.hidden = false;
+  quoteWrap.classList.remove('show', 'fade-out');
+
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      quoteWrap.classList.add('show');
+      setTimeout(() => {
+        quoteWrap.classList.add('fade-out');
+        setTimeout(() => {
+          quoteWrap.classList.remove('show', 'fade-out');
+          quoteWrap.hidden = true;
+          resolve();
+        }, 1200);
+      }, 3500);
+    });
+  });
 }
 
-function hideVillageGuruQuote() {
+function resetVillageGuruQuote() {
   const wrap = document.getElementById('village-guru-quote');
-  if (wrap) wrap.hidden = true;
+  if (!wrap) return;
+  wrap.hidden = true;
+  wrap.classList.remove('show', 'fade-out');
 }
 
 function runSplashSequence(): Promise<void> {
@@ -64,27 +82,17 @@ function runSplashSequence(): Promise<void> {
     const quoteText = document.getElementById('quote-text')!;
     const quoteAuthor = document.getElementById('quote-author')!;
 
-    const q = pickRandomQuote();
-    quoteText.textContent = q.text;
-    quoteAuthor.textContent = q.author;
-
     setTimeout(() => {
       loading.classList.add('fade-out');
 
       setTimeout(() => {
-        quoteWrap.classList.add('show');
-
-        setTimeout(() => {
-          quoteWrap.classList.add('fade-out');
-
+        void runGuruQuoteOverlaySequence(quoteWrap, quoteText, quoteAuthor).then(() => {
+          splash.classList.add('fade-out');
           setTimeout(() => {
-            splash.classList.add('fade-out');
-            setTimeout(() => {
-              splash.style.display = 'none';
-              resolve();
-            }, 800);
-          }, 1200);
-        }, 3500);
+            splash.style.display = 'none';
+            resolve();
+          }, 800);
+        });
       }, 600);
     }, 3000);
   });
@@ -998,7 +1006,7 @@ async function main() {
   function showHome() {
     positionView.classList.remove('active');
     homeHub.classList.remove('hidden');
-    hideVillageGuruQuote();
+    resetVillageGuruQuote();
   }
   function hideHome() {
     homeHub.classList.add('hidden');
@@ -1026,7 +1034,11 @@ async function main() {
       t.resize();
       await waitFrames(1);
       document.body.classList.add('village-active');
-      showVillageGuruQuote();
+      await hideVillageLoading();
+      const villageQuote = document.getElementById('village-guru-quote')!;
+      const villageQuoteText = document.getElementById('village-quote-text')!;
+      const villageQuoteAuthor = document.getElementById('village-quote-author')!;
+      await runGuruQuoteOverlaySequence(villageQuote, villageQuoteText, villageQuoteAuthor);
       refreshStatus();
     } catch (err) {
       console.error('[enterVillage]', err);
@@ -1034,7 +1046,9 @@ async function main() {
       await waitMs(1600);
       throw err;
     } finally {
-      await hideVillageLoading();
+      if (document.getElementById('village-loading')?.hidden === false) {
+        await hideVillageLoading();
+      }
       enteringVillage = false;
     }
     hideHome();
