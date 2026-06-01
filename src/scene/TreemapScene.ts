@@ -10,6 +10,8 @@ import { buildDioramaContent, fitDioramaWrapperToLot } from './dioramaMount';
 export type NavigatorVisualMode = 'overview' | 'chg' | 'marketCap';
 export type ViewMode = NavigatorVisualMode;
 
+export type TreemapBuildProgress = (done: number, total: number, phase: string) => void;
+
 /** 시가총액 모드: 타일 면적이 이미 시총 비율이므로 빌딩은 구역을 그대로 채움. */
 export function applyMarketCapFootprint(building: THREE.Group, _cap: number, _maxCap: number) {
   building.scale.set(1, 1, 1);
@@ -232,7 +234,8 @@ export class TreemapScene {
   private footprintGlobalLerpEnd = 0;
 
   private layoutWeightMode: LayoutWeightMode = 'linear';
-  private layoutBalanceMode: LayoutBalanceMode = 'balanced';
+  private layoutBalanceMode: LayoutBalanceMode = 'cap';
+  private pendingStockRects: StockRect[] = [];
   private savedCameraBeforeChg: { pos: THREE.Vector3; target: THREE.Vector3 } | null = null;
   private readonly capWeightMap: Map<string, CapWeightPct>;
 
@@ -241,8 +244,12 @@ export class TreemapScene {
     stocks: StockRow[],
     sectors: SectorDef[],
     wrap: HTMLElement,
+    onProgress?: TreemapBuildProgress,
   ): Promise<TreemapScene> {
-    return new TreemapScene(canvas, stocks, sectors, wrap);
+    const scene = new TreemapScene(canvas, stocks, sectors, wrap, true);
+    await scene.buildStocksAsync(onProgress);
+    scene.intro();
+    return scene;
   }
 
   constructor(
@@ -250,6 +257,7 @@ export class TreemapScene {
     private readonly stocks: StockRow[],
     sectors: SectorDef[],
     private readonly wrap: HTMLElement,
+    deferStockBuild = false,
   ) {
     this.secById = Object.fromEntries(sectors.map((s) => [s.id, s]));
 
@@ -284,7 +292,10 @@ export class TreemapScene {
     const TREE_H = TREE_MAP_HEIGHT;
     const { sectorRects, stockRects } = computeLayout(stocks, TREE_W, TREE_H, {
       consolidateSingletons: false,
+      weightMode: 'linear',
+      balanceMode: 'cap',
     });
+    this.pendingStockRects = stockRects;
     this.sectorLayoutRects = sectorRects;
     for (const s of stocks) this.layoutSectorByTicker.set(s.t, s.s);
 
@@ -316,16 +327,34 @@ export class TreemapScene {
     this.applyFloorAndBoundaryStyleForVisualMode();
 
     this.scene.add(this.stockGroup);
-    for (const r of stockRects) {
-      this.addStockBuilding(r);
+    if (!deferStockBuild) {
+      for (const r of stockRects) {
+        this.addStockBuilding(r);
+      }
+      this.syncStockLotOverlays();
     }
-    this.syncStockLotOverlays();
 
     this.ro = new ResizeObserver(() => this.resize());
     this.ro.observe(wrap);
     window.addEventListener('beforeunload', this.disposeAll);
 
-    this.intro();
+    if (!deferStockBuild) this.intro();
+  }
+
+  private async buildStocksAsync(onProgress?: TreemapBuildProgress): Promise<void> {
+    const rects = this.pendingStockRects;
+    const total = rects.length;
+    onProgress?.(0, total, '3D 마을 지도를 준비하는 중…');
+    const batch = 2;
+    for (let i = 0; i < total; i++) {
+      this.addStockBuilding(rects[i]!);
+      if (i % batch === batch - 1 || i === total - 1) {
+        onProgress?.(i + 1, total, `종목 건물 배치 중… (${i + 1}/${total})`);
+        await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+      }
+    }
+    this.syncStockLotOverlays();
+    onProgress?.(total, total, '마을 입장 준비 완료');
   }
 
   setVisualMode(mode: NavigatorVisualMode) {
@@ -373,7 +402,7 @@ export class TreemapScene {
         }
         this.applyLayout('log', 'balanced');
       } else if (prev === 'chg' || prev === 'marketCap') {
-        this.applyLayout('linear', 'balanced');
+        this.applyLayout('linear', 'cap');
         if (prev === 'chg' && this.savedCameraBeforeChg) {
           this.camera.position.copy(this.savedCameraBeforeChg.pos);
           this.controls.target.copy(this.savedCameraBeforeChg.target);

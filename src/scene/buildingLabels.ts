@@ -199,7 +199,7 @@ export function attachBuildingTopLabel(
   });
 }
 
-function makeWeightSprite(canvas: HTMLCanvasElement, footScale: number): THREE.Sprite {
+function makeWeightSprite(canvas: HTMLCanvasElement, footW: number, footD: number): THREE.Sprite {
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.minFilter = THREE.LinearFilter;
@@ -217,7 +217,8 @@ function makeWeightSprite(canvas: HTMLCanvasElement, footScale: number): THREE.S
   sprite.userData.isBuildingWeightLabel = true;
 
   const aspect = canvas.width / canvas.height;
-  const spriteH = THREE.MathUtils.clamp(footScale * 0.26, 0.32, 1.05);
+  const lotArea = footW * footD;
+  const spriteH = THREE.MathUtils.clamp(Math.sqrt(lotArea) * 0.2, 0.28, 1.08);
   sprite.scale.set(spriteH * aspect, spriteH, 1);
   return sprite;
 }
@@ -255,7 +256,7 @@ export function attachBuildingWeightLabel(
   ctx.font = '500 16px "Inter", sans-serif';
   ctx.fillText(`섹터 ${formatWeightPct(sectorPct)}`, canvas.width / 2, 54);
 
-  const sprite = makeWeightSprite(canvas, footScale);
+  const sprite = makeWeightSprite(canvas, footW, footD);
   sprite.position.set(0, footScale * 0.05, 0);
   sprite.name = 'buildingWeightLabel';
   pivot.add(sprite);
