@@ -94,8 +94,11 @@ export interface StockRect extends RectWithRef<StockRow> {
 export type LayoutWeightMode = 'linear' | 'log';
 export type LayoutBalanceMode = 'balanced' | 'cap';
 
-/** Overview 등: 최대/최소 종목 가중치 비율 상한 (150% 차이 ≈ 2.5×) */
-const MAX_LAYOUT_WEIGHT_RATIO = 2.5;
+/** Overview: 섹터·종목 내 최대/최소 면적 비율 상한 (4× ≈ 300% 차이까지 허용) */
+const MAX_LAYOUT_WEIGHT_RATIO = 4;
+
+/** 1종목만 있는 GICS 섹터는 단독 타일이 과대해지지 않도록 면적을 줄임 */
+const SINGLETON_SECTOR_WEIGHT_FACTOR = 0.68;
 
 function compressCapWeights(caps: number[], maxRatio = MAX_LAYOUT_WEIGHT_RATIO): number[] {
   if (caps.length === 0) return [];
@@ -162,13 +165,15 @@ export function computeLayout(
     (bySec[secId] ??= []).push(st);
   }
   const sectorItems = Object.keys(bySec)
-    .map((id) => ({
-      id,
-      value: bySec[id].reduce(
-        (a, b) => a + stockLayoutWeight(b, balancedWeights, 'linear', balanceMode),
+    .map((id) => {
+      const members = bySec[id];
+      let value = members.reduce(
+        (a, b) => a + stockLayoutWeight(b, balancedWeights, weightMode, balanceMode),
         0,
-      ),
-    }))
+      );
+      if (members.length === 1) value *= SINGLETON_SECTOR_WEIGHT_FACTOR;
+      return { id, value };
+    })
     .sort((a, b) => b.value - a.value);
   const sectorValues =
     balanceMode === 'cap'

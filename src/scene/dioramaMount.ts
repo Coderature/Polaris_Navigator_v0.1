@@ -6,10 +6,8 @@ const DIORAMA_SCALE_XZ = 2.2;
 /** Slight vertical boost so models read taller on treemap tiles (re-grounded after). */
 const DIORAMA_HEIGHT_MUL = 1.15;
 
-/** After lot fit — buildingTemplates extract (010950) sits high vs other builders. */
-const DIORAMA_Y_AFTER_FIT: Record<string, number> = {
-  '010950': -0.18,
-};
+/** Per-ticker fine-tune after fit (only if geometry fix is insufficient). */
+const DIORAMA_Y_AFTER_FIT: Record<string, number> = {};
 
 /**
  * Wrap DESIGN diorama on a child group so MAIN root hover scale (footprintRestXZ) stays separate.
@@ -33,16 +31,31 @@ export function buildDioramaContent(ticker: string): THREE.Group | null {
   }
 }
 
-function groundObjectBottom(root: THREE.Object3D): void {
+/** Animated / VFX meshes must not pull the ground plane (S-Oil smoke, oil beads, etc.). */
+function expandGroundBounds(box: THREE.Box3, root: THREE.Object3D): void {
   root.updateMatrixWorld(true);
-  const box = new THREE.Box3().setFromObject(root);
+  root.traverse((obj) => {
+    if (obj.userData?.excludeFromGroundBounds) return;
+    const mesh = obj as THREE.Mesh;
+    if (!mesh.isMesh || !mesh.geometry) return;
+    const geom = mesh.geometry;
+    if (!geom.boundingBox) geom.computeBoundingBox();
+    if (!geom.boundingBox) return;
+    const lb = geom.boundingBox.clone().applyMatrix4(mesh.matrixWorld);
+    box.union(lb);
+  });
+}
+
+function groundObjectBottom(root: THREE.Object3D): void {
+  const box = new THREE.Box3();
+  expandGroundBounds(box, root);
   if (box.isEmpty()) return;
   root.position.y -= box.min.y;
 }
 
 function alignWrapperToLotFloor(wrapper: THREE.Group): void {
-  wrapper.updateMatrixWorld(true);
-  const box = new THREE.Box3().setFromObject(wrapper);
+  const box = new THREE.Box3();
+  expandGroundBounds(box, wrapper);
   if (box.isEmpty()) return;
   wrapper.position.x -= (box.min.x + box.max.x) / 2;
   wrapper.position.z -= (box.min.z + box.max.z) / 2;

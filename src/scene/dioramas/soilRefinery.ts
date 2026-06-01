@@ -304,19 +304,9 @@ export function createSOilRefinery(): THREE.Group {
     return add(mesh);
   };
 
-  const createTree = (x: number, y: number, z: number) => {
-    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 0.3, 8), mat(0x5a3a20, 0.85));
-    trunk.position.set(x, y - 0.7, z);
-    trunk.castShadow = true;
-    add(trunk);
-    const leaves = new THREE.Mesh(new THREE.SphereGeometry(0.18, 12, 10), mat(0x2a6b3a, 0.7));
-    leaves.position.set(x, y - 0.45, z);
-    leaves.castShadow = true;
-    add(leaves);
-  };
-
-  cbx(gx(4.8), 0.26, gx(4.3), wood, 0, -0.13, 0);
-  cbx(gx(4.35), 0.12, gx(3.85), paper, 0, 0.02, 0);
+  cbx(gx(4.8), 0.02, gx(4.3), road, 0, 0.01, 0);
+  cbx(gx(4.8), 0.26, gx(4.3), wood, 0, 0.13, 0);
+  cbx(gx(4.35), 0.12, gx(3.85), paper, 0, 0.28, 0);
   cbx(gx(4.0), 0.04, gx(0.5), road, 0, 0.1, 1.5);
   cbx(gx(2.45), 0.04, gx(0.38), road, 0.6, 0.11, -0.55);
 
@@ -412,6 +402,7 @@ export function createSOilRefinery(): THREE.Group {
     for (let i = 0; i < origin.count; i++) {
       const smoke = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 10), smokeMat.clone());
       smoke.castShadow = false;
+      smoke.userData.excludeFromGroundBounds = true;
       add(smoke);
       smokeBeads.push({
         mesh: smoke,
@@ -457,10 +448,6 @@ export function createSOilRefinery(): THREE.Group {
     w.rotation.x = Math.PI / 2;
   }
 
-  createTree(-2.0, 0.9, 0.55);
-  createTree(-1.95, -1.45, 0.45);
-  createTree(1.95, 0.88, 0.45);
-  createTree(1.95, -1.65, 0.42);
   cbx(0.3, 0.12, 0.2, cream, -2.05, 0.13, 0.5);
 
   const buildingLight = new THREE.PointLight(0xfff2c8, 0.7, 3.5);
@@ -476,6 +463,7 @@ export function createSOilRefinery(): THREE.Group {
     for (let i = 0; i < count; i++) {
       const bead = new THREE.Mesh(new THREE.SphereGeometry(0.05, 14, 10), oilDropMat.clone());
       bead.castShadow = false;
+      bead.userData.excludeFromGroundBounds = true;
       add(bead);
       beads.push({ mesh: bead, phaseOffset: i / count });
     }

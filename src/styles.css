@@ -1818,8 +1818,12 @@ body.pre-consent #scene-wrap {
 }
 
 .village-loading-bar-fill {
+  height: 100%;
   width: 0%;
+  background: linear-gradient(90deg, var(--accent-polaris), var(--accent-polaris-light));
+  border-radius: 2px;
   transition: width 0.2s ease-out;
+  animation: none;
 }
 
 .village-loading.is-indeterminate .village-loading-bar-fill {

@@ -33,3 +33,11 @@ export function formatWeightPct(p: number): string {
   if (p >= 1) return `${p.toFixed(1)}%`;
   return `${p.toFixed(2)}%`;
 }
+
+/** Overview 디오라마: 시총이 작을수록 타일 대비 채움 비율을 낮춤 (0.52~0.9) */
+export function stockVisualFootprintPad(cap: number, sectorMaxCap: number, basePad = 0.9): number {
+  const max = Math.max(sectorMaxCap, 1e-9);
+  const minPad = 0.52;
+  const t = Math.sqrt(Math.max(cap, 0) / max);
+  return minPad + (basePad - minPad) * Math.min(1, t);
+}

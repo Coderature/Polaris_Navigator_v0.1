@@ -4,7 +4,7 @@ import { TREE_MAP_HEIGHT, TREE_MAP_WIDTH } from '../layout/treemapLayoutConstant
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { attachBuildingTopLabel, attachBuildingWeightLabel } from './buildingLabels';
-import { computeCapWeightMap, type CapWeightPct } from './capWeights';
+import { computeCapWeightMap, stockVisualFootprintPad, type CapWeightPct } from './capWeights';
 import { buildDioramaContent, fitDioramaWrapperToLot } from './dioramaMount';
 
 export type NavigatorVisualMode = 'overview' | 'chg' | 'marketCap';
@@ -233,11 +233,12 @@ export class TreemapScene {
   private footprintGlobalLerpStart = 0;
   private footprintGlobalLerpEnd = 0;
 
-  private layoutWeightMode: LayoutWeightMode = 'linear';
-  private layoutBalanceMode: LayoutBalanceMode = 'cap';
+  private layoutWeightMode: LayoutWeightMode = 'log';
+  private layoutBalanceMode: LayoutBalanceMode = 'balanced';
   private pendingStockRects: StockRect[] = [];
   private savedCameraBeforeChg: { pos: THREE.Vector3; target: THREE.Vector3 } | null = null;
   private readonly capWeightMap: Map<string, CapWeightPct>;
+  private readonly sectorMaxCapById = new Map<string, number>();
 
   static async create(
     canvas: HTMLCanvasElement,
@@ -263,6 +264,10 @@ export class TreemapScene {
 
     this.maxStockCap = Math.max(...stocks.map((s) => s.cap), 1e-9);
     this.capWeightMap = computeCapWeightMap(stocks);
+    for (const st of stocks) {
+      const prev = this.sectorMaxCapById.get(st.s) ?? 0;
+      this.sectorMaxCapById.set(st.s, Math.max(prev, st.cap || 0));
+    }
 
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -292,8 +297,8 @@ export class TreemapScene {
     const TREE_H = TREE_MAP_HEIGHT;
     const { sectorRects, stockRects } = computeLayout(stocks, TREE_W, TREE_H, {
       consolidateSingletons: false,
-      weightMode: 'linear',
-      balanceMode: 'cap',
+      weightMode: 'log',
+      balanceMode: 'balanced',
     });
     this.pendingStockRects = stockRects;
     this.sectorLayoutRects = sectorRects;
@@ -402,7 +407,7 @@ export class TreemapScene {
         }
         this.applyLayout('log', 'balanced');
       } else if (prev === 'chg' || prev === 'marketCap') {
-        this.applyLayout('linear', 'cap');
+        this.applyLayout('log', 'balanced');
         if (prev === 'chg' && this.savedCameraBeforeChg) {
           this.camera.position.copy(this.savedCameraBeforeChg.pos);
           this.controls.target.copy(this.savedCameraBeforeChg.target);
@@ -856,6 +861,9 @@ export class TreemapScene {
   ) {
     this.clearBuildingGroup(group);
     const { footW, footD } = lotFootprint(r);
+    const sectorMaxCap = this.sectorMaxCapById.get(st.s) ?? st.cap ?? 1;
+    // 시연용: overview에서도 시총 차등 축소 없이 고정 pad → 디오라마 균등 크기
+    const dioramaPad = 0.92;
     const pivot = new THREE.Group();
     group.add(pivot);
 
@@ -863,7 +871,7 @@ export class TreemapScene {
       const diorama = buildDioramaContent(st.t);
       if (diorama) {
         pivot.add(diorama);
-        fitDioramaWrapperToLot(diorama, footW, footD);
+        fitDioramaWrapperToLot(diorama, footW, footD, dioramaPad);
         const roofBox = new THREE.Box3().setFromObject(diorama);
         const roofY = Math.max(roofBox.max.y, 0.4);
 
@@ -886,6 +894,10 @@ export class TreemapScene {
     }
 
     const cubeSize = smallCubeSize(footW, footD);
+    if (this.visualMode === 'overview') {
+      const s = stockVisualFootprintPad(st.cap, sectorMaxCap) / 0.9;
+      pivot.scale.set(s, 1, s);
+    }
     const mat = new THREE.MeshStandardMaterial({
       color: color.clone(),
       emissive: (opts.emissive ?? new THREE.Color(0x000000)).clone(),

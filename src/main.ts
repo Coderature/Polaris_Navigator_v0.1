@@ -92,29 +92,55 @@ function waitFrames(count: number): Promise<void> {
   });
 }
 
-function showVillageLoading(message = 'Navigator 마을을 여는 중…', indeterminate = true) {
+/** Village entry loader — single source for % label and bar width. */
+const villageLoadingProgress = {
+  percent: 0,
+  phase: 'Navigator 마을을 여는 중…',
+  indeterminate: true,
+};
+
+function applyVillageLoadingProgressUI() {
   const root = document.getElementById('village-loading')!;
   const sub = document.getElementById('village-loading-sub')!;
   const pctEl = document.getElementById('village-loading-pct')!;
-  sub.textContent = message;
-  pctEl.textContent = indeterminate ? '' : '0%';
-  const fill = root.querySelector('.village-loading-bar-fill') as HTMLElement;
-  fill.style.width = indeterminate ? '' : '0%';
+  const fill = document.getElementById('village-loading-bar-fill') as HTMLElement | null;
+  const { percent, phase, indeterminate } = villageLoadingProgress;
+
+  sub.textContent = phase;
   root.classList.toggle('is-indeterminate', indeterminate);
+
+  if (indeterminate) {
+    pctEl.textContent = '';
+    if (fill) fill.style.width = '';
+    return;
+  }
+
+  const clamped = Math.min(100, Math.max(0, Math.round(percent)));
+  pctEl.textContent = `${clamped}%`;
+  if (fill) fill.style.width = `${clamped}%`;
+}
+
+function setVillageLoadingProgress(percent: number, phase: string) {
+  villageLoadingProgress.indeterminate = false;
+  villageLoadingProgress.percent = percent;
+  villageLoadingProgress.phase = phase;
+  applyVillageLoadingProgressUI();
+}
+
+function showVillageLoading(message = 'Navigator 마을을 여는 중…', indeterminate = true) {
+  villageLoadingProgress.percent = 0;
+  villageLoadingProgress.phase = message;
+  villageLoadingProgress.indeterminate = indeterminate;
+  applyVillageLoadingProgressUI();
+
+  const root = document.getElementById('village-loading')!;
   root.classList.remove('fade-out');
   root.hidden = false;
 }
 
 function updateVillageLoadingProgress(done: number, total: number, phase: string) {
-  const root = document.getElementById('village-loading')!;
-  const sub = document.getElementById('village-loading-sub')!;
-  const pctEl = document.getElementById('village-loading-pct')!;
-  const fill = root.querySelector('.village-loading-bar-fill') as HTMLElement;
-  root.classList.remove('is-indeterminate');
-  const pct = total > 0 ? Math.min(100, Math.round((done / total) * 100)) : 0;
-  sub.textContent = phase;
-  pctEl.textContent = `${pct}%`;
-  fill.style.width = `${Math.max(6, pct)}%`;
+  const percent = total > 0 ? (done / total) * 100 : 0;
+  setVillageLoadingProgress(percent, phase);
 }
 
 async function yieldToPaint(): Promise<void> {
