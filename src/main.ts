@@ -9,7 +9,7 @@ import {
   type StockRow,
   dataSnapshotBaselineLabel,
 } from './types';
-import { TreemapScene } from './scene/TreemapScene';
+import { TreemapScene, type TreemapBuildProgress } from './scene/TreemapScene';
 import { MetricsPanel } from './features/metrics/MetricsPanel';
 
 const GURU_QUOTES: { text: string; author: string }[] = [
@@ -72,6 +72,61 @@ function runSplashSequence(): Promise<void> {
       }, 600);
     }, 3000);
   });
+}
+
+function waitMs(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function waitFrames(count: number): Promise<void> {
+  return new Promise((resolve) => {
+    let left = count;
+    const step = () => {
+      if (left <= 0) resolve();
+      else {
+        left -= 1;
+        requestAnimationFrame(step);
+      }
+    };
+    requestAnimationFrame(step);
+  });
+}
+
+function showVillageLoading(message = 'Navigator 마을을 여는 중…', indeterminate = true) {
+  const root = document.getElementById('village-loading')!;
+  const sub = document.getElementById('village-loading-sub')!;
+  const pctEl = document.getElementById('village-loading-pct')!;
+  sub.textContent = message;
+  pctEl.textContent = indeterminate ? '' : '0%';
+  const fill = root.querySelector('.village-loading-bar-fill') as HTMLElement;
+  fill.style.width = indeterminate ? '' : '0%';
+  root.classList.toggle('is-indeterminate', indeterminate);
+  root.classList.remove('fade-out');
+  root.hidden = false;
+}
+
+function updateVillageLoadingProgress(done: number, total: number, phase: string) {
+  const root = document.getElementById('village-loading')!;
+  const sub = document.getElementById('village-loading-sub')!;
+  const pctEl = document.getElementById('village-loading-pct')!;
+  const fill = root.querySelector('.village-loading-bar-fill') as HTMLElement;
+  root.classList.remove('is-indeterminate');
+  const pct = total > 0 ? Math.min(100, Math.round((done / total) * 100)) : 0;
+  sub.textContent = phase;
+  pctEl.textContent = `${pct}%`;
+  fill.style.width = `${Math.max(6, pct)}%`;
+}
+
+async function yieldToPaint(): Promise<void> {
+  await waitFrames(2);
+}
+
+async function hideVillageLoading() {
+  const root = document.getElementById('village-loading')!;
+  root.classList.add('fade-out');
+  await waitMs(520);
+  root.hidden = true;
+  root.classList.remove('fade-out');
 }
 
 function fmtBn(cap: number): string {
@@ -176,14 +231,30 @@ function waitForConsent(): Promise<void> {
 
 async function main() {
   await waitForConsent();
+  const dataPromise = loadTreemapData();
   await runSplashSequence();
-
-  const { sectors, stocks, extractedRisks, documents } = await loadTreemapData();
+  const { sectors, stocks, extractedRisks, documents } = await dataPromise;
   const secById = Object.fromEntries(sectors.map((s) => [s.id, s])) as Record<string, SectorDef>;
 
   const canvas = document.getElementById('scene') as HTMLCanvasElement;
   const wrap = document.getElementById('scene-wrap') as HTMLElement;
-  const treemap = await TreemapScene.create(canvas, stocks, sectors, wrap);
+  let treemap: TreemapScene | null = null;
+  let treemapBoot: Promise<TreemapScene> | null = null;
+
+  async function ensureTreemap(onProgress?: TreemapBuildProgress): Promise<TreemapScene> {
+    if (treemap) return treemap;
+    if (!treemapBoot) {
+      treemapBoot = (async () => {
+        await yieldToPaint();
+        const t = await TreemapScene.create(canvas, stocks, sectors, wrap, (done, total, phase) => {
+          onProgress?.(done, total, phase);
+        });
+        treemap = t;
+        return t;
+      })();
+    }
+    return treemapBoot;
+  }
 
   const ray = new THREE.Raycaster();
   const ndc = new THREE.Vector2();
@@ -228,6 +299,7 @@ async function main() {
 
 
   function buildingFromIntersect(obj: THREE.Object3D | null): THREE.Group | null {
+    if (!treemap) return null;
     let o: THREE.Object3D | null = obj;
     const active = treemap.stockGroup;
     while (o && o.parent !== active) o = o.parent;
@@ -256,6 +328,7 @@ async function main() {
   }
 
   function showSectorTooltip(sectorId: string, x: number, y: number) {
+    if (!treemap) return;
     const sec = secById[sectorId];
     if (!sec) return;
     const members = treemap.getStocksInLayoutSector(sectorId);
@@ -277,6 +350,7 @@ async function main() {
   }
 
   function updatePointer(e: PointerEvent) {
+    if (!treemap) return;
     const rect = canvas.getBoundingClientRect();
     ndc.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
     ndc.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
@@ -326,6 +400,7 @@ async function main() {
   }
 
   function handleClick(e: PointerEvent) {
+    if (!treemap) return;
     updatePointer(e);
     if (navigatorView === 'overview' && treemap.isOverviewSectorOnly) {
       const st = treemap.pickStockLotFromRaycaster(ray);
@@ -480,6 +555,7 @@ async function main() {
   // ──────────────────────────────────────────────────────────────────────────
 
   function openPanel(st: StockRow, mesh: THREE.Group | null) {
+    if (!treemap) return;
     currentStock = st;
     treemap.setHoveredSector(st.s);
     const sec = secById[st.s];
@@ -645,7 +721,7 @@ async function main() {
 
   function closePanel() {
     panel.classList.remove('open');
-    treemap.setHoveredSector(null);
+    treemap?.setHoveredSector(null);
     if (highlighted) {
       resetBuildingInteractionScale(highlighted);
       highlighted = null;
@@ -670,6 +746,7 @@ async function main() {
   }
 
   function setOverviewSectorOnly(on: boolean) {
+    if (!treemap) return;
     overviewSectorOnly = on;
     treemap.setOverviewSectorOnly(on);
     syncOverviewSectorToggleUi();
@@ -694,7 +771,7 @@ async function main() {
         : '<div class="row"><span class="swatch" style="background:#4b5563"></span>빌딩 본체 · 중립 톤 · 균일 높이</div>';
       legendModeNote.textContent = overviewSectorOnly
         ? '섹터만 보기: 섹터 경계 안에 종목 타일이 나뉘어 표시됩니다. 호버·클릭으로 종목 확인.'
-        : '바닥은 연한 초록 반투명 필드(분위기). 구역 경계는 얇은 라인 · 좌측 범례·호버·패널에서 구역을 확인하세요.';
+        : '바닥은 연한 초록 반투명 필드(분위기). 타일 면적·바닥 % = 시가총액 비중. 구역 경계는 얇은 라인.';
     } else if (navigatorView === 'chg') {
       legendStaticRows.innerHTML = `
         <div class="row"><span class="swatch" style="background:var(--change-up)"></span>상승 · 높이·색</div>
@@ -711,6 +788,7 @@ async function main() {
   }
 
   function setNavigatorView(mode: 'overview' | 'chg' | 'marketCap') {
+    if (!treemap) return;
     navigatorView = mode;
     if (mode !== 'overview' && overviewSectorOnly) {
       overviewSectorOnly = false;
@@ -754,7 +832,7 @@ async function main() {
   });
   canvas.addEventListener('pointerleave', () => {
     hideTooltip();
-    treemap.setHoveredSector(null);
+    treemap?.setHoveredSector(null);
     if (hovered) resetBuildingInteractionScale(hovered);
     hovered = null;
     canvas.style.cursor = 'grab';
@@ -800,7 +878,7 @@ async function main() {
   });
 
   document.getElementById('resetCam')!.addEventListener('click', () => {
-    treemap.resetOrbitCamera();
+    treemap?.resetOrbitCamera();
   });
 
   const searchInput = document.getElementById('search') as HTMLInputElement;
@@ -809,7 +887,7 @@ async function main() {
       const q = searchInput.value.trim().toUpperCase();
       if (!q) return;
       const found = stocks.find((s) => s.t.toUpperCase() === q || s.n.toUpperCase().includes(q));
-      if (found) {
+      if (found && treemap) {
         const mesh = treemap.meshByStock.get(found);
         openPanel(found, mesh ?? null);
         if (mesh) treemap.flyToStock(mesh);
@@ -856,7 +934,7 @@ async function main() {
     const ht = stocks.filter((s) => s.halted).length;
     document.getElementById('s-stocks')!.textContent = String(stocks.length);
     const secCount = document.getElementById('s-sectors');
-    if (secCount) secCount.textContent = String(sectors.length);
+    if (secCount) secCount.textContent = String(treemap?.layoutSectorCount ?? sectors.length);
     document.getElementById('s-up')!.textContent = String(up);
     document.getElementById('s-down')!.textContent = String(dn);
     document.getElementById('s-halt')!.textContent = String(ht);
@@ -867,7 +945,7 @@ async function main() {
   refreshStatus();
 
   const refreshQuotes = initQuotesClient(stocks, (updatedAt) => {
-    treemap.updateAllVisuals();
+    treemap?.updateAllVisuals();
     refreshStatus(updatedAt);
   });
 
@@ -883,15 +961,52 @@ async function main() {
     homeHub.classList.add('hidden');
   }
 
+  let enteringVillage = false;
+
+  async function enterVillage() {
+    if (enteringVillage) return;
+    enteringVillage = true;
+    const revisiting = !!treemap;
+    showVillageLoading(
+      revisiting ? 'Navigator 마을로 이동 중…' : '3D 마을 지도를 불러오는 중…',
+      !revisiting,
+    );
+    await yieldToPaint();
+    try {
+      const t = await ensureTreemap((done, total, phase) => {
+        updateVillageLoadingProgress(done, total, phase);
+      });
+      if (revisiting) {
+        updateVillageLoadingProgress(1, 1, '마을로 이동 중…');
+        await waitMs(280);
+      }
+      t.resize();
+      await waitFrames(1);
+      document.body.classList.add('village-active');
+      refreshStatus();
+    } catch (err) {
+      console.error('[enterVillage]', err);
+      showVillageLoading('마을을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.', true);
+      await waitMs(1600);
+      throw err;
+    } finally {
+      await hideVillageLoading();
+      enteringVillage = false;
+    }
+    hideHome();
+    navViewToggle.classList.remove('hidden');
+    setNavigatorView('overview');
+    syncOverviewSectorToggleUi();
+  }
+
   document.querySelectorAll<HTMLAnchorElement>('.nav-card').forEach((card) => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
       const route = card.dataset.route;
       if (route === 'treemap') {
-        hideHome();
-        navViewToggle.classList.remove('hidden');
-        setNavigatorView('overview');
-        syncOverviewSectorToggleUi();
+        void enterVillage().catch(() => {
+          /* error surfaced in overlay; keep home visible */
+        });
       } else if (route === 'guru') {
         hideHome();
         navViewToggle.classList.add('hidden');
@@ -911,10 +1026,9 @@ async function main() {
   });
 
   function tick() {
-    treemap.tick();
+    treemap?.tick();
     requestAnimationFrame(tick);
   }
-  treemap.resize();
   requestAnimationFrame(tick);
 
   console.log('Polaris Navigator — ready');

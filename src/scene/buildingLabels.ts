@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { formatWeightPct } from './capWeights';
 import type { StockRow } from '../types';
 
 const logoCache = new Map<string, HTMLImageElement | null>();
@@ -196,4 +197,67 @@ export function attachBuildingTopLabel(
     if (!sprite.parent) return;
     refreshLabelSprite(sprite, canvas, st, img);
   });
+}
+
+function makeWeightSprite(canvas: HTMLCanvasElement, footW: number, footD: number): THREE.Sprite {
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.minFilter = THREE.LinearFilter;
+  texture.magFilter = THREE.LinearFilter;
+
+  const mat = new THREE.SpriteMaterial({
+    map: texture,
+    transparent: true,
+    depthTest: false,
+    depthWrite: false,
+    sizeAttenuation: true,
+  });
+  const sprite = new THREE.Sprite(mat);
+  sprite.renderOrder = 18;
+  sprite.userData.isBuildingWeightLabel = true;
+
+  const aspect = canvas.width / canvas.height;
+  const lotArea = footW * footD;
+  const spriteH = THREE.MathUtils.clamp(Math.sqrt(lotArea) * 0.2, 0.28, 1.08);
+  sprite.scale.set(spriteH * aspect, spriteH, 1);
+  return sprite;
+}
+
+/**
+ * 타일 안쪽(바닥 근처) 시총 비중 — 전체·섹터 %.
+ */
+export function attachBuildingWeightLabel(
+  pivot: THREE.Group,
+  totalPct: number,
+  sectorPct: number,
+  footW: number,
+  footD: number,
+): void {
+  const footScale = Math.min(footW, footD);
+  const canvas = document.createElement('canvas');
+  canvas.width = 176;
+  canvas.height = 80;
+  const ctx = canvas.getContext('2d')!;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  roundRect(ctx, 6, 6, canvas.width - 12, canvas.height - 12, 12);
+  ctx.fillStyle = 'rgba(6,10,18,0.78)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(148,163,184,0.35)';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#f1f5f9';
+  ctx.font = '700 24px "JetBrains Mono", monospace';
+  ctx.fillText(formatWeightPct(totalPct), canvas.width / 2, 30);
+  ctx.fillStyle = 'rgba(148,163,184,0.92)';
+  ctx.font = '500 16px "Inter", sans-serif';
+  ctx.fillText(`섹터 ${formatWeightPct(sectorPct)}`, canvas.width / 2, 54);
+
+  const sprite = makeWeightSprite(canvas, footW, footD);
+  sprite.position.set(0, footScale * 0.05, 0);
+  sprite.name = 'buildingWeightLabel';
+  pivot.add(sprite);
 }
