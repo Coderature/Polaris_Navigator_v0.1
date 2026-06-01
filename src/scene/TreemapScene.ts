@@ -3,7 +3,9 @@ import { computeLayout, type LayoutBalanceMode, type LayoutWeightMode, type Stoc
 import { TREE_MAP_HEIGHT, TREE_MAP_WIDTH } from '../layout/treemapLayoutConstants';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { attachBuildingTopLabel } from './buildingLabels';
+import { attachBuildingTopLabel, attachBuildingWeightLabel } from './buildingLabels';
+import { computeCapWeightMap, type CapWeightPct } from './capWeights';
+import { buildDioramaContent, fitDioramaWrapperToLot } from './dioramaMount';
 
 export type NavigatorVisualMode = 'overview' | 'chg' | 'marketCap';
 export type ViewMode = NavigatorVisualMode;
@@ -232,6 +234,7 @@ export class TreemapScene {
   private layoutWeightMode: LayoutWeightMode = 'linear';
   private layoutBalanceMode: LayoutBalanceMode = 'balanced';
   private savedCameraBeforeChg: { pos: THREE.Vector3; target: THREE.Vector3 } | null = null;
+  private readonly capWeightMap: Map<string, CapWeightPct>;
 
   static async create(
     canvas: HTMLCanvasElement,
@@ -251,6 +254,7 @@ export class TreemapScene {
     this.secById = Object.fromEntries(sectors.map((s) => [s.id, s]));
 
     this.maxStockCap = Math.max(...stocks.map((s) => s.cap), 1e-9);
+    this.capWeightMap = computeCapWeightMap(stocks);
 
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -754,6 +758,12 @@ export class TreemapScene {
     this.disposeAll();
   }
 
+  private attachCapWeightLabel(pivot: THREE.Group, st: StockRow, footW: number, footD: number) {
+    const w = this.capWeightMap.get(st.t);
+    if (!w) return;
+    attachBuildingWeightLabel(pivot, w.totalPct, w.sectorPct, footW, footD);
+  }
+
   private clearBuildingGroup(group: THREE.Group) {
     this.removeChangeRoof(group);
     while (group.children.length > 0) {
@@ -791,12 +801,16 @@ export class TreemapScene {
       const intensity = THREE.MathUtils.clamp(Math.abs(st.chg ?? 0) / 6, 0.06, 0.38);
       this.buildSmallCubeStockBuildingContent(group, r, st, color, {
         attachLabel: false,
+        useDiorama: false,
         emissive: color,
         emissiveIntensity: intensity,
       });
       return;
     }
-    this.buildSmallCubeStockBuildingContent(group, r, st, getBuildingColor(st), { attachLabel: true });
+    this.buildSmallCubeStockBuildingContent(group, r, st, getBuildingColor(st), {
+      attachLabel: true,
+      useDiorama: true,
+    });
   }
 
   private buildSmallCubeStockBuildingContent(
@@ -804,15 +818,45 @@ export class TreemapScene {
     r: StockRect,
     st: StockRow,
     color: THREE.Color,
-    opts: { attachLabel: boolean; emissive?: THREE.Color; emissiveIntensity?: number },
+    opts: {
+      attachLabel: boolean;
+      useDiorama?: boolean;
+      emissive?: THREE.Color;
+      emissiveIntensity?: number;
+    },
   ) {
     this.clearBuildingGroup(group);
     const { footW, footD } = lotFootprint(r);
-    const cubeSize = smallCubeSize(footW, footD);
-
     const pivot = new THREE.Group();
     group.add(pivot);
 
+    if (opts.useDiorama !== false) {
+      const diorama = buildDioramaContent(st.t);
+      if (diorama) {
+        pivot.add(diorama);
+        fitDioramaWrapperToLot(diorama, footW, footD);
+        const roofBox = new THREE.Box3().setFromObject(diorama);
+        const roofY = Math.max(roofBox.max.y, 0.4);
+
+        group.userData.stock = st;
+        group.userData.rect = r;
+        group.userData.baseColor = getBuildingColor(st);
+        group.userData.heightPivot = pivot;
+        group.userData.referenceFitHeight = roofY;
+        group.userData.targetVisualHeight = roofY;
+        group.userData.pivotRoofLocalY = roofY;
+        group.userData.footW = footW;
+        group.userData.footD = footD;
+        pivot.scale.y = 1;
+        if (opts.attachLabel) {
+          attachBuildingTopLabel(pivot, st, roofY, footW, footD);
+        }
+        this.attachCapWeightLabel(pivot, st, footW, footD);
+        return;
+      }
+    }
+
+    const cubeSize = smallCubeSize(footW, footD);
     const mat = new THREE.MeshStandardMaterial({
       color: color.clone(),
       emissive: (opts.emissive ?? new THREE.Color(0x000000)).clone(),
@@ -838,6 +882,7 @@ export class TreemapScene {
     if (opts.attachLabel) {
       attachBuildingTopLabel(pivot, st, cubeSize, footW, footD);
     }
+    this.attachCapWeightLabel(pivot, st, footW, footD);
   }
 
   private addStockBuilding(r: StockRect) {
@@ -892,10 +937,20 @@ export class TreemapScene {
     const now = performance.now();
     const dt = Math.min(0.08, (now - this.lastTick) / 1000);
     this.lastTick = now;
+    const nowSec = now * 0.001;
 
     this.controls.update();
     this.updateBuildingAnimations(dt);
     this.updateFootprintCapLerp(performance.now());
+    this.stockGroup.traverse((o) => {
+      const fn = o.userData.tick as ((t: number) => void) | undefined;
+      if (typeof fn !== 'function') return;
+      try {
+        fn(nowSec);
+      } catch (err) {
+        console.error(`[TreemapScene] diorama tick failed:`, err);
+      }
+    });
     this.resize();
     this.renderer.render(this.scene, this.camera);
   }
