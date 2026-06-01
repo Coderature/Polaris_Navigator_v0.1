@@ -1,5 +1,7 @@
 import express from 'express';
 import YahooFinance from 'yahoo-finance2';
+import axios from 'axios';
+import { load } from 'cheerio';
 
 const yahooFinance = new YahooFinance({ suppressNotices: ['yahooSurvey'] });
 
@@ -55,6 +57,32 @@ interface QuoteRow {
   source: string; sourceLabel: string; asOf: string;
 }
 
+const NAVER_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+  'Accept-Language': 'ko-KR,ko;q=0.9',
+  'Referer': 'https://finance.naver.com/',
+};
+
+function parseNaverNum(s: string): number | null {
+  const m = s.match(/[\d,]+\.?\d*/);
+  return m ? parseFloat(m[0].replace(/,/g, '')) : null;
+}
+
+async function fetchNaverPerPbr(code: string): Promise<{ per: number | null; pbr: number | null; div: number | null }> {
+  const url = `https://finance.naver.com/item/main.naver?code=${code}`;
+  const r = await axios.get<string>(url, { headers: NAVER_HEADERS, timeout: 8000 });
+  const $ = load(r.data);
+  const rows = $('table.per_table tr').toArray();
+  const tdText = (idx: number) => $(rows[idx])?.find('td').text() ?? '';
+  const row0Parts = tdText(0).split('l');
+  const row2Parts = tdText(2).split('l');
+  return {
+    per: parseNaverNum(row0Parts[0] ?? ''),
+    pbr: parseNaverNum(row2Parts[0] ?? ''),
+    div: parseNaverNum(tdText(3)),
+  };
+}
+
 async function fetchQuote(ticker: string, isKR: boolean): Promise<Partial<QuoteRow> | null> {
   try {
     const symbol = isKR ? `${ticker}.KS` : ticker;
@@ -65,16 +93,32 @@ async function fetchQuote(ticker: string, isKR: boolean): Promise<Partial<QuoteR
     const cap = isKR
       ? +((q.marketCap ?? 0) / krwPerUsd / 1e9).toFixed(1)
       : +((q.marketCap ?? 0) / 1e9).toFixed(1);
+    let per: number | null = q.trailingPE != null ? +q.trailingPE.toFixed(1) : null;
+    let pbr: number | null = q.priceToBook != null ? +q.priceToBook.toFixed(2) : null;
+    let div = +((q.trailingAnnualDividendYield ?? 0) * 100).toFixed(2);
+
+    // Yahoo Finance doesn't provide per/pbr for KR stocks — fetch from Naver Finance
+    if (isKR) {
+      try {
+        const naver = await fetchNaverPerPbr(ticker);
+        if (naver.per != null) per = naver.per;
+        if (naver.pbr != null) pbr = naver.pbr;
+        if (naver.div != null) div = naver.div;
+      } catch {
+        // Naver 실패 시 Yahoo 값 유지
+      }
+    }
+
     return {
       price,
-      chg:  +((q.regularMarketChangePercent ?? 0)).toFixed(2),
+      chg: +((q.regularMarketChangePercent ?? 0)).toFixed(2),
       cap,
-      per:  q.trailingPE != null ? +q.trailingPE.toFixed(1) : null,
-      pbr:  q.priceToBook != null ? +q.priceToBook.toFixed(2) : null,
-      div:  +((q.trailingAnnualDividendYield ?? 0) * 100).toFixed(2),
+      per,
+      pbr,
+      div,
       vol:  +((q.regularMarketVolume ?? 0) / 1e6).toFixed(1),
       source: 'live',
-      sourceLabel: 'Yahoo Finance 실시간',
+      sourceLabel: isKR ? 'Yahoo Finance + Naver Finance' : 'Yahoo Finance 실시간',
       asOf: new Date().toISOString(),
     };
   } catch (err) {

@@ -1,4 +1,6 @@
 import YahooFinance from 'yahoo-finance2';
+import axios from 'axios';
+import { load } from 'cheerio';
 import type { StockRow } from '../types.js';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,6 +21,53 @@ const KR_STOCK_DEFS = [
 const KRW_PER_USD = 1300;
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+const NAVER_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+  'Accept-Language': 'ko-KR,ko;q=0.9',
+  'Referer': 'https://finance.naver.com/',
+};
+
+/** Parses first decimal number from a string (handles comma thousands separators) */
+function parseNum(s: string): number | null {
+  const m = s.match(/[\d,]+\.?\d*/);
+  return m ? parseFloat(m[0].replace(/,/g, '')) : null;
+}
+
+interface NaverMetrics {
+  per: number | null;
+  eps: number | null;
+  pbr: number | null;
+  div: number | null;
+}
+
+/**
+ * Fetches PER, EPS, PBR, and dividend yield from Naver Finance main page.
+ * Yahoo Finance omits these fields for KR stocks.
+ * per_table structure: row0=PER+EPS, row1=업종PER, row2=PBR+BPS, row3=배당수익률
+ */
+async function fetchNaverMetrics(code: string): Promise<NaverMetrics> {
+  const url = `https://finance.naver.com/item/main.naver?code=${code}`;
+  const r = await axios.get<string>(url, { headers: NAVER_HEADERS, timeout: 10000 });
+  const $ = load(r.data);
+
+  const rows = $('table.per_table tr').toArray();
+  const tdText = (idx: number) => $(rows[idx])?.find('td').text() ?? '';
+
+  const row0 = tdText(0); // "28.21배 l 12,372원" → PER + EPS
+  const row2 = tdText(2); // "4.85배 l 71,907원"  → PBR + BPS
+  const row3 = tdText(3); // "0.48%"               → 배당수익률
+
+  const perParts = row0.split('l');
+  const pbrParts = row2.split('l');
+
+  return {
+    per: parseNum(perParts[0] ?? ''),
+    eps: parseNum(perParts[1] ?? ''),
+    pbr: parseNum(pbrParts[0] ?? ''),
+    div: parseNum(row3),
+  };
+}
+
 export async function fetchKrStocks(): Promise<StockRow[]> {
   const results: StockRow[] = [];
   for (const def of KR_STOCK_DEFS) {
@@ -35,6 +84,7 @@ export async function fetchKrStocks(): Promise<StockRow[]> {
       let revenueGrowth: number | null = null;
       let epsGrowth: number | null = null;
       let currentRatio: number | null = null;
+      let quickRatio: number | null = null;
       let fcf: number | null = null;
       let fcfYield: number | null = null;
       let pcr: number | null = null;
@@ -48,6 +98,7 @@ export async function fetchKrStocks(): Promise<StockRow[]> {
       let opmTrend3y: number | null = null;
       let gpmTrend3y: number | null = null;
       let shareholderReturn: number | null = null;
+
       try {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const summary = await (yf as any).quoteSummary(sym, {
@@ -56,32 +107,35 @@ export async function fetchKrStocks(): Promise<StockRow[]> {
             'incomeStatementHistory', 'cashflowStatementHistory',
           ],
         });
-        const fd = summary?.financialData;
-        const ks = summary?.defaultKeyStatistics;
-        const sd = summary?.summaryDetail;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const fd = summary?.financialData as any;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const ks = summary?.defaultKeyStatistics as any;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const sd = summary?.summaryDetail as any;
         const mcKrw = q.marketCap ?? 0;
 
-        if (fd?.returnOnEquity != null)   roe            = +(fd.returnOnEquity   * 100).toFixed(1);
-        if (fd?.operatingMargins != null) operatingMargin= +(fd.operatingMargins * 100).toFixed(1);
-        if (fd?.debtToEquity != null)     debtRatio      = +fd.debtToEquity.toFixed(0);
-        if (fd?.returnOnAssets != null)   roa            = +(fd.returnOnAssets   * 100).toFixed(1);
-        if (fd?.profitMargins != null)    netMargin      = +(fd.profitMargins    * 100).toFixed(1);
-        if (fd?.grossMargins != null)     grossMargin    = +(fd.grossMargins     * 100).toFixed(1);
-        if (fd?.revenueGrowth != null)    revenueGrowth  = +(fd.revenueGrowth   * 100).toFixed(1);
-        if (fd?.earningsGrowth != null)   epsGrowth      = +(fd.earningsGrowth  * 100).toFixed(1);
-        if (fd?.currentRatio != null)     currentRatio   = +fd.currentRatio.toFixed(2);
+        if (fd?.returnOnEquity != null)   roe             = +(fd.returnOnEquity   * 100).toFixed(1);
+        if (fd?.operatingMargins != null) operatingMargin = +(fd.operatingMargins * 100).toFixed(1);
+        if (fd?.debtToEquity != null)     debtRatio       = +fd.debtToEquity.toFixed(0);
+        if (fd?.returnOnAssets != null)   roa             = +(fd.returnOnAssets   * 100).toFixed(1);
+        if (fd?.profitMargins != null)    netMargin       = +(fd.profitMargins    * 100).toFixed(1);
+        if (fd?.grossMargins != null)     grossMargin     = +(fd.grossMargins     * 100).toFixed(1);
+        if (fd?.revenueGrowth != null)    revenueGrowth   = +(fd.revenueGrowth   * 100).toFixed(1);
+        if (fd?.earningsGrowth != null)   epsGrowth       = +(fd.earningsGrowth  * 100).toFixed(1);
+        if (fd?.currentRatio != null)     currentRatio    = +fd.currentRatio.toFixed(2);
+        if (fd?.quickRatio != null)       quickRatio      = +fd.quickRatio.toFixed(2);
         if (fd?.freeCashflow != null) {
-          fcf     = +(fd.freeCashflow / KRW_PER_USD / 1e9).toFixed(2);
+          fcf = +(fd.freeCashflow / KRW_PER_USD / 1e9).toFixed(2);
           if (mcKrw > 0) fcfYield = +(fd.freeCashflow / mcKrw * 100).toFixed(2);
         }
         if (fd?.operatingCashflow != null && fd.operatingCashflow > 0 && mcKrw > 0)
           pcr = +(mcKrw / fd.operatingCashflow).toFixed(1);
 
-        if (ks?.enterpriseToEbitda != null) evEbitda   = +ks.enterpriseToEbitda.toFixed(1);
-        if (ks?.pegRatio != null)           peg        = +ks.pegRatio.toFixed(2);
-        if (ks?.trailingEps != null)        eps        = +ks.trailingEps.toFixed(0);
-        if (ks?.payoutRatio != null)        payoutRatio= +(ks.payoutRatio * 100).toFixed(1);
-        if (ks?.beta != null)               beta       = +ks.beta.toFixed(2);
+        if (ks?.enterpriseToEbitda != null) evEbitda    = +ks.enterpriseToEbitda.toFixed(1);
+        if (ks?.pegRatio != null)           peg         = +ks.pegRatio.toFixed(2);
+        if (ks?.trailingEps != null)        eps         = +ks.trailingEps.toFixed(0);
+        if (ks?.beta != null)               beta        = +ks.beta.toFixed(2);
 
         if (sd?.priceToSalesTrailing12Months != null)
           psr = +sd.priceToSalesTrailing12Months.toFixed(1);
@@ -92,16 +146,18 @@ export async function fetchKrStocks(): Promise<StockRow[]> {
           roic = +(fd.returnOnEquity / (1 + de) * 100).toFixed(1);
         }
 
-        // 영업이익률·매출총이익률 3년 추세 (pp 변화)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const incStmts: any[] = summary?.incomeStatementHistory?.incomeStatementHistory ?? [];
         if (incStmts.length >= 3) {
           const newest = incStmts[0];
           const oldest = incStmts[Math.min(incStmts.length - 1, 3)];
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const safeOpm = (s: any) => {
             const rev = s?.totalRevenue;
             const op  = s?.operatingIncome ?? s?.ebit;
             return rev && rev !== 0 ? op / rev * 100 : null;
           };
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const safeGpm = (s: any) => {
             const rev = s?.totalRevenue;
             const gp  = s?.grossProfit;
@@ -113,17 +169,36 @@ export async function fetchKrStocks(): Promise<StockRow[]> {
           if (gpm0 != null && gpmN != null) gpmTrend3y = +(gpm0 - gpmN).toFixed(1);
         }
 
-        // 주주환원율 = (배당 + 자사주매입) / 순이익
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const cfStmts: any[] = summary?.cashflowStatementHistory?.cashflowStatements ?? [];
         if (cfStmts.length > 0 && incStmts.length > 0) {
           const cf = cfStmts[0];
           const divPaid  = Math.abs(cf?.dividendsPaid   ?? 0);
           const buyback  = Math.abs(cf?.repurchaseOfStock ?? 0);
           const netInc   = Math.abs(incStmts[0]?.netIncome ?? 0);
-          if (netInc > 0) shareholderReturn = +((divPaid + buyback) / netInc * 100).toFixed(1);
+          if (netInc > 0) {
+            shareholderReturn = +((divPaid + buyback) / netInc * 100).toFixed(1);
+            // payoutRatio from cashflow dividends paid / net income
+            if (divPaid > 0) payoutRatio = +(divPaid / netInc * 100).toFixed(1);
+          }
         }
       } catch {
         // quoteSummary 실패 시 null 유지
+      }
+
+      // Naver Finance: PER, PBR, EPS, DIV (Yahoo Finance는 KR 종목 이 필드 미제공)
+      let naverPer: number | null = null;
+      let naverPbr: number | null = null;
+      let naverEps: number | null = null;
+      let naverDiv: number | null = null;
+      try {
+        const naver = await fetchNaverMetrics(def.t);
+        naverPer = naver.per;
+        naverPbr = naver.pbr;
+        naverEps = naver.eps;
+        naverDiv = naver.div;
+      } catch {
+        // Naver 스크래핑 실패 시 null 유지
       }
 
       results.push({
@@ -132,30 +207,31 @@ export async function fetchKrStocks(): Promise<StockRow[]> {
         m: 'KR',
         s: def.s,
         cap: +((q.marketCap ?? 0) / KRW_PER_USD / 1e9).toFixed(1),
-        per: q.trailingPE != null ? +q.trailingPE.toFixed(1) : null,
-        pbr: q.priceToBook != null ? +q.priceToBook.toFixed(2) : null,
+        per: naverPer,
+        pbr: naverPbr,
         vol: +((q.regularMarketVolume ?? 0) / 1e6).toFixed(1),
-        div: +((q.trailingAnnualDividendYield ?? 0) * 100).toFixed(2),
+        div: naverDiv ?? +((q.trailingAnnualDividendYield ?? 0) * 100).toFixed(2),
         roe, operatingMargin, debtRatio,
         week52High: q.fiftyTwoWeekHigh != null ? Math.round(q.fiftyTwoWeekHigh) : null,
         week52Low: q.fiftyTwoWeekLow != null ? Math.round(q.fiftyTwoWeekLow) : null,
         psr, evEbitda, peg, pcr,
         roa, netMargin, grossMargin,
         revenueGrowth, epsGrowth,
-        currentRatio, fcf, fcfYield,
-        eps, payoutRatio, beta,
+        currentRatio, quickRatio, fcf, fcfYield,
+        eps: naverEps ?? eps,
+        payoutRatio, beta,
         roic, opmTrend3y, gpmTrend3y, shareholderReturn,
         price: Math.round(q.regularMarketPrice ?? 0),
         chg: +((q.regularMarketChangePercent ?? 0)).toFixed(2),
         source: 'live',
-        sourceLabel: 'Yahoo Finance 실시간',
+        sourceLabel: 'Yahoo Finance + Naver Finance',
         asOf: new Date().toISOString(),
       });
-      console.log(`  ✓ ${def.n} (${def.t}): ₩${q.regularMarketPrice?.toLocaleString()}`);
+      console.log(`  ✓ ${def.n} (${def.t}): PER=${naverPer} PBR=${naverPbr} ROE=${roe}`);
     } catch (err) {
       console.warn(`  ✗ ${def.n} (${def.t}) 실패:`, err instanceof Error ? err.message : err);
     }
-    await sleep(300);
+    await sleep(400);
   }
   return results;
 }

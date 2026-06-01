@@ -13,6 +13,7 @@
     "crawl:naver": "tsx scripts/crawl/naverNewsCrawler.ts",
     "crawl:pdf": "tsx scripts/crawl/pdfExtract.ts",
     "build:data": "tsx scripts/buildDataPipeline.ts",
+    "update:kr": "tsx scripts/updateKrStocks.ts",
     "crawl": "npm run build:data"
   },
   "dependencies": {
