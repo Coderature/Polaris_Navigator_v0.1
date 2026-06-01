@@ -132,7 +132,7 @@ function createSectorBoundaryLine(
 }
 
 /** Overview 섹터만 보기 — 종목 타일 면 (섹터 색 + 밝기 변화). */
-const STOCK_LOT_GAP = 0.15;
+const STOCK_LOT_GAP = 0.08;
 
 function stockLotFillColor(hex: string, ticker: string): THREE.Color {
   const c = new THREE.Color(hex);
