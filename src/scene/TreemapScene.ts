@@ -46,10 +46,10 @@ function tickerStyleSeed(t: string): number {
   return Math.abs(h);
 }
 
-const LOT_GUTTER = 0.02;
-const SMALL_CUBE_RATIO = 0.42;
-const SMALL_CUBE_MIN = 0.28;
-const SMALL_CUBE_MAX = 0.84;
+const LOT_GUTTER = 0.01;
+const SMALL_CUBE_RATIO = 0.48;
+const SMALL_CUBE_MIN = 0.32;
+const SMALL_CUBE_MAX = 0.92;
 
 /** Overview 바닥: 분위기용 연한 초록 필드 (섹터 색으로 채우지 않음). */
 const OVERVIEW_FLOOR_COLOR = 0xb8f7d3;
