@@ -39,6 +39,22 @@ function pickRandomQuote() {
   return GURU_QUOTES[Math.floor(Math.random() * GURU_QUOTES.length)];
 }
 
+function showVillageGuruQuote() {
+  const wrap = document.getElementById('village-guru-quote');
+  const quoteText = document.getElementById('village-quote-text');
+  const quoteAuthor = document.getElementById('village-quote-author');
+  if (!wrap || !quoteText || !quoteAuthor) return;
+  const q = pickRandomQuote();
+  quoteText.textContent = q.text;
+  quoteAuthor.textContent = q.author;
+  wrap.hidden = false;
+}
+
+function hideVillageGuruQuote() {
+  const wrap = document.getElementById('village-guru-quote');
+  if (wrap) wrap.hidden = true;
+}
+
 function runSplashSequence(): Promise<void> {
   return new Promise((resolve) => {
     const splash = document.getElementById('splash')!;
@@ -982,6 +998,7 @@ async function main() {
   function showHome() {
     positionView.classList.remove('active');
     homeHub.classList.remove('hidden');
+    hideVillageGuruQuote();
   }
   function hideHome() {
     homeHub.classList.add('hidden');
@@ -1009,6 +1026,7 @@ async function main() {
       t.resize();
       await waitFrames(1);
       document.body.classList.add('village-active');
+      showVillageGuruQuote();
       refreshStatus();
     } catch (err) {
       console.error('[enterVillage]', err);
