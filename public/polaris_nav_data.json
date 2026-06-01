@@ -94,7 +94,7 @@
       "payoutRatio": 12.590000000000002,
       "week52High": 315,
       "week52Low": 195.07,
-      "weight": 0.07
+      "weight": 0.0528
     },
     {
       "t": "MSFT",
@@ -121,7 +121,7 @@
       "payoutRatio": 20.729999,
       "week52High": 555.45,
       "week52Low": 356.28,
-      "weight": 0.06
+      "weight": 0.0453
     },
     {
       "t": "NVDA",
@@ -148,7 +148,7 @@
       "payoutRatio": 0.61000003,
       "week52High": 236.54,
       "week52Low": 135.4,
-      "weight": 0.07
+      "weight": 0.0528
     },
     {
       "t": "GOOGL",
@@ -175,7 +175,7 @@
       "payoutRatio": 6.41,
       "week52High": 408.61,
       "week52Low": 162,
-      "weight": 0.06
+      "weight": 0.0453
     },
     {
       "t": "TSLA",
@@ -202,7 +202,7 @@
       "payoutRatio": null,
       "week52High": 498.83,
       "week52Low": 273.21,
-      "weight": 0.05
+      "weight": 0.0377
     },
     {
       "t": "AMZN",
@@ -229,7 +229,7 @@
       "payoutRatio": null,
       "week52High": 278.56,
       "week52Low": 196,
-      "weight": 0.06
+      "weight": 0.0453
     },
     {
       "t": "BA",
@@ -256,7 +256,7 @@
       "payoutRatio": null,
       "week52High": 254.35,
       "week52Low": 176.77,
-      "weight": 0.05
+      "weight": 0.0755
     },
     {
       "t": "KO",
@@ -283,7 +283,7 @@
       "payoutRatio": 64.779997,
       "week52High": 82.66,
       "week52Low": 65.35,
-      "weight": 0.04
+      "weight": 0.0604
     },
     {
       "t": "NEE",
@@ -310,7 +310,7 @@
       "payoutRatio": 58.95,
       "week52High": 98.75,
       "week52Low": 67.2,
-      "weight": 0.05
+      "weight": 0.0755
     },
     {
       "t": "O",
@@ -337,7 +337,7 @@
       "payoutRatio": 265,
       "week52High": 67.94,
       "week52Low": 55.52,
-      "weight": 0.04
+      "weight": 0.0604
     },
     {
       "t": "ALB",
@@ -364,7 +364,7 @@
       "payoutRatio": 57.97,
       "week52High": 221,
       "week52Low": 53.7,
-      "weight": 0.05
+      "weight": 0.0755
     },
     {
       "t": "005930",
@@ -406,7 +406,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:15.230Z",
-      "weight": 0.06
+      "weight": 0.0453
     },
     {
       "t": "000660",
@@ -448,7 +448,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:16.124Z",
-      "weight": 0.05
+      "weight": 0.0377
     },
     {
       "t": "005380",
@@ -490,7 +490,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:17.081Z",
-      "weight": 0.05
+      "weight": 0.0491
     },
     {
       "t": "035420",
@@ -532,7 +532,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:17.973Z",
-      "weight": 0.04
+      "weight": 0.0302
     },
     {
       "t": "035720",
@@ -574,7 +574,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:18.855Z",
-      "weight": 0.04
+      "weight": 0.0302
     },
     {
       "t": "207940",
@@ -616,7 +616,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:19.904Z",
-      "weight": 0.04
+      "weight": 0.0302
     },
     {
       "t": "068270",
@@ -658,7 +658,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:21.153Z",
-      "weight": 0.04
+      "weight": 0.0302
     },
     {
       "t": "105560",
@@ -700,7 +700,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:22.380Z",
-      "weight": 0.04
+      "weight": 0.0604
     },
     {
       "t": "010950",
@@ -742,7 +742,7 @@
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
       "asOf": "2026-06-01T09:42:23.936Z",
-      "weight": 0.04
+      "weight": 0.0604
     }
   ],
   "documents": [

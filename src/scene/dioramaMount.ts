@@ -9,6 +9,11 @@ const DIORAMA_HEIGHT_MUL = 1.15;
 /** Per-ticker fine-tune after fit (only if geometry fix is insufficient). */
 const DIORAMA_Y_AFTER_FIT: Record<string, number> = {};
 
+/** Per-ticker scale after lot fit (1 = default). Kakao campus reads small on tile. */
+const DIORAMA_FIT_SCALE_MUL: Record<string, number> = {
+  '035720': 1.3,
+};
+
 /**
  * Wrap DESIGN diorama on a child group so MAIN root hover scale (footprintRestXZ) stays separate.
  * Returns null when no builder → caller falls back to cube.
@@ -80,6 +85,13 @@ export function fitDioramaWrapperToLot(wrapper: THREE.Group, footW: number, foot
   alignWrapperToLotFloor(wrapper);
 
   const ticker = wrapper.name.startsWith('diorama:') ? wrapper.name.slice(8) : '';
+  const fitMul = DIORAMA_FIT_SCALE_MUL[ticker] ?? 1;
+  if (fitMul !== 1) {
+    wrapper.scale.multiplyScalar(fitMul);
+    wrapper.updateMatrixWorld(true);
+    alignWrapperToLotFloor(wrapper);
+  }
+
   const yFix = DIORAMA_Y_AFTER_FIT[ticker];
   if (yFix != null) wrapper.position.y += yFix;
 }

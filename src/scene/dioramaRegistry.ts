@@ -2,10 +2,13 @@ import * as THREE from 'three';
 import { createAlbemarle } from './dioramas/albemarleCampus';
 import { createAmazonWarehouse } from './dioramas/amazonCampus';
 import { createAppleCampus } from './dioramas/appleCampus';
+import { createCelltrion, createSamsungBiologics } from './dioramas/bioPharma';
 import { createBoeing } from './dioramas/boeingAssembly';
 import { createCocaCola } from './dioramas/cocaColaCampus';
 import { createGoogleCampus } from './dioramas/googleCampus';
+import { createHyundaiMotor } from './dioramas/hyundaiMotor';
 import { createNvidiaFab } from './dioramas/nvidia';
+import { createKbFinancial } from './dioramas/kbFinancial';
 import { createKakao } from './dioramas/kakaoCampus';
 import { createMicrosoftCampus } from './dioramas/microsoftCampus';
 import { createNaver } from './dioramas/naverCampus';
@@ -30,7 +33,11 @@ export const DIORAMA_BY_TICKER: Record<string, () => THREE.Group> = {
   KO: createCocaCola,
   '005930': createSamsungFab,
   '000660': createSKHynixFab,
+  '005380': createHyundaiMotor,
+  '068270': createCelltrion,
+  '207940': createSamsungBiologics,
   '010950': createSOilRefinery,
+  '105560': createKbFinancial,
   '035420': createNaver,
   '035720': createKakao,
 };
