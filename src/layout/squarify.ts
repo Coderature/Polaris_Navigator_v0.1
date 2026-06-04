@@ -94,8 +94,14 @@ export interface StockRect extends RectWithRef<StockRow> {
 export type LayoutWeightMode = 'linear' | 'log';
 export type LayoutBalanceMode = 'balanced' | 'cap';
 
-/** Overview 등: 최대/최소 종목 가중치 비율 상한 (150% 차이 ≈ 2.5×) */
-const MAX_LAYOUT_WEIGHT_RATIO = 2.5;
+/** Overview: 섹터·종목 내 최대/최소 면적 비율 상한 (4× ≈ 300% 차이까지 허용) */
+const MAX_LAYOUT_WEIGHT_RATIO = 4;
+
+/** 1종목만 있는 GICS 섹터는 단독 타일이 과대해지지 않도록 면적을 줄임 */
+const SINGLETON_SECTOR_WEIGHT_FACTOR = 0.68;
+
+/** Layout input: portfolio weight if set, else market cap. */
+const holdW = (s: StockRow) => s.weight ?? Math.max(s.cap || 0, 1e-9);
 
 function compressCapWeights(caps: number[], maxRatio = MAX_LAYOUT_WEIGHT_RATIO): number[] {
   if (caps.length === 0) return [];
@@ -115,7 +121,7 @@ function buildBalancedWeightMap(stocks: StockRow[], layoutSectorByTicker: Map<st
   }
   const map = new Map<string, number>();
   for (const list of Object.values(bySec)) {
-    const compressed = compressCapWeights(list.map((s) => s.cap || 0));
+    const compressed = compressCapWeights(list.map((s) => holdW(s)));
     list.forEach((st, i) => map.set(st.t, compressed[i]));
   }
   return map;
@@ -131,10 +137,11 @@ function stockLayoutWeight(
   weightMode: LayoutWeightMode,
   balanceMode: LayoutBalanceMode,
 ): number {
+  const base = holdW(st);
   const raw =
     balanceMode === 'cap'
-      ? Math.max(st.cap || 0, 1e-9)
-      : (balancedWeights.get(st.t) ?? Math.max(st.cap || 0, 1e-9));
+      ? Math.max(base, 1e-9)
+      : (balancedWeights.get(st.t) ?? Math.max(base, 1e-9));
   return layoutWeight(raw, weightMode);
 }
 
@@ -142,11 +149,16 @@ export function computeLayout(
   stocks: StockRow[],
   W: number,
   H: number,
-  options?: { weightMode?: LayoutWeightMode; balanceMode?: LayoutBalanceMode },
+  options?: {
+    weightMode?: LayoutWeightMode;
+    balanceMode?: LayoutBalanceMode;
+    consolidateSingletons?: boolean;
+  },
 ): { sectorRects: RectWithRef<string>[]; stockRects: StockRect[] } {
   const weightMode = options?.weightMode ?? 'linear';
   const balanceMode = options?.balanceMode ?? 'balanced';
-  const normalized = consolidateSingletons(stocks);
+  const shouldConsolidate = options?.consolidateSingletons !== false;
+  const normalized = shouldConsolidate ? consolidateSingletons(stocks) : stocks;
   const layoutSectorByTicker = new Map(normalized.map((s) => [s.t, s.s]));
   const balancedWeights =
     balanceMode === 'balanced' ? buildBalancedWeightMap(stocks, layoutSectorByTicker) : new Map<string, number>();
@@ -157,13 +169,15 @@ export function computeLayout(
     (bySec[secId] ??= []).push(st);
   }
   const sectorItems = Object.keys(bySec)
-    .map((id) => ({
-      id,
-      value: bySec[id].reduce(
-        (a, b) => a + stockLayoutWeight(b, balancedWeights, 'linear', balanceMode),
+    .map((id) => {
+      const members = bySec[id];
+      let value = members.reduce(
+        (a, b) => a + stockLayoutWeight(b, balancedWeights, weightMode, balanceMode),
         0,
-      ),
-    }))
+      );
+      if (members.length === 1) value *= SINGLETON_SECTOR_WEIGHT_FACTOR;
+      return { id, value };
+    })
     .sort((a, b) => b.value - a.value);
   const sectorValues =
     balanceMode === 'cap'
@@ -183,7 +197,7 @@ export function computeLayout(
 
   const stockRects: StockRect[] = [];
   for (const r of sectorRects) {
-    const pad = balanceMode === 'cap' ? 0.22 : 0.32;
+    const pad = 4.0;
     const innerX = r.x + pad;
     const innerY = r.y + pad;
     const innerW = Math.max(0.1, r.w - pad * 2);

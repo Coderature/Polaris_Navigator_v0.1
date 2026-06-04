@@ -1,4 +1,5 @@
 import type { RawDocument, RiskExtraction, SectorDef, StockRow, TreemapDataFile } from '../types';
+import { mergeMissingSectorDefs, SECTOR_DEFS } from './sectorDefs';
 
 function tickerDailyChg(t: string): number {
   let h = 2166136261;
@@ -67,10 +68,11 @@ export async function loadTreemapData(): Promise<{
   const documents      = pipelineData?.documents      ?? [];
   const extractedRisks = pipelineData?.extractedRisks ?? [];
 
-  const sectors = [...data.sectors];
-  if (!sectors.some((s) => s.id === 'OTHERS')) {
-    sectors.push({ id: 'OTHERS', name: 'Others', ko: '기타', color: '#888888' });
-  }
+  const sectorColorsById = new Map(SECTOR_DEFS.map((s) => [s.id, s.color]));
+  const sectors = mergeMissingSectorDefs([...data.sectors]).map((s) => ({
+    ...s,
+    color: sectorColorsById.get(s.id) ?? s.color,
+  }));
 
   return { sectors, stocks, generatedAt: snap, documents, extractedRisks };
 }

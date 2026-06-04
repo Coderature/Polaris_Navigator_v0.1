@@ -1,13 +1,16 @@
 import type { SectorDef, StockRow } from '../types';
-import { computeLayout, consolidateSingletons, type LayoutBalanceMode, type LayoutWeightMode, type StockRect } from '../layout/squarify';
+import { computeLayout, type LayoutBalanceMode, type LayoutWeightMode, type StockRect } from '../layout/squarify';
 import { TREE_MAP_HEIGHT, TREE_MAP_WIDTH } from '../layout/treemapLayoutConstants';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { fitBuildingModelToLot, loadBuildingTemplates, type BuildingTemplateLibrary } from './buildingTemplates';
-import { attachBuildingTopLabel } from './buildingLabels';
+import { attachBuildingTopLabel, attachBuildingWeightLabel } from './buildingLabels';
+import { computeCapWeightMap, stockVisualFootprintPad, type CapWeightPct } from './capWeights';
+import { buildDioramaContent, fitDioramaWrapperToLot } from './dioramaMount';
 
 export type NavigatorVisualMode = 'overview' | 'chg' | 'marketCap';
 export type ViewMode = NavigatorVisualMode;
+
+export type TreemapBuildProgress = (done: number, total: number, phase: string) => void;
 
 /** 시가총액 모드: 타일 면적이 이미 시총 비율이므로 빌딩은 구역을 그대로 채움. */
 export function applyMarketCapFootprint(building: THREE.Group, _cap: number, _maxCap: number) {
@@ -32,27 +35,6 @@ function getChangeColor(chg: number, halted: boolean): THREE.Color {
   return new THREE.Color(CHANGE_COLORS.flat);
 }
 
-/** Overview: 평탄한 스카이라인 (네온 구역 가독성). */
-function overviewNeutralHeight(st: StockRow): number {
-  const BASE = 3.05;
-  const j = (tickerStyleSeed(st.t) % 19) / 19;
-  return BASE + j * 0.38;
-}
-
-/** 등락: 높이로 등락 강도 (직육면체 스케일 기준, 범위는 과장 없이 약하게). */
-function computeChgTowerHeight(st: StockRow): number {
-  const BASE = 0.48;
-  const UP_MAX = 4.85;
-  const DOWN_MAX = 1.95;
-  const SCALE = 5.2;
-  if (st.halted) return 0.4;
-  const chg = st.chg ?? 0;
-  const norm = Math.min(1, Math.abs(chg) / SCALE);
-  const curve = Math.sqrt(norm);
-  if (chg >= 0) return BASE + curve * (UP_MAX - BASE);
-  return BASE + curve * (DOWN_MAX - BASE);
-}
-
 export function getBuildingColor(stock: StockRow): THREE.Color {
   if (stock.halted) return new THREE.Color(0x555f70);
   const seed = tickerStyleSeed(stock.t);
@@ -66,42 +48,14 @@ function tickerStyleSeed(t: string): number {
   return Math.abs(h);
 }
 
-const factorySectors = new Set(['Industrials', 'Energy', 'Materials']);
-
-function tintSubtreeMeshesNeutral(root: THREE.Object3D, stock: StockRow) {
-  const bodyColor = getBuildingColor(stock);
-  root.traverse((child) => {
-    if (!(child instanceof THREE.Mesh)) return;
-    const prev = child.material;
-    let map: THREE.Texture | null = null;
-    let normalMap: THREE.Texture | null = null;
-    if (Array.isArray(prev)) {
-      const pm = prev[0] as THREE.MeshStandardMaterial;
-      map = pm?.map ?? null;
-      normalMap = pm?.normalMap ?? null;
-      prev.forEach((m) => m.dispose?.());
-    } else {
-      const pm = prev as THREE.MeshStandardMaterial;
-      map = pm?.map ?? null;
-      normalMap = pm?.normalMap ?? null;
-      prev.dispose?.();
-    }
-    child.material = new THREE.MeshStandardMaterial({
-      color: bodyColor.clone(),
-      roughness: 0.52,
-      metalness: 0.08,
-      emissive: new THREE.Color(0x000000),
-      map,
-      normalMap,
-    });
-  });
-}
-
-const LOT_GUTTER = 0.02;
+const LOT_GUTTER = 0.01;
+const SMALL_CUBE_RATIO = 0.48;
+const SMALL_CUBE_MIN = 0.32;
+const SMALL_CUBE_MAX = 0.92;
 
 /** Overview 바닥: 분위기용 연한 초록 필드 (섹터 색으로 채우지 않음). */
-const OVERVIEW_FLOOR_COLOR = 0x8fe6b8;
-const OVERVIEW_FLOOR_OPACITY = 0.16;
+const OVERVIEW_FLOOR_COLOR = 0xb8f7d3;
+const OVERVIEW_FLOOR_OPACITY = 0.35;
 
 /** 등락 모드 전용 — 함몰 박스가 비치도록 반투명 바닥. */
 const CHG_FLOOR_COLOR = 0x0d1520;
@@ -118,6 +72,10 @@ function lotFootprint(r: StockRect): { footW: number; footD: number } {
   };
 }
 
+function smallCubeSize(footW: number, footD: number): number {
+  return THREE.MathUtils.clamp(Math.min(footW, footD) * SMALL_CUBE_RATIO, SMALL_CUBE_MIN, SMALL_CUBE_MAX);
+}
+
 /** 섹터 구역 외곽선 (바닥 면과 분리). layout (x,y) → THREE (x,z). */
 function createSectorBoundaryLine(
   parent: THREE.Group,
@@ -129,6 +87,7 @@ function createSectorBoundaryLine(
   sectorId: string,
 ): THREE.Line {
   const y = 0.15;
+  const yInner = 0.155;
   const pts = [
     new THREE.Vector3(sx, y, sz),
     new THREE.Vector3(sx + sw, y, sz),
@@ -140,18 +99,40 @@ function createSectorBoundaryLine(
   const mat = new THREE.LineBasicMaterial({
     color: new THREE.Color(hex),
     transparent: true,
-    opacity: 0.55,
+    opacity: 0.85,
     depthWrite: false,
   });
   const line = new THREE.Line(geo, mat);
   line.userData.sectorBoundary = true;
   line.userData.sectorId = sectorId;
   parent.add(line);
+
+  const innerOffset = 0.18;
+  if (sw > innerOffset * 2 && sh > innerOffset * 2) {
+    const innerPts = [
+      new THREE.Vector3(sx + innerOffset, yInner, sz + innerOffset),
+      new THREE.Vector3(sx + sw - innerOffset, yInner, sz + innerOffset),
+      new THREE.Vector3(sx + sw - innerOffset, yInner, sz + sh - innerOffset),
+      new THREE.Vector3(sx + innerOffset, yInner, sz + sh - innerOffset),
+      new THREE.Vector3(sx + innerOffset, yInner, sz + innerOffset),
+    ];
+    const innerGeo = new THREE.BufferGeometry().setFromPoints(innerPts);
+    const innerMat = new THREE.LineBasicMaterial({
+      color: new THREE.Color(hex),
+      transparent: true,
+      opacity: 0.55,
+      depthWrite: false,
+    });
+    const innerLine = new THREE.Line(innerGeo, innerMat);
+    innerLine.userData.sectorBoundary = true;
+    innerLine.userData.sectorId = sectorId;
+    parent.add(innerLine);
+  }
   return line;
 }
 
 /** Overview 섹터만 보기 — 종목 타일 면 (섹터 색 + 밝기 변화). */
-const STOCK_LOT_GAP = 0.05;
+const STOCK_LOT_GAP = 0.04;
 
 function stockLotFillColor(hex: string, ticker: string): THREE.Color {
   const c = new THREE.Color(hex);
@@ -169,7 +150,7 @@ function createStockLotFillMesh(r: StockRect, hex: string, layoutSectorId: strin
   const mat = new THREE.MeshBasicMaterial({
     color: stockLotFillColor(hex, r.ref.t),
     transparent: true,
-    opacity: 0.52,
+    opacity: 0.38,
     depthWrite: false,
     side: THREE.DoubleSide,
   });
@@ -184,6 +165,7 @@ function createStockLotFillMesh(r: StockRect, hex: string, layoutSectorId: strin
 }
 
 function createStockLotBoundaryLine(r: StockRect, hex: string, layoutSectorId: string): THREE.Line {
+  void hex;
   const gap = STOCK_LOT_GAP;
   const x = r.x + gap;
   const z = r.y + gap;
@@ -198,11 +180,11 @@ function createStockLotBoundaryLine(r: StockRect, hex: string, layoutSectorId: s
     new THREE.Vector3(x, y, z),
   ];
   const geo = new THREE.BufferGeometry().setFromPoints(pts);
-  const col = new THREE.Color(hex);
+  const col = new THREE.Color('#1e293b');
   const mat = new THREE.LineBasicMaterial({
     color: col,
     transparent: true,
-    opacity: 0.62,
+    opacity: 0.78,
     depthWrite: false,
   });
   const line = new THREE.Line(geo, mat);
@@ -252,17 +234,23 @@ export class TreemapScene {
   private footprintGlobalLerpEnd = 0;
 
   private layoutWeightMode: LayoutWeightMode = 'linear';
-  private layoutBalanceMode: LayoutBalanceMode = 'balanced';
+  private layoutBalanceMode: LayoutBalanceMode = 'cap';
+  private pendingStockRects: StockRect[] = [];
   private savedCameraBeforeChg: { pos: THREE.Vector3; target: THREE.Vector3 } | null = null;
+  private readonly capWeightMap: Map<string, CapWeightPct>;
+  private readonly sectorMaxCapById = new Map<string, number>();
 
   static async create(
     canvas: HTMLCanvasElement,
     stocks: StockRow[],
     sectors: SectorDef[],
     wrap: HTMLElement,
+    onProgress?: TreemapBuildProgress,
   ): Promise<TreemapScene> {
-    const buildingLib = await loadBuildingTemplates();
-    return new TreemapScene(canvas, stocks, sectors, wrap, buildingLib);
+    const scene = new TreemapScene(canvas, stocks, sectors, wrap, true);
+    await scene.buildStocksAsync(onProgress);
+    scene.intro();
+    return scene;
   }
 
   constructor(
@@ -270,11 +258,16 @@ export class TreemapScene {
     private readonly stocks: StockRow[],
     sectors: SectorDef[],
     private readonly wrap: HTMLElement,
-    private readonly buildingLib: BuildingTemplateLibrary | null = null,
+    deferStockBuild = false,
   ) {
     this.secById = Object.fromEntries(sectors.map((s) => [s.id, s]));
 
     this.maxStockCap = Math.max(...stocks.map((s) => s.cap), 1e-9);
+    this.capWeightMap = computeCapWeightMap(stocks);
+    for (const st of stocks) {
+      const prev = this.sectorMaxCapById.get(st.s) ?? 0;
+      this.sectorMaxCapById.set(st.s, Math.max(prev, st.cap || 0));
+    }
 
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -302,10 +295,14 @@ export class TreemapScene {
 
     const TREE_W = TREE_MAP_WIDTH;
     const TREE_H = TREE_MAP_HEIGHT;
-    const { sectorRects, stockRects } = computeLayout(stocks, TREE_W, TREE_H);
+    const { sectorRects, stockRects } = computeLayout(stocks, TREE_W, TREE_H, {
+      consolidateSingletons: false,
+      weightMode: 'linear',
+      balanceMode: 'cap',
+    });
+    this.pendingStockRects = stockRects;
     this.sectorLayoutRects = sectorRects;
-    const normalized = consolidateSingletons(stocks);
-    for (const s of normalized) this.layoutSectorByTicker.set(s.t, s.s);
+    for (const s of stocks) this.layoutSectorByTicker.set(s.t, s.s);
 
     const floorGeo = new THREE.PlaneGeometry(TREE_W + 12, TREE_H + 12);
     /** 조명에 하이라이트되어 하얗게 날아가지 않도록 Basic 유지 */
@@ -335,16 +332,34 @@ export class TreemapScene {
     this.applyFloorAndBoundaryStyleForVisualMode();
 
     this.scene.add(this.stockGroup);
-    for (const r of stockRects) {
-      this.addStockBuilding(r);
+    if (!deferStockBuild) {
+      for (const r of stockRects) {
+        this.addStockBuilding(r);
+      }
+      this.syncStockLotOverlays();
     }
-    this.syncStockLotOverlays();
 
     this.ro = new ResizeObserver(() => this.resize());
     this.ro.observe(wrap);
     window.addEventListener('beforeunload', this.disposeAll);
 
-    this.intro();
+    if (!deferStockBuild) this.intro();
+  }
+
+  private async buildStocksAsync(onProgress?: TreemapBuildProgress): Promise<void> {
+    const rects = this.pendingStockRects;
+    const total = rects.length;
+    onProgress?.(0, total, '3D 마을 지도를 준비하는 중…');
+    const batch = 2;
+    for (let i = 0; i < total; i++) {
+      this.addStockBuilding(rects[i]!);
+      if (i % batch === batch - 1 || i === total - 1) {
+        onProgress?.(i + 1, total, `종목 건물 배치 중… (${i + 1}/${total})`);
+        await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+      }
+    }
+    this.syncStockLotOverlays();
+    onProgress?.(total, total, '마을 입장 준비 완료');
   }
 
   setVisualMode(mode: NavigatorVisualMode) {
@@ -392,7 +407,7 @@ export class TreemapScene {
         }
         this.applyLayout('log', 'balanced');
       } else if (prev === 'chg' || prev === 'marketCap') {
-        this.applyLayout('linear', 'balanced');
+        this.applyLayout('linear', 'cap');
         if (prev === 'chg' && this.savedCameraBeforeChg) {
           this.camera.position.copy(this.savedCameraBeforeChg.pos);
           this.controls.target.copy(this.savedCameraBeforeChg.target);
@@ -502,11 +517,14 @@ export class TreemapScene {
 
   private setStockLotOverlayVisible(visible: boolean) {
     for (const child of this.stockLotFillGroup.children) child.visible = visible;
-    for (const line of this.stockLotBoundaryLines) line.visible = visible;
   }
 
   get isOverviewSectorOnly(): boolean {
     return this.overviewSectorOnly;
+  }
+
+  get layoutSectorCount(): number {
+    return this.sectorLayoutRects.length;
   }
 
   getStocksInLayoutSector(sectorId: string): StockRow[] {
@@ -542,12 +560,12 @@ export class TreemapScene {
       if (!(child instanceof THREE.Mesh)) continue;
       const mat = child.material as THREE.MeshBasicMaterial;
       const stock = child.userData.stock as StockRow;
-      mat.opacity = hi && stock === hi ? 0.78 : 0.52;
+      mat.opacity = hi && stock === hi ? 0.78 : 0.38;
     }
     for (const line of this.stockLotBoundaryLines) {
       const mat = line.material as THREE.LineBasicMaterial;
       const stock = line.userData.stock as StockRow;
-      mat.opacity = hi && stock === hi ? 0.95 : 0.62;
+      mat.opacity = hi && stock === hi ? 0.95 : 0.78;
     }
   }
 
@@ -579,13 +597,13 @@ export class TreemapScene {
   }
 
   private boundaryBaseOpacity(): number {
-    if (this.overviewSectorOnly) return 0.72;
-    return this.visualMode === 'overview' ? 0.52 : 0.68;
+    if (this.overviewSectorOnly) return 0.92;
+    return this.visualMode === 'overview' ? 0.82 : 0.85;
   }
 
   private boundaryHoverOpacity(): number {
-    if (this.overviewSectorOnly) return 0.95;
-    return this.visualMode === 'overview' ? 0.78 : 0.88;
+    if (this.overviewSectorOnly) return 1.0;
+    return 1.0;
   }
 
   private updateSectorBoundaryHighlight() {
@@ -680,7 +698,7 @@ export class TreemapScene {
       fill.visible = this.overviewSectorOnly;
       this.stockLotFillGroup.add(fill);
       const border = createStockLotBoundaryLine(r, color, layoutSec);
-      border.visible = this.overviewSectorOnly;
+      border.visible = true;
       this.stockLotBoundaryRoot.add(border);
       this.stockLotBoundaryLines.push(border);
     }
@@ -698,6 +716,7 @@ export class TreemapScene {
     const { sectorRects, stockRects } = computeLayout(this.stocks, TREE_MAP_WIDTH, TREE_MAP_HEIGHT, {
       weightMode,
       balanceMode,
+      consolidateSingletons: false,
     });
     this.rebuildSectorBoundaries(sectorRects);
     for (const r of stockRects) {
@@ -773,6 +792,12 @@ export class TreemapScene {
     this.disposeAll();
   }
 
+  private attachCapWeightLabel(pivot: THREE.Group, st: StockRow, footW: number, footD: number) {
+    const w = this.capWeightMap.get(st.t);
+    if (!w) return;
+    attachBuildingWeightLabel(pivot, w.totalPct, w.sectorPct, footW, footD);
+  }
+
   private clearBuildingGroup(group: THREE.Group) {
     this.removeChangeRoof(group);
     while (group.children.length > 0) {
@@ -794,18 +819,6 @@ export class TreemapScene {
     }
   }
 
-  private targetHeightForStock(st: StockRow): number {
-    switch (this.visualMode) {
-      case 'overview':
-      case 'marketCap':
-        return overviewNeutralHeight(st);
-      case 'chg':
-        return computeChgTowerHeight(st);
-      default:
-        return overviewNeutralHeight(st);
-    }
-  }
-
   private removeChangeRoof(group: THREE.Group) {
     const roof = group.userData.changeRoof as THREE.Mesh | undefined;
     if (roof) {
@@ -818,143 +831,99 @@ export class TreemapScene {
 
   private buildStockBuildingContent(group: THREE.Group, r: StockRect, st: StockRow) {
     if (this.visualMode === 'chg') {
-      this.buildChgBoxStockBuildingContent(group, r, st);
+      const color = getChangeColor(st.chg ?? 0, !!st.halted);
+      const intensity = THREE.MathUtils.clamp(Math.abs(st.chg ?? 0) / 6, 0.06, 0.38);
+      this.buildSmallCubeStockBuildingContent(group, r, st, color, {
+        attachLabel: false,
+        useDiorama: false,
+        emissive: color,
+        emissiveIntensity: intensity,
+      });
       return;
     }
-    if (this.buildingLib) {
-      this.buildGltfStockBuildingContent(group, r, st);
-      return;
-    }
-    this.buildProceduralStockBuildingContent(group, r, st);
+    this.buildSmallCubeStockBuildingContent(group, r, st, getBuildingColor(st), {
+      attachLabel: true,
+      useDiorama: true,
+    });
   }
 
-  /** 등락: GLTF·층 없이 단일 직육면체, 색은 등락 방향. */
-  private buildChgBoxStockBuildingContent(group: THREE.Group, r: StockRect, st: StockRow) {
+  private buildSmallCubeStockBuildingContent(
+    group: THREE.Group,
+    r: StockRect,
+    st: StockRow,
+    color: THREE.Color,
+    opts: {
+      attachLabel: boolean;
+      useDiorama?: boolean;
+      emissive?: THREE.Color;
+      emissiveIntensity?: number;
+    },
+  ) {
     this.clearBuildingGroup(group);
     const { footW, footD } = lotFootprint(r);
-    const H0 = computeChgTowerHeight(st);
-    const inset = 0.96;
-    const bw = Math.max(0.25, footW * inset);
-    const bd = Math.max(0.25, footD * inset);
-
+    const sectorMaxCap = this.sectorMaxCapById.get(st.s) ?? st.cap ?? 1;
+    // 시연용: overview에서도 시총 차등 축소 없이 고정 pad → 디오라마 균등 크기
+    const dioramaPad = 0.92;
     const pivot = new THREE.Group();
     group.add(pivot);
 
-    const col = getChangeColor(st.chg ?? 0, !!st.halted);
-    const intensity = THREE.MathUtils.clamp(Math.abs(st.chg ?? 0) / 6, 0.06, 0.38);
-    const chg = st.chg ?? 0;
-    const dir = st.halted || Math.abs(chg) <= 0.1 ? 1 : chg > 0 ? 1 : -1;
+    if (opts.useDiorama !== false) {
+      const diorama = buildDioramaContent(st.t);
+      if (diorama) {
+        pivot.add(diorama);
+        fitDioramaWrapperToLot(diorama, footW, footD, dioramaPad);
+        const roofBox = new THREE.Box3().setFromObject(diorama);
+        const roofY = Math.max(roofBox.max.y, 0.4);
+
+        group.userData.stock = st;
+        group.userData.rect = r;
+        group.userData.baseColor = getBuildingColor(st);
+        group.userData.heightPivot = pivot;
+        group.userData.referenceFitHeight = roofY;
+        group.userData.targetVisualHeight = roofY;
+        group.userData.pivotRoofLocalY = roofY;
+        group.userData.footW = footW;
+        group.userData.footD = footD;
+        pivot.scale.y = 1;
+        if (opts.attachLabel) {
+          attachBuildingTopLabel(pivot, st, roofY, footW, footD);
+        }
+        this.attachCapWeightLabel(pivot, st, footW, footD);
+        return;
+      }
+    }
+
+    const cubeSize = smallCubeSize(footW, footD);
+    if (this.visualMode === 'overview') {
+      const s = stockVisualFootprintPad(st.cap, sectorMaxCap) / 0.9;
+      pivot.scale.set(s, 1, s);
+    }
     const mat = new THREE.MeshStandardMaterial({
-      color: col.clone(),
-      emissive: col.clone(),
-      emissiveIntensity: intensity,
-      roughness: 0.44,
-      metalness: 0.1,
+      color: color.clone(),
+      emissive: (opts.emissive ?? new THREE.Color(0x000000)).clone(),
+      emissiveIntensity: opts.emissiveIntensity ?? 0,
+      roughness: 0.5,
+      metalness: 0.08,
     });
-    const mesh = new THREE.Mesh(new THREE.BoxGeometry(bw, H0, bd), mat);
-    mesh.position.y = dir * (H0 / 2);
-    mesh.name = 'chgBox';
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize), mat);
+    mesh.position.y = cubeSize / 2;
+    mesh.name = 'stockCube';
     pivot.add(mesh);
 
     group.userData.stock = st;
     group.userData.rect = r;
-    group.userData.baseColor = col.clone();
+    group.userData.baseColor = color.clone();
     group.userData.heightPivot = pivot;
-    group.userData.referenceFitHeight = H0;
-    group.userData.pivotRoofLocalY = dir > 0 ? H0 : 0;
-    group.userData.chgDir = dir;
+    group.userData.referenceFitHeight = cubeSize;
+    group.userData.targetVisualHeight = cubeSize;
+    group.userData.pivotRoofLocalY = cubeSize;
     group.userData.footW = footW;
     group.userData.footD = footD;
     pivot.scale.y = 1;
-  }
-
-  private buildGltfStockBuildingContent(group: THREE.Group, r: StockRect, st: StockRow) {
-    this.clearBuildingGroup(group);
-    const sec = this.secById[st.s];
-    const { footW, footD } = lotFootprint(r);
-    const H0 = overviewNeutralHeight(st);
-    const seed = tickerStyleSeed(st.t);
-    const bodyColor = getBuildingColor(st);
-
-    const pivot = new THREE.Group();
-    pivot.position.y = 0;
-    group.add(pivot);
-
-    const model = this.buildingLib!.cloneVariant(seed, { preferFactory: factorySectors.has(sec.name) });
-    model.rotation.set(0, 0, 0);
-    model.scale.set(1, 1, 1);
-    model.position.set(0, 0, 0);
-    fitBuildingModelToLot(model, footW, footD, H0);
-    pivot.add(model);
-    tintSubtreeMeshesNeutral(model, st);
-
-    pivot.updateMatrixWorld(true);
-    const box = new THREE.Box3().setFromObject(pivot);
-    const pivotRoofY = box.max.y;
-
-    group.userData.stock = st;
-    group.userData.rect = r;
-    group.userData.baseColor = bodyColor;
-    group.userData.heightPivot = pivot;
-    group.userData.referenceFitHeight = H0;
-    group.userData.pivotRoofLocalY = pivotRoofY;
-    group.userData.footW = footW;
-    group.userData.footD = footD;
-    pivot.scale.y = 1;
-    attachBuildingTopLabel(pivot, st, pivotRoofY, footW, footD);
-  }
-
-  private buildProceduralStockBuildingContent(group: THREE.Group, r: StockRect, st: StockRow) {
-    this.clearBuildingGroup(group);
-    const { footW, footD } = lotFootprint(r);
-    const H0 = overviewNeutralHeight(st);
-    const bodyColor = getBuildingColor(st);
-    const capNeutral = new THREE.Color(0x252b38);
-
-    const pivot = new THREE.Group();
-    pivot.position.y = 0;
-    group.add(pivot);
-
-    let yTop = 0;
-    const bodyInset = 0.9;
-    const bodyW = footW * bodyInset;
-    const bodyD = footD * bodyInset;
-    const bodyH = Math.max(0.25, H0 * 0.75);
-    const bodyMat = new THREE.MeshStandardMaterial({
-      color: bodyColor,
-      roughness: 0.52,
-      metalness: 0.08,
-      emissive: new THREE.Color(0x000000),
-    });
-    const bodyGeo = new THREE.BoxGeometry(bodyW, bodyH, bodyD);
-    const body = new THREE.Mesh(bodyGeo, bodyMat);
-    body.position.y = yTop + bodyH / 2;
-    pivot.add(body);
-    yTop += bodyH;
-
-    const capH = Math.max(0.06, H0 * 0.04);
-    const capMat = new THREE.MeshStandardMaterial({
-      color: capNeutral,
-      roughness: 0.35,
-      metalness: 0.2,
-      emissive: new THREE.Color(0x000000),
-    });
-    const cap = new THREE.Mesh(new THREE.BoxGeometry(bodyW + 0.06, capH, bodyD + 0.06), capMat);
-    cap.position.y = yTop + capH / 2;
-    pivot.add(cap);
-
-    const pivotRoofY = yTop + capH;
-
-    group.userData.stock = st;
-    group.userData.rect = r;
-    group.userData.baseColor = bodyColor;
-    group.userData.heightPivot = pivot;
-    group.userData.referenceFitHeight = H0;
-    group.userData.pivotRoofLocalY = pivotRoofY;
-    group.userData.footW = footW;
-    group.userData.footD = footD;
-    pivot.scale.y = 1;
-    attachBuildingTopLabel(pivot, st, pivotRoofY, footW, footD);
+    if (opts.attachLabel) {
+      attachBuildingTopLabel(pivot, st, cubeSize, footW, footD);
+    }
+    this.attachCapWeightLabel(pivot, st, footW, footD);
   }
 
   private addStockBuilding(r: StockRect) {
@@ -982,17 +951,16 @@ export class TreemapScene {
   }
 
   private updateBuildingAnimations(dt: number) {
+    void dt;
     for (const [st, group] of this.meshByStock) {
+      void st;
       const pivot = group.userData.heightPivot as THREE.Group | undefined;
       const ref = group.userData.referenceFitHeight as number | undefined;
+      const target = group.userData.targetVisualHeight as number | undefined;
       if (!pivot || ref == null || ref < 1e-6) continue;
-
-      let targetH = this.targetHeightForStock(st);
-
-      const maxMul = this.visualMode === 'chg' ? 2.25 : 3.4;
-      const mul = THREE.MathUtils.clamp(targetH / ref, 0.32, maxMul);
-      const k = Math.min(1, dt * 5.5);
-      pivot.scale.y += (mul - pivot.scale.y) * k;
+      if (target == null) continue;
+      const mul = THREE.MathUtils.clamp(target / ref, 0.32, 3.4);
+      pivot.scale.y += (mul - pivot.scale.y) * 0.45;
     }
   }
 
@@ -1010,10 +978,20 @@ export class TreemapScene {
     const now = performance.now();
     const dt = Math.min(0.08, (now - this.lastTick) / 1000);
     this.lastTick = now;
+    const nowSec = now * 0.001;
 
     this.controls.update();
     this.updateBuildingAnimations(dt);
     this.updateFootprintCapLerp(performance.now());
+    this.stockGroup.traverse((o) => {
+      const fn = o.userData.tick as ((t: number) => void) | undefined;
+      if (typeof fn !== 'function') return;
+      try {
+        fn(nowSec);
+      } catch (err) {
+        console.error(`[TreemapScene] diorama tick failed:`, err);
+      }
+    });
     this.resize();
     this.renderer.render(this.scene, this.camera);
   }

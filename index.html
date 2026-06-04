@@ -40,6 +40,11 @@
 
     <div id="scene-wrap">
       <canvas id="scene"></canvas>
+      <div id="village-guru-quote" class="splash-quote guru-quote-village" hidden aria-live="polite">
+        <div class="quote-deco" aria-hidden="true">✦</div>
+        <blockquote class="quote-text" id="village-quote-text"></blockquote>
+        <div class="quote-author" id="village-quote-author"></div>
+      </div>
       <div class="overview-scene-controls hidden" id="overviewSceneControls">
         <label class="overview-sector-switch">
           <input type="checkbox" id="overviewSectorOnlyInput" />
@@ -402,13 +407,26 @@
       </div>
     </div>
 
+    <!-- Village entry loading (Navigator 마을 방문하기) -->
+    <div class="village-loading" id="village-loading" hidden aria-busy="true" aria-live="polite">
+      <div class="village-loading-inner">
+        <div class="splash-logo">P</div>
+        <div class="splash-title">NAVIGATOR 마을</div>
+          <div class="splash-bar-track">
+          <div class="village-loading-bar-fill" id="village-loading-bar-fill"></div>
+        </div>
+        <div class="village-loading-pct" id="village-loading-pct">0%</div>
+        <div class="village-loading-sub splash-sub" id="village-loading-sub">Navigator 마을을 여는 중…</div>
+      </div>
+    </div>
+
     <!-- Splash: Loading + Guru Quote -->
     <div class="splash" id="splash" style="display:none">
       <div class="splash-loading" id="splash-loading">
         <div class="splash-logo">P</div>
         <div class="splash-title">POLARIS NAVIGATOR</div>
         <div class="splash-bar-track"><div class="splash-bar-fill"></div></div>
-        <div class="splash-sub">3D 시장 지도를 불러오는 중…</div>
+        <div class="splash-sub">Polaris Navigator 준비 중…</div>
       </div>
       <div class="splash-quote" id="splash-quote">
         <div class="quote-deco">✦</div>
