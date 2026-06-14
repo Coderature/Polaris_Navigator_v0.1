@@ -910,15 +910,32 @@ body::before {
 .panel-body .section.animate-in:nth-child(4) { animation-delay: 240ms; }
 .panel-body .section.animate-in:nth-child(5) { animation-delay: 300ms; }
 
-/* ── Metrics Grid — 3×2 카드 그리드 ── */
+/* ── Metrics Group — 카테고리 묶음 ── */
+.metrics-group {
+  margin-bottom: 14px;
+}
+.metrics-group:last-child {
+  margin-bottom: 0;
+}
+.metrics-group-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 0 2px 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 6px;
+}
+
+/* ── Metrics Grid ── */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
-/* 마지막 행에 셀이 1개만 남을 경우 전체 너비로 확장 */
-.metrics-grid > .metric-cell:last-child:nth-child(3n+1) {
-  grid-column: 1 / -1;
+.metrics-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .metric-cell {

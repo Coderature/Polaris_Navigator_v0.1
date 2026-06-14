@@ -36,7 +36,6 @@ function fmtGrowth(n: number | null | undefined): string {
 /** StockRow에서 metric ID에 해당하는 표시값 반환. yfinancePath는 문서용 참조. */
 function resolveDisplay(id: string, st: StockRow, sec: SectorDef): string {
   switch (id) {
-    case 'company.price':      return st.price != null ? fmtPrice(st.price, st.m) : '—';
     case 'company.change':     return st.chg   != null ? `${st.chg >= 0 ? '+' : ''}${st.chg.toFixed(2)}%` : '—';
     case 'company.mcap':       return fmtMcap(st.cap);
     case 'company.volume':     return st.vol   != null ? `${st.vol.toFixed(1)}M` : '—';
@@ -52,6 +51,7 @@ function resolveDisplay(id: string, st: StockRow, sec: SectorDef): string {
     case 'price.evEbitda':     return fmtRatio(st.evEbitda);
     case 'price.peg':          return fmtRatio(st.peg, 2);
 
+    case 'strength.fcfYield':    return fmtPct(st.fcfYield, 2);
     case 'strength.netMargin':   return fmtPct(st.netMargin);
     case 'strength.debtEquity':  return st.debtRatio != null ? `${st.debtRatio.toFixed(0)}%` : '—';
     case 'strength.opMargin':    return fmtPct(st.operatingMargin);
