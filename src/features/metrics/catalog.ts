@@ -11,7 +11,6 @@ export const CATEGORIES: CategoryDef[] = [
 // company.change는 패널 헤더에 이미 표시되므로 basic에서 제외
 export const METRICS: MetricDef[] = [
   // ① 회사 소개 (company)
-  { id: 'company.price',    category: 'company', subGroup: '시세', label: '현재가',    yfinancePath: 'price.regularMarketPrice',         format: 'currency', isBasic: true  },
   { id: 'company.change',   category: 'company', subGroup: '시세', label: '등락률',    yfinancePath: 'price.regularMarketChangePercent', format: 'percent',  isBasic: false },
   { id: 'company.mcap',     category: 'company', subGroup: '규모', label: '시가총액',  yfinancePath: 'summaryDetail.marketCap',          format: 'currency', isBasic: true  },
   { id: 'company.volume',   category: 'company', subGroup: '시세', label: '거래량',    yfinancePath: 'price.regularMarketVolume',        format: 'number',   isBasic: false },
@@ -29,7 +28,8 @@ export const METRICS: MetricDef[] = [
   { id: 'price.peg',        category: 'price', subGroup: '이익기준', label: 'PEG',         yfinancePath: 'defaultKeyStatistics.pegRatio',               format: 'ratio', isBasic: false },
 
   // ③ 회사 체력 (strength = 수익성+건전성+성장성)
-  { id: 'strength.netMargin',   category: 'strength', subGroup: '수익성', label: '순이익률',   yfinancePath: 'financialData.profitMargins',    format: 'percent', isBasic: true  },
+  { id: 'strength.fcfYield',    category: 'strength', subGroup: '현금흐름', label: 'FCF수익률', yfinancePath: 'financialData.freeCashflow',     format: 'percent', isBasic: true  },
+  { id: 'strength.netMargin',   category: 'strength', subGroup: '수익성', label: '순이익률',   yfinancePath: 'financialData.profitMargins',    format: 'percent', isBasic: false },
   { id: 'strength.debtEquity',  category: 'strength', subGroup: '건전성', label: '부채비율',   yfinancePath: 'financialData.debtToEquity',     format: 'number',  isBasic: true  },
   { id: 'strength.opMargin',    category: 'strength', subGroup: '수익성', label: '영업이익률', yfinancePath: 'financialData.operatingMargins', format: 'percent', isBasic: false },
   { id: 'strength.roe',         category: 'strength', subGroup: '수익성', label: 'ROE',        yfinancePath: 'financialData.returnOnEquity',   format: 'percent', isBasic: false },
@@ -48,7 +48,7 @@ export const METRICS: MetricDef[] = [
 
 export const BASIC_METRIC_IDS = METRICS.filter((m) => m.isBasic).map((m) => m.id);
 
-// 빌드 타임 검증 (6개가 아니면 에러)
-if (BASIC_METRIC_IDS.length !== 6) {
-  throw new Error(`BASIC_METRIC_IDS.length must be 6, got ${BASIC_METRIC_IDS.length}`);
+// 빌드 타임 검증 (5개가 아니면 에러)
+if (BASIC_METRIC_IDS.length !== 5) {
+  throw new Error(`BASIC_METRIC_IDS.length must be 5, got ${BASIC_METRIC_IDS.length}`);
 }
