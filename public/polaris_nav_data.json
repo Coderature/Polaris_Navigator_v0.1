@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T07:29:07.053Z",
+  "generatedAt": "2026-06-14T17:18:22.497Z",
   "sectors": [
     {
       "id": "IT",
@@ -74,14 +74,14 @@
       "n": "Apple Inc.",
       "m": "US",
       "s": "IT",
-      "cap": 4583.33618176,
-      "vol": 70.026752,
-      "div": 0.34999999,
-      "per": 37.733974,
-      "pbr": 42.98347,
+      "cap": 4275.929874432,
+      "vol": 37.90558,
+      "div": 0.37,
+      "per": 35.203144,
+      "pbr": 40.10055,
       "psr": null,
-      "evEbitda": 28.751,
-      "peg": 2.72,
+      "evEbitda": 26.83,
+      "peg": 2.35,
       "netMargin": 27.152001999999996,
       "operatingMargin": 32.275,
       "roe": 141.47099,
@@ -92,23 +92,104 @@
       "revenueGrowth": 16.6,
       "epsGrowth": 21.8,
       "payoutRatio": 12.590000000000002,
-      "week52High": 315,
+      "week52High": 317.4,
       "week52Low": 195.07,
-      "weight": 0.0528
+      "news": [
+        {
+          "source": "naver",
+          "title": "[천자칼럼] 첫발 내디딘 '화성 침공'",
+          "date": "2026-06-14",
+          "url": "https://www.hankyung.com/article/2026061452521",
+          "text": "상장 첫날 공모가 대비 20% 가까이 주가가 급등하며 시가총액이 3200조원에 달했다. 엔비디아, 알파벳, 애플 등에 이어 시총 6위를 차지했다. 지난해 7조원 넘는 순손실을 낸 기업이 이처럼 높은 평가를 받은 데는 우주를...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X 흥행 대박…금·채권·코인 돈까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436657",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를 63달러로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'1조 달러 사나이' 머스크, 자녀 1인당 유산 117조원 받는다",
+          "date": "2026-06-14",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=218216",
+          "text": "스페이스X 주가는 개장 직후 강한 매수세가 몰리며 한때 168달러까지 치솟았다. 글로벌 기업들과 어깨를 나란히 하는 초대형 기업 반열에 올라섰다. 시가총액 기준 엔비디아, 알파벳(구글 모기업), 애플...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'화성인' 머스크, 나스닥 안착… 전 지구인이 베팅하다 [글로벌 리포트...",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141842128916",
+          "text": "■135→160.95→166.75 2026년 6월 12일(현지시간), 나스닥에 'SPCX'라는 주식 종목 코드가 처음 떴을 때 주가는... 시총 1위는 엔비디아(4조9600억달러)이며 그 뒤를 알파벳(4조3800억달러), 애플(4조2700억달러)...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X, 단숨에 美 시총 6위… AI 인프라로 자금 몰리나",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141817122500",
+          "text": "상장과 동시에 스페이스X는 엔비디아, 알파벳, 애플, 마이크로소프트, 아마존에 이어 미국 증시 시가총액... 스페이스X 주가 흐름은 미국 증시는 물론 국내 반도체주 투자심리에도 적지 않은 영향을 미칠 것 이라고...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "‘역대급 블랙홀’ 스페이스X…금·코인·채권까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436620",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "시리AI 내놨는데 애플 주가는 폭락…왜? - 지디넷코리아",
+          "date": "2026-06-09",
+          "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0zV1ZVR2xKOVpEc3lmSzR2NF9SVGxpSFZNZktFVktTbE5vY3VIQk5abWxldVVRM2tRUktrN0Z3b0Y5MGZGT2tnTFVvU2ZZNUtna2ZkMkFB?oc=5",
+          "text": "시리AI 내놨는데 애플 주가는 폭락…왜? 지디넷코리아",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "애플, AI 시리 예상됐던 수준 실망에 주가 하락 - 연합인포맥스",
+          "date": "2026-06-09",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5rVjhZZmpjWHhMYjE3eVpUQmFJMjlENXJFS2Fxb2FZTHJpemNoZkRkRjdWdU1QcDRZbUxkc3NOOGVlN3ZpVXROckt2ME0wY2o0cXFpdTJ5a01XeEF6YlhRU1NsNzN6VTFScVlyNG5LejQ?oc=5",
+          "text": "애플, AI 시리 예상됐던 수준 실망에 주가 하락 연합인포맥스",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "애플 주가가 오늘 하락하는 이유는? - Investing.com 한국어",
+          "date": "2026-06-09",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5ObmhNRmx6NXNtSkhDOGFfd2Z5U3dhbmdNS1Etel9tdlVCYzlrVlpkV2x4TjQwZTVBUkdFYUMxajBjb3JfekZQSUlHMG81TXB1N2dOVDlxM0NGbm9FU0xSdS14M3VHRjNtTEhSa3k5Q2toVFNMQVdF?oc=5",
+          "text": "애플 주가가 오늘 하락하는 이유는? Investing.com 한국어",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "애플 주가 5월에 15% 급등···’질주’ 계속될까? - Benzinga",
+          "date": "2026-05-28",
+          "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPVlJhOFE5cElkTnNzTC1GTnVIUERCa0M0QUN2Z1NCV2k3c2FwSm5yS0hOVll3ZVRnWlFtVUkxWWtkSnY4Ny10MVl6UVFQT2JtOHdTS1pTZ1FJWGY3MTNkNUxKSkJPMUdZY2pnQ2lDNmtic2ZpRU9lamJ3dVFVMGlMRUpKVE1HX3NkWDBFaW5GeTJ1MlFEUGdfOUVoS2xMR3VSZld3bDFjQ3JvRkNTTG5JenBIWmZRa2tEQXBXMmpuREZQWUFYQUlwMVR0QkJqa0hhX1NLZHNqTHBlNkVzSlVSamlMekxUNnBGWC1aYWg0cDRvT1dIRExpcEhPdWtZa2hGSGY3eDZXUQ?oc=5",
+          "text": "애플 주가 5월에 15% 급등···’질주’ 계속될까? Benzinga",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "MSFT",
       "n": "Microsoft Corporation",
       "m": "US",
       "s": "IT",
-      "cap": 3344.578379776,
-      "vol": 79.654376,
-      "div": 0.8099999999999999,
-      "per": 26.81596,
-      "pbr": 8.0721445,
+      "cap": 2902.586556416,
+      "vol": 34.922036,
+      "div": 0.9299999999999999,
+      "per": 23.258333,
+      "pbr": 7.0053964,
       "psr": null,
-      "evEbitda": 18.388,
-      "peg": 1.39,
+      "evEbitda": 15.992,
+      "peg": 1.2,
       "netMargin": 39.341998000000004,
       "operatingMargin": 46.326,
       "roe": 34.013999,
@@ -121,21 +202,102 @@
       "payoutRatio": 20.729999,
       "week52High": 555.45,
       "week52Low": 356.28,
-      "weight": 0.0453
+      "news": [
+        {
+          "source": "naver",
+          "title": "스페이스X 흥행 대박…금·채권·코인 돈까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436657",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를 63달러로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'1조 달러 사나이' 머스크, 자녀 1인당 유산 117조원 받는다",
+          "date": "2026-06-14",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=218216",
+          "text": "주가는 개장 직후 강한 매수세가 몰리며 한때 168달러까지 치솟았다. 글로벌 기업들과 어깨를 나란히 하는 초대형 기업 반열에 올라섰다. 시가총액 기준 엔비디아, 알파벳(구글 모기업), 애플, 마이크로소프트 등에...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'화성인' 머스크, 나스닥 안착… 전 지구인이 베팅하다 [글로벌 리포트...",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141842128916",
+          "text": "■135→160.95→166.75 2026년 6월 12일(현지시간), 나스닥에 'SPCX'라는 주식 종목 코드가 처음 떴을 때 주가는... (4조2700억달러), 마이크로소프트(MS·2조8700억달러), 아마존(2조5400억달러)이 잇고 있다. 머스크의 테슬라는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "삼전닉스 끝난 줄 알았죠?…“아직 절반도 안 올랐다” 하반기 메모리 ...",
+          "date": "2026-06-14",
+          "url": "https://www.sedaily.com/article/20055570?ref=naver",
+          "text": "글로벌 주식시장에서 인공지능(AI)과 반도체 관련주가 일제히 조정을 받는 가운데 이번 하락이 단기 조정에... 델과 마이크로소프트의 AI 에이전트 PC 출시, 신형 아이폰의 AI 기능 탑재 등이 기폭제가 되면서...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X, 단숨에 美 시총 6위… AI 인프라로 자금 몰리나",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141817122500",
+          "text": "상장과 동시에 스페이스X는 엔비디아, 알파벳, 애플, 마이크로소프트, 아마존에 이어 미국 증시 시가총액... 스페이스X 주가 흐름은 미국 증시는 물론 국내 반도체주 투자심리에도 적지 않은 영향을 미칠 것 이라고...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "‘역대급 블랙홀’ 스페이스X…금·코인·채권까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436620",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "Down 18% in the Last 12 Months, Can Microsoft Stock Bounce Back in 2026? - TIKR.com",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNellvNWRUSkw0WVVJb1N3cDIzOWdrdEZIZkxJY2VxdzVqRWxuUGFxNWJvNk5Xdm9UQ2RJclRsbUZRVHRGTnNaMzZlcXJOcU9YZFNnVFdLam5aWnN0SEVpSDBXX3FCd3BySFpMUTRkWFJzZGp6Q0RyQjBtcTRxUHlfb2syOXlfTUk1dnRLOUhIdXhTWllCY3hKenBuTUFOY0sxQUVZLVF6R2FjRUJOWXJB?oc=5",
+          "text": "Down 18% in the Last 12 Months, Can Microsoft Stock Bounce Back in 2026? TIKR.com",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "마이크로소프트 주식, 오늘 왜 급등했나? - Investing.com 한국어",
+          "date": "2026-05-30",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9POHhENnNWUUc2UG1aekEycmFaN1djMkJXcGxqQ2h5R1VSLW16ZENmT3c5cHRadlFMRmNvQ1pNOFdSdk1BenZmajdvbWtHWm5ZUFJMS1Rhb2N5ZHVzMmhzVWxRWnMwWFczSWtHT19CQm44Z2YzWXhn?oc=5",
+          "text": "마이크로소프트 주식, 오늘 왜 급등했나? Investing.com 한국어",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "마이크로소프트 주가 하락... 엑스박스 저장장치 및 메모리 공급 문제 드러나,마이크로소프트,MSFT - wowglobal.co.kr",
+          "date": "2026-06-11",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1OTGhNZFpJN1dIRUNYZTQ1T2FXSGg3OS1wMzAtSnBCMkZFd3ozcmRnOGpWb0NEZHpZeWNlMjBMRE9LeDRnWk9CNzRHeVkzSXdXX1pPcGgySy1xY2hVN2t2b0Z2SGxMdw?oc=5",
+          "text": "마이크로소프트 주가 하락... 엑스박스 저장장치 및 메모리 공급 문제 드러나,마이크로소프트,MSFT wowglobal.co.kr",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "마이크로소프트, 화요일 주가 4% 하락한 이유는? - Benzinga",
+          "date": "2026-06-03",
+          "url": "https://news.google.com/rss/articles/CBMitAJBVV95cUxPbUdVSUlaVTdWcG5ZM0Fnb1F0eG9pRWN1cGFYUk9PYXg1b3AxNlNnSkxhck5rcDFyS2dnWTV1TEs1NHl3c3ZsMndyb05lVHRwZ3FxR0xZLXZDSjY3M3p4YURIOHc5b19Ta0dvRXBaZDQ0c0doMWJ2anlBNWNPaS1kQkVPMXhGTmhpaWVqQ1dyTGR1SkhmQlNqRHhWSkVpSWxKSVpza2dyQndNdDJGUDJoV2NNM0xRMFhBbU5Nckp5azluVnBocTF0ZnZJQ01CLW1yU2xhY3JtOHJUQVBza2k5cEl0RDRXMEFaN1FwMFJJNzRpOHN3WHI0Wk44dXNwQlhaT01QMDBCVERaNHVrSHZXTGlaanVCSWc5ckttY0trdDlYaWRGczVJXzFCaUtJbU0weGVKQw?oc=5",
+          "text": "마이크로소프트, 화요일 주가 4% 하락한 이유는? Benzinga",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "NVDA",
       "n": "NVIDIA Corporation",
       "m": "US",
       "s": "IT",
-      "cap": 5114.022068224,
-      "vol": 289.410623,
-      "div": 0.47000000000000003,
-      "per": 32.383434,
-      "pbr": 32.623608,
+      "cap": 4969.90683136,
+      "vol": 112.345314,
+      "div": 0.49,
+      "per": 31.422665,
+      "pbr": 25.426271,
       "psr": null,
-      "evEbitda": 30.627,
-      "peg": 0.65,
+      "evEbitda": 29.757,
+      "peg": 0.63,
       "netMargin": 62.966,
       "operatingMargin": 65.596,
       "roe": 114.28799999999998,
@@ -147,22 +309,103 @@
       "epsGrowth": 214.5,
       "payoutRatio": 0.61000003,
       "week52High": 236.54,
-      "week52Low": 135.4,
-      "weight": 0.0528
+      "week52Low": 142.03,
+      "news": [
+        {
+          "source": "naver",
+          "title": "[천자칼럼] 첫발 내디딘 '화성 침공'",
+          "date": "2026-06-14",
+          "url": "https://www.hankyung.com/article/2026061452521",
+          "text": "상장 첫날 공모가 대비 20% 가까이 주가가 급등하며 시가총액이 3200조원에 달했다. 엔비디아, 알파벳, 애플 등에 이어 시총 6위를 차지했다. 지난해 7조원 넘는 순손실을 낸 기업이 이처럼 높은 평가를 받은 데는 우주를...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X 흥행 대박…금·채권·코인 돈까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436657",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를 63달러로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'1조 달러 사나이' 머스크, 자녀 1인당 유산 117조원 받는다",
+          "date": "2026-06-14",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=218216",
+          "text": "스페이스X 주가는 개장 직후 강한 매수세가 몰리며 한때 168달러까지 치솟았다. 글로벌 기업들과 어깨를 나란히 하는 초대형 기업 반열에 올라섰다. 시가총액 기준 엔비디아, 알파벳(구글 모기업), 애플...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'화성인' 머스크, 나스닥 안착… 전 지구인이 베팅하다 [글로벌 리포트...",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141842128916",
+          "text": "■135→160.95→166.75 2026년 6월 12일(현지시간), 나스닥에 'SPCX'라는 주식 종목 코드가 처음 떴을 때 주가는... 시총 1위는 엔비디아(4조9600억달러)이며 그 뒤를 알파벳(4조3800억달러), 애플(4조2700억달러)...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "글로벌 반도체 밸류체인 포괄... 분산투자로 안정적인 수익률 [이런 펀...",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141828003629",
+          "text": "김 본부장은 3년 전 엔비디아를 필두로 팹리스가 시장을 주도했고, 최근 1년간은 고대역폭메모리(HBM) 중심의 메모리 반도체가, 최근에는 공정 미세화에 따른 장비업체들이 주가 상승을 견인하고 있다 며 특정 영역에...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X, 단숨에 美 시총 6위… AI 인프라로 자금 몰리나",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141817122500",
+          "text": "상장과 동시에 스페이스X는 엔비디아, 알파벳, 애플, 마이크로소프트, 아마존에 이어 미국 증시 시가총액... 스페이스X 주가 흐름은 미국 증시는 물론 국내 반도체주 투자심리에도 적지 않은 영향을 미칠 것 이라고...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "'빅쇼트' 버리 \"엔비디아, 역사적 급락 위험…AI 과열 지속 불가능\" - 연합인포맥스",
+          "date": "2026-05-27",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE42RlpxSUNpOFpUQm1kTDlQMWExaURpRUIyUUFjeUNKRG5UcmFqdEExdmtaUTg2TUNhbDBBTkdzV2xGdXFod3pfc2tDT19VSHFsLWJFX2lTc25TTm14TlMzZndRelk2OERhMl9LN2NCMVg?oc=5",
+          "text": "'빅쇼트' 버리 \"엔비디아, 역사적 급락 위험…AI 과열 지속 불가능\" 연합인포맥스",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "“엔비디아 주가 조정? 싸졌으니 기뻐해야지!”…자신만만 젠슨황 [지금뉴스] - KBS 뉴스",
+          "date": "2026-06-08",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1vVXlrY0p1a0ZnZmVfYmIzQW9QTk42S05BZDV4TUpnNmNvTVdnUVh2VDRtblRKdGR0MW5RdnE4YzBLSTFIWl85OEJWWEpOUjcwU2NoQXYxcXNEc2M?oc=5",
+          "text": "“엔비디아 주가 조정? 싸졌으니 기뻐해야지!”…자신만만 젠슨황 [지금뉴스] KBS 뉴스",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "엔비디아로 4600% 수익률 40대 女 \"비결? 그냥 안 팔았다\" - 조선일보",
+          "date": "2026-06-10",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQTS1ONHJIZHYzQmp6Y01fRl9NWUtaczF1Q2I4T2ZTZ3hmNHFfZEJFZmlIdTFzWENWMmNTdTBWRlhlUXVQOGVWYTY2cHRHamxqVWJzNWxJX3cyejV2M1RFSHo4VEJ4OU5weFNySTg2OHpIX1dhT19BLVk0VHpJUllNSw?oc=5",
+          "text": "엔비디아로 4600% 수익률 40대 女 \"비결? 그냥 안 팔았다\" 조선일보",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "엔비디아 주가, 오늘 하락하는 이유는? - Investing.com 한국어",
+          "date": "2026-05-27",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBsZ1ViVzk5Q1kxZ0R0SjU0QlBEQzBlLWhWNVJKZVFfTzhnQ2Znb0xzaXB4SVZYZUVMWFV5bW5TWXZ0WGh2dUNtV3hsUHo2dGRPMl9oV21DR0dVYk5fTklkVEEzRTV4b1FZeTBqNEl6eTkyTnJVdHRJ?oc=5",
+          "text": "엔비디아 주가, 오늘 하락하는 이유는? Investing.com 한국어",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "GOOGL",
       "n": "Alphabet Inc.",
       "m": "US",
       "s": "COMMS",
-      "cap": 4607.987679232,
-      "vol": 44.415846,
-      "div": 0.22999999999999998,
-      "per": 28.989328,
-      "pbr": 9.625449,
+      "cap": 4386.274148352,
+      "vol": 24.731019,
+      "div": 0.23999999000000002,
+      "per": 27.477463,
+      "pbr": 9.102596,
       "psr": null,
-      "evEbitda": 28.374,
-      "peg": 1.5,
+      "evEbitda": 26.823,
+      "peg": 1.42,
       "netMargin": 37.919000000000004,
       "operatingMargin": 36.120999999999995,
       "roe": 38.884997,
@@ -175,21 +418,102 @@
       "payoutRatio": 6.41,
       "week52High": 408.61,
       "week52Low": 162,
-      "weight": 0.0453
+      "news": [
+        {
+          "source": "naver",
+          "title": "“개미들만 몰랐네”…삼전·하이닉스 20조 던진 외국인, 뒤에선 ETF ‘핑...",
+          "date": "2026-06-14",
+          "url": "https://www.segye.com/newsView/20260614509942?OutUrl=naver",
+          "text": "시장에서는 올해 들어 인공지능(AI) 반도체와 고대역폭메모리(HBM) 수요 확대 기대감으로 주가가 급등하자... 구글의 AI Gemini 생성 이미지 외국인의 거래 전략 변화와 맞물려 단일종목 레버리지 ETF 출시 이후...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X 흥행 대박…금·채권·코인 돈까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436657",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를 63달러로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "주가 눌렀던 스페이스X...이젠 코스피 상승 모멘텀?",
+          "date": "2026-06-14",
+          "url": "https://www.ytn.co.kr/_ln/0102_202606142317037515",
+          "text": "[기자] 스페이스X가 나스닥 상장 첫날 주가 19% 급등에 힘입어 단숨에 시가총액 순위 6위에 올라섰습니다.... 엔트로픽과 구글 등 우주 데이터센터 고객을 확보해 월 1억 2,500만 달러, 약 1,900억 원의 임대 매출을 올리는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[스트레이트] 사회적 흉기‥가세연의 '폭로 비즈니스'",
+          "date": "2026-06-14",
+          "url": "https://imnews.imbc.com/replay/straight/6830119_28993.html",
+          "text": "김새론 씨가 스스로 목숨을 끊은 지 3주가량 지난 시점이었습니다. '충격 단독' '김새론 죽음 이끈 김수현... 즉 구글에 관리 의무를 명시하고, 문제의 콘텐츠를 그대로 방치해둘 경우 거액의 과징금을 부과하고 있습니다....",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "한때는 10만원이었다…“6천원, 충격적 추락” 압도적 1위 ‘전자 왕좌...",
+          "date": "2026-06-14",
+          "url": "https://biz.heraldcorp.com/article/10771311?ref=naver",
+          "text": "주가는 더 처참하다. 한때 10만원이었던 하이마트 주가는 현재 6750원(12일 기준)으로 대폭락했다.... 김종윤 내정자는 구글, 야놀자 등을 거치며 사업 전략과 마케팅 및 신사업 개발 분야에서 경험을 쌓은 인물이다. 특히...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'1조 달러 사나이' 머스크, 자녀 1인당 유산 117조원 받는다",
+          "date": "2026-06-14",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=218216",
+          "text": "스페이스X 주가는 개장 직후 강한 매수세가 몰리며 한때 168달러까지 치솟았다. 글로벌 기업들과 어깨를 나란히 하는 초대형 기업 반열에 올라섰다. 시가총액 기준 엔비디아, 알파벳(구글 모기업), 애플...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "뉴욕증시 반도체 와르르 급락 \"구글 터보퀀트 충격 마이크론 10% 폭락\" - 초이스스탁",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1NaEtsY3cwMWRXbUdMWWNPS2NEcnJSdzE2NzNsb2JQSFdKWm9MN1R5dTd0ZXhXdm56aHU5SG9abWU0RF9mazJkZEd1dlRGNUZFNmJ2Tzg2Q0V1ZDV1ZGdCd0wyWFJORk0?oc=5",
+          "text": "뉴욕증시 반도체 와르르 급락 \"구글 터보퀀트 충격 마이크론 10% 폭락\" 초이스스탁",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "AI에 115조원 쏟아붓는 구글, 주가 급락에 투자자 '충격' - 리드경제",
+          "date": "2026-06-03",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5hUlRhMDAySWlobEZ4M2EtN2QtNVIxN0hKUDFrQ2ltMldlRnJhRllNTWNSbVNXQUphRXhGbjljR1BxclVtVVJzUlJHQlZVaXVNblBTYkF6T3RYcFRMaHZ5ZVU3Ym5ZaTFfMV9RNGUxcw?oc=5",
+          "text": "AI에 115조원 쏟아붓는 구글, 주가 급락에 투자자 '충격' 리드경제",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "알파벳 주가 ‘내년 500달러’ 전망 나왔다 - 글로벌이코노믹",
+          "date": "2026-06-10",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMjZSdjZ2QnhJdnlqQjg1MHdLU0JBMEJOZkVBVHZIVGNBNEEwVi1nM1lDV000aTJOb2g4LXEyMnB5QTMtUWFPaGpSdEdZckd2QXZjaWIyZGpLaVQxa2p0OFQtY2x2MGJENzBTWDMyejI3dzl0N0ZEN0VuQ2xkdGpveFRRX3FXOXNI?oc=5",
+          "text": "알파벳 주가 ‘내년 500달러’ 전망 나왔다 글로벌이코노믹",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "'구글 TPU 수주' 보도에 인텔 주가 11% 급등 - 연합뉴스",
+          "date": "2026-06-09",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE10cVBXeDc0ZWpEQmZ0elRNX2psR3dUM3RJcWc1R2NSdGt2Q01nRkdpSXU1dUx6a0NwOU9rczJOOV92QVd6OWp5T3RGVEpRRG00TlY5Z0xOTTRfLWPSAWBBVV95cUxPbEIweG1XMlJzRjU1TFpxWENFYlhCaU0zQ0ViN1pDVmF5M1dKXzRBcUZSWHdCNzNHaEV5UTVETDJpeFRLZnMzbzVvQWI2WElWcTNqRjduUTFUOEY2bExvZlM?oc=5",
+          "text": "'구글 TPU 수주' 보도에 인텔 주가 11% 급등 연합뉴스",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "TSLA",
       "n": "Tesla, Inc.",
       "m": "US",
       "s": "CONS_DISC",
-      "cap": 1636.706942976,
-      "vol": 45.176821,
+      "cap": 1526.438821888,
+      "vol": 63.652286,
       "div": 0,
-      "per": 399.80734,
-      "pbr": 19.901814,
+      "per": 369.4818,
+      "pbr": 18.56099,
       "psr": null,
-      "evEbitda": 144.992,
-      "peg": 6,
+      "evEbitda": 135.052,
+      "peg": 5.6,
       "netMargin": 3.946,
       "operatingMargin": 4.202999999999999,
       "roe": 4.901,
@@ -201,21 +525,102 @@
       "epsGrowth": 8.3,
       "payoutRatio": null,
       "week52High": 498.83,
-      "week52Low": 273.21,
-      "weight": 0.0377
+      "week52Low": 288.77,
+      "news": [
+        {
+          "source": "naver",
+          "title": "머스크 자산관리 복잡성 부각…1% 오차도 100억달러 영향 가능",
+          "date": "2026-06-14",
+          "url": "https://www.tokenpost.kr/news/breaking/369190",
+          "text": "포춘을 인용한 PANews에 따르면 스페이스X 주가가 주당 약 150달러에서 장중 171달러까지 상승하면서 일론 머스크의 자산 관리 복잡성이 다시 주목받고 있다. 전문가들은 스페이스X와 테슬라 지분을 포함한 머스크의 자산...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'1조 달러 사나이' 머스크, 자녀 1인당 유산 117조원 받는다",
+          "date": "2026-06-14",
+          "url": "https://www.job-post.co.kr/news/articleView.html?idxno=218216",
+          "text": "상장 첫날 주가도 19.3% 뛰면서 전체 회사 가치가 2조 달러를 넘어섰다. 일론 머스크 스페이스X CEO는... 스페이스X와 테슬라 등 핵심 기업의 경영권은 혈연이 아닌 능력과 경영 역량에 따라 결정돼야 한다는 뜻으로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'화성인' 머스크, 나스닥 안착… 전 지구인이 베팅하다 [글로벌 리포트...",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141842128916",
+          "text": "■135→160.95→166.75 2026년 6월 12일(현지시간), 나스닥에 'SPCX'라는 주식 종목 코드가 처음 떴을 때 주가는... 머스크의 테슬라는 1조5000억달러로 시총 8위다. 불과 20여년 전만 해도 한 차고에서 시작한 민간...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'시총 2.1조 달러' 스페이스X, 사상 최대 IPO 성공... 머스크, '조만장자...",
+          "date": "2026-06-14",
+          "url": "https://www.hankookilbo.com/news/article/A2026061410500003635?did=NA",
+          "text": "일론 머스크 테슬라 최고경영자(CEO)의 항공우주 기업 스페이스X가 미국 나스닥 시장 상장 첫날 시가총액... 상장 첫날 주가는 공모가인 135달러보다 19.22% 급등한 160.95달러(약 24만4,500원)에 거래를 마감했다. 장중 한때...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'조만장자' 일론 머스크의 차원이 다른 혁신 [사설]",
+          "date": "2026-06-14",
+          "url": "https://www.mk.co.kr/article/12073701",
+          "text": "전기차 기업 테슬라로 자동차 산업의 패러다임을 바꾼 데 이어, 민간 우주기업 스페이스X의 사상 최대 규모... 실적이 기대에 미치지 못하거나 상업화가 늦어질 경우 주가가 급락할 위험도 배제할 수 없다. 스페이스X는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X IPO 대박…우주 AI 투자 본격화",
+          "date": "2026-06-14",
+          "url": "http://www.inews24.com/view/1976332",
+          "text": "주가 급등으로 머스크의 개인 자산도 크게 늘었다. 경제지 포브스는 스페이스X와 테슬라 지분 가치를 합산한 머스크의 순자산을 약 1조1000억달러로 추산했다. 이에 따라 그는 세계 최초의 '1조 달러 자산가'가 됐다....",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "스페이스X 상장에 테슬라 주가도 덩달아 반등 - 글로벌이코노믹",
+          "date": "2026-06-13",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTkM5ZUZnY1RvX1FPMUJSMXN6ZTFCQ2JiQmt3bVMxX3Rsek1Jd1NYV1d1Q04xaFJqaVhRZ3BKSGNJQ0pJQ0RVTDRpRm1YWnBSYUQ5MGpMREpaWEpwVHNhMWVJaDNGQ0t6NkpKZFdMNTZKaHY2ZTVkS3lvNXlRZVlHT2xvTExuTGF5?oc=5",
+          "text": "스페이스X 상장에 테슬라 주가도 덩달아 반등 글로벌이코노믹",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "로켓처럼 치솟은 스페이스X 주가…공모가 대비 22%↑·테슬라는 1%↓ - 연합인포맥스",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9tYzN6NHloOWhtMURvQ2E0UXBLSWhkVVB5SGxYZFF3Y2Q2d2JFRVYzYUZOanBJMUpjY01MYms1bmxXZkhfYVBiNlplWGZhN2xRZVNkUkV3bTFWOTAtTWR6Q0J2Z2FydWVDR3M2Z1lIY0U?oc=5",
+          "text": "로켓처럼 치솟은 스페이스X 주가…공모가 대비 22%↑·테슬라는 1%↓ 연합인포맥스",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "스페이스엑스 발사가 테슬라 주식에 미치는 의미는... 한 최고 투자자가 설명하다,테슬라,TSLA - wowglobal.co.kr",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE54cEZOY2VVS0FYU08wQWVFbEpXQl9WUGZhNHdvNFhXTVNDbEZ3d0IzMkVJMWtfWWlQNHRWOThuTUxETm50Yzk4UXlfWGU4dHlyclR1V2J6MHF6aDZoZnM2RWpUcjJsUQ?oc=5",
+          "text": "스페이스엑스 발사가 테슬라 주식에 미치는 의미는... 한 최고 투자자가 설명하다,테슬라,TSLA wowglobal.co.kr",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "테슬라 주가 하락, 투자자들 머스크의 핵심 자산 스페이스X로 눈 돌려 - Investing.com 한국어",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5yeTNpczlQZ2Fuc0l5WWtnNEJ0ck1ZR1Q2cmJ2bFZSazhMQzVGSktZeHMzUGQwaTV4RlhJMVJHR3NGZWtyRXVvdkRLVXdPOXktdmZZTWNTUFV2OFpOTVhjYXQ5eTQxUEdxQmg1MEFXUy0?oc=5",
+          "text": "테슬라 주가 하락, 투자자들 머스크의 핵심 자산 스페이스X로 눈 돌려 Investing.com 한국어",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "AMZN",
       "n": "Amazon.com, Inc.",
       "m": "US",
       "s": "CONS_DISC",
-      "cap": 2911.30441728,
-      "vol": 54.749561,
+      "cap": 2566.108479488,
+      "vol": 51.251141,
       "div": 0,
-      "per": 31.653803,
-      "pbr": 6.586037,
+      "per": 31.637932,
+      "pbr": 5.805125,
       "psr": null,
-      "evEbitda": 19.272,
+      "evEbitda": 17.057,
       "peg": 1.83,
       "netMargin": 12.224,
       "operatingMargin": 13.139999999999999,
@@ -229,21 +634,102 @@
       "payoutRatio": null,
       "week52High": 278.56,
       "week52Low": 196,
-      "weight": 0.0453
+      "news": [
+        {
+          "source": "naver",
+          "title": "스페이스X 흥행 대박…금·채권·코인 돈까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436657",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를 63달러로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'화성인' 머스크, 나스닥 안착… 전 지구인이 베팅하다 [글로벌 리포트...",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141842128916",
+          "text": "■135→160.95→166.75 2026년 6월 12일(현지시간), 나스닥에 'SPCX'라는 주식 종목 코드가 처음 떴을 때 주가는... (MS·2조8700억달러), 아마존(2조5400억달러)이 잇고 있다. 머스크의 테슬라는 1조5000억달러로 시총 8위다....",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X, 단숨에 美 시총 6위… AI 인프라로 자금 몰리나",
+          "date": "2026-06-14",
+          "url": "http://www.fnnews.com/news/202606141817122500",
+          "text": "상장과 동시에 스페이스X는 엔비디아, 알파벳, 애플, 마이크로소프트, 아마존에 이어 미국 증시 시가총액... 스페이스X 주가 흐름은 미국 증시는 물론 국내 반도체주 투자심리에도 적지 않은 영향을 미칠 것 이라고...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "“로봇, 주도주로 볼 수 없어…반도체·배터리와 보조 맞추는 AI 짝꿍”",
+          "date": "2026-06-14",
+          "url": "https://www.sedaily.com/article/20055553?ref=naver",
+          "text": "90%) 등이 수혜주로 부각되며 로봇주가 들썩였다. 하지만그의 귀국 전후로 이들 주가는 두 자릿 수 이상... 그는 “빅테크(아마존·알파벳·메타·MS·오라클)의 올해 합산 투자 규모가 1000조 원에 달하는 만큼 금리를...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "'시총 2.1조 달러' 스페이스X, 사상 최대 IPO 성공... 머스크, '조만장자...",
+          "date": "2026-06-14",
+          "url": "https://www.hankookilbo.com/news/article/A2026061410500003635?did=NA",
+          "text": "상장 첫날 주가는 공모가인 135달러보다 19.22% 급등한 160.95달러(약 24만4,500원)에 거래를 마감했다. 장중... 세계 부자 순위 2~5위에 있는 구글 공동창업자 세르게이 브린(2,700억 달러), 아마존 창업자 제프 베이조스(2...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "‘역대급 블랙홀’ 스페이스X…금·코인·채권까지 빨아들였다",
+          "date": "2026-06-14",
+          "url": "https://www.joongang.co.kr/article/25436620",
+          "text": "이에 따라 엔비디아, 알파벳(구글), 애플, 마이크로소프트, 아마존에 이어 미국 기업 시총 6위에... 리서치 업체 모닝스타의 니콜라스 오언스 애널리스트는 “현재 주가가 과대평가돼 있다”며 적정 주가를...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "아마존 소형운송 서비스 전면 확대…경쟁 물류업계 주가 급락 - 연합인포맥스",
+          "date": "2026-06-11",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE4wZi1Ib0h4N0NLaEdlbmRsY1pfZ2tzMWRPRnRVdS1OWmxzUkhuS21idGdUamZtTHJ3ZUV0b2QxSHJiRXlNOVVFdi1Ma09ya3lMOVB1OXhTU3pfcUxMU1RuakVvMzVqN3NpZlMxWmt5MDDSAXRBVV95cUxNQ0NHN04weXdvMklMY0VXQkhYcjMtUTFOUlhFY0Q0Tk5vSUlUQUh6TFpNWnVlTE5KcDVqM1JiaDhWWlRzT1pSRkphb0ZRNzgxOFZqT2dlQ3pFalN5UnNWS1JlQ1F0bWJDbUxCN1ZpOFBJbWVDbg?oc=5",
+          "text": "아마존 소형운송 서비스 전면 확대…경쟁 물류업계 주가 급락 연합인포맥스",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "Amazon.com Inc (AMZN) 주식 움직였습니다 하락 3.29%에 6월12일: 변동을 뒷받침하는 사실 - TradingKey",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNemQ0SVFvUWxxU2QtOVpENHdjeUlLc2lHZzdFV1hOZjY4aEVvdi1XSGppVHUwVjBRRTdaV0tFR2VFS203azE2QVNJSktqbjRNMC1oVXV4MFg1RTl5UWh0QVJXaHlZNDdiS1JGSk1COW5XRjd3MHlJNkNIMFBGdzhBUG1TUDIxT01FWTRSVFhFUQ?oc=5",
+          "text": "Amazon.com Inc (AMZN) 주식 움직였습니다 하락 3.29%에 6월12일: 변동을 뒷받침하는 사실 TradingKey",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "질주하는 아마존 주가, 그 배경은? - 글로벌이코노믹",
+          "date": "2026-04-15",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1wdUZZbGt4VnU0WW9qWjl4allza1p5S3V6TFhfMDJ4c2ZHUWdQNmwweGRPVmNxNXNkXzhyRkp0cFV6Z3NoRlFzMUh6TVBGU1c4U1QwRzFpYkFjMnotNzA5WEJyZWd6ZEtnNHRqclNabWk?oc=5",
+          "text": "질주하는 아마존 주가, 그 배경은? 글로벌이코노믹",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "11% 급락한 아마존 주식을 투자하는 이유 - 네이버 프리미엄콘텐츠",
+          "date": "2026-02-06",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNXzZIYkZnRFAxVmF1cjVCZGowSFFHNmcxc2R1c1RfTW5pcFBoWi1GZ3JaOHpaVGRVVE9Pd1R4QzJ1aXRBRVhpUHcxQlBuRnV3aDZ4T0VHblJQbWVhb3kzOFp5UjJLbE9oSmNpeU56QjF0WUZwTjlsMXl0a0diTTgyWlA4UlFObXF3RkUw?oc=5",
+          "text": "11% 급락한 아마존 주식을 투자하는 이유 네이버 프리미엄콘텐츠",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "BA",
       "n": "The Boeing Company",
       "m": "US",
       "s": "INDUST",
-      "cap": 182.216081408,
-      "vol": 6.924389,
+      "cap": 172.677627904,
+      "vol": 4.492069,
       "div": 0,
-      "per": 91.72619,
-      "pbr": 30.450533,
+      "per": 86.92461,
+      "pbr": 28.85654,
       "psr": null,
-      "evEbitda": -64.946,
-      "peg": 25.04,
+      "evEbitda": -62.019,
+      "peg": 23.73,
       "netMargin": 2.4600001,
       "operatingMargin": 1.7149999999999999,
       "roe": 169.947,
@@ -256,21 +742,102 @@
       "payoutRatio": null,
       "week52High": 254.35,
       "week52Low": 176.77,
-      "weight": 0.0755
+      "news": [
+        {
+          "source": "naver",
+          "title": "KAI 인수설 왜 계속 나오나…항공우주 사업, '플랫폼' 없인 궤도 못 오른...",
+          "date": "2026-06-14",
+          "url": "https://www.m-i.kr/news/articleView.html?idxno=1381082",
+          "text": "같은 기간 록히드마틴 11.9%, 노스롭그루먼 15.7%, 보잉 방산·우주 부문 3.0% 증가율을 크게 웃도는 수준이다. KAI 주가도 지난 2021년 첫 거래일 종가 대비 지난 11일 종가 기준 총 284.1% 상승했다. 향후 관건은 플랫폼 기반...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[김대호 진단] 스페이스X IPO 폭발과 뉴욕증시 주도주 교체",
+          "date": "2026-06-12",
+          "url": "https://www.g-enews.com/view.php?ud=202606121714373179906806b77b_1",
+          "text": "주도주들의 주가가 하락 압력을 받는 이유가 여기에 있다. 여기에 더해 750억 달러에 달하는 역대 최대... 가장 직접적인 타격을 입는 분야는 보잉(Boeing), 록히드 마틴(Lockheed Martin), 노스롭 그루먼으로 대표되는 전통...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "트럼프 '훈풍'..미국증시 다우지수 '급반등', HON·엔비디아 '활짝'",
+          "date": "2026-06-11",
+          "url": "http://www.choicenews.co.kr/news/articleView.html?idxno=166478",
+          "text": "이날 주요 종목 중 허니웰 인터내셔널(HON, +6.43%) 보잉(+6.04%) 등의 주가가 6% 이상씩 치솟으며 다우존스 지수 급반등을 주도했다. HON은 전일 4.55% 급락 후 이날 급반등했다. 암젠(+4.84%) 캐터필러(+4.84%) 나이키(+4.55...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "에어캐나다·알버타관광청, '2026 여행사 세미나' 개최… '나만의 스토리...",
+          "date": "2026-06-10",
+          "url": "http://www.ttlnews.com/news/articleView.html?idxno=3115591",
+          "text": "조민선 알버타주관광청 이사는 알버타주가 가진 지리적·경제적 이점과 주요 목적지별 매력을 상세히... 보잉 787-10의 비즈니스 클래스(시그니처 클래스)는 자연 속 물의 흐름에서 영감을 받은 물결 모양의 디자인...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "미국증시 DOW도 '뚝'...경기방어주 '웃고', 경기민감주 '추락'",
+          "date": "2026-06-10",
+          "url": "http://www.choicenews.co.kr/news/articleView.html?idxno=166409",
+          "text": "이어 허니웰 인터내셔널(HON, -4.55%) 엔비디아(-3.73%) 골드만삭스(-2.98%) 보잉(-2.57%) 아마존닷컴(-2.53%) 셔윈-윌리엄즈(SHW, -2.14%) 암젠(-1.98%) 등의 주가도 줄줄이 급락하며 다우존스 지수를 짓눌렀다. AI칩 대장주...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[N2 포커스] 스페이스X 상장, 항공우주 빅3에 기회인가 위협인가",
+          "date": "2026-06-09",
+          "url": "https://www.news2day.co.kr/article/20260610500005",
+          "text": "록히드 마틴, 노스럽 그루먼처럼 우주 시스템 사업을 보유한 기업들이 덩달아 주가 재평가를 받는 수혜 가능성도 배제할 수 없다. 보잉의 경우에도 상업항공 회복이 핵심 투자 논리인 만큼, 스페이스X 상장이...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "Boeing Stock’s Margin Inflection in 2026: The Production Ramp, the Cost Base, and the $3,240 Case - TIKR.com",
+          "date": "2026-06-13",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPUVVOcmNWRWg0OWZlSnpsSVEzTmVFdWhFVjJfaVZfTUxveWc4VXEyUVZvampUUVNXcFcya2hWT3F1WnBOSnJ3Y2F1MzVYWlR3Tmg1T2d5NVBMbnFQeDlrOTJueEQ3cGFzY2l6QXZCTWJnNlU4WGJINmhYbzRTMUFJa3FLcmY5aEVsNGl3RUtOMzNINTVmejVld0FpWVR4WlBnVVZjNmlNakM2U1hmOTlLNEdOZG94SW5BYV9KVA?oc=5",
+          "text": "Boeing Stock’s Margin Inflection in 2026: The Production Ramp, the Cost Base, and the $3,240 Case TIKR.com",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "최근 주가 변동과 안전성 논란을 겪은 보잉(BA)은 여전히 투자 가치가 있는가? - simplywall.st",
+          "date": "2026-06-11",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQS3ktOGNRMkZxYW5zZ09udkF3RlJFaGM0V1NYSkNnenltcVVSVmdQVjJkSHM3bXBUZ045VkhSSzctbWw2RXg5cjQ0OHlDbXR6VWJfYjRDTEJndjZMWUZrVVpxelZQb1FXTlQ3dGd6aGlKTDVrNXk4cm1iRzg5Z3ZUMHlPbEtJWWtMZ1Zob1R30gGTAUFVX3lxTE5NeVo2Q0stMFo5bUFpYjVmd3JQZ3ZfeF9yeXNScElpMkpDaHpTR21VdkVQemdnNERpdTJJQXliaHBJcDE4LXVtUmFtaVhxM3ZoTl84ZkVqd0stTlJHcEs0MHZlY1luWG1Ja3pUdzJXUy1WdEJ0TlBmSjFEaDc4a2ZqM09iamh3T1lMNXVGUlNNbGhvZw?oc=5",
+          "text": "최근 주가 변동과 안전성 논란을 겪은 보잉(BA)은 여전히 투자 가치가 있는가? simplywall.st",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "보잉, 고스트 뱃과 함께 달리며 팀 확장... 보잉 주가 급등,보잉,BA - wowglobal.co.kr",
+          "date": "2026-06-11",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA4Zjl5UUJ1WUprVUNFV0tOa0ctd2tVWm5kSnlnSDVkMzNMOEFNdUlHYnAwRkhYNF9tR0ctNXRRSVd3T2ZFUGQzdGdleHRVZzRPVDBSU1NUZnJCYVJvTVoxRlAxdERTUQ?oc=5",
+          "text": "보잉, 고스트 뱃과 함께 달리며 팀 확장... 보잉 주가 급등,보잉,BA wowglobal.co.kr",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "씨티, 보잉 주가 32% 상승 전망…\"품질·안전에 집중\" - 연합인포맥스",
+          "date": "2025-12-13",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5NTjI5M1NrU2UzMDVIcnZLTWUzcThfQ2UzV1pkUkt1aUNZMEgyU01vNXVRRTAzRzVZSm1vdXdQdnFtbjRBUG1zMk9aY1c3b293WW5XNWk5NHZsVVEyQWF6c2JuNGVkeC1pZkk5bTIzWko?oc=5",
+          "text": "씨티, 보잉 주가 32% 상승 전망…\"품질·안전에 집중\" 연합인포맥스",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "KO",
       "n": "The Coca-Cola Company",
       "m": "US",
       "s": "CONS_STAP",
-      "cap": 339.939131392,
-      "vol": 32.408986,
-      "div": 2.6800001,
-      "per": 24.845913,
-      "pbr": 10.108751,
+      "cap": 355.471097856,
+      "vol": 11.51704,
+      "div": 2.5700000000000003,
+      "per": 25.981133,
+      "pbr": 10.570624,
       "psr": null,
-      "evEbitda": 22.307,
-      "peg": 4.05,
+      "evEbitda": 23.237,
+      "peg": 4.23,
       "netMargin": 27.800000000000004,
       "operatingMargin": 35.055,
       "roe": 43.372001999999995,
@@ -281,23 +848,104 @@
       "revenueGrowth": 12.1,
       "epsGrowth": 18.2,
       "payoutRatio": 64.779997,
-      "week52High": 82.66,
+      "week52High": 84.04,
       "week52Low": 65.35,
-      "weight": 0.0604
+      "news": [
+        {
+          "source": "naver",
+          "title": "월드컵 열기에 물만났네 … 힐튼·코카콜라 주가 훨훨",
+          "date": "2026-06-14",
+          "url": "https://www.mk.co.kr/article/12073800",
+          "text": "현재 미국 39개 주가 스포츠 베팅을 합법화한 가운데 드래프트킹스는 베팅 성향이 강한 히스패닉들을... 파이퍼샌들러는 1978년부터 FIFA 공식 스폰서였던 코카콜라에 주목했다. 코카콜라는 이번 월드컵을 위해 스포츠...",
+          "isGeneric": false
+        },
+        {
+          "source": "naver",
+          "title": "“골 넣을 때마다 주가 올라가” 482만명이 ‘여기’에 몰렸다…네이버...",
+          "date": "2026-06-12",
+          "url": "https://www.sedaily.com/article/20055127?ref=naver",
+          "text": "네이버는 이번 대회 기간 FIFA 공식 스폰서 코카콜라와 함께 승부예측 이벤트도 운영한다. 모든 경기 결과를 맞히면 최대 100만원 상당의 네이버페이 포인트를 지급하는 등 이용자 참여를 유도하고 있다. 한편 치지직은...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "트럼프 '훈풍'..미국증시 다우지수 '급반등', HON·엔비디아 '활짝'",
+          "date": "2026-06-11",
+          "url": "http://www.choicenews.co.kr/news/articleView.html?idxno=166478",
+          "text": "셰브론의 주가는 2.10%나 하락했다. 미-이란 종전 협상 기대감 속에 국제 유가가 급락한 데 따른 흐름이다. 이날 세일즈포스(-2.36%) 마이크로소프트(-1.77%) 등 일부 소프트웨어 종목도 뚝 떨어졌다. 이날엔 코카콜라(-1....",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[서울데이터랩] 미국 증시, 반도체 랠리에 일제히 강세 마감…나스닥 2...",
+          "date": "2026-06-11",
+          "url": "https://www.seoul.co.kr/news/economy/securities/2026/06/12/20260612500011?wlog_tag3=naver",
+          "text": "엑슨모빌은 2.67%, 셰브론은 2.10% 하락했고, 비자는 1.21%, 코카콜라는 1.27% 내렸다. 오라클은 8.53% 급락하며 뉴욕증시 상위 종목 중 낙폭이 두드러졌다. 나스닥 시장에서는 반도체와 대형 기술주가 상승장을...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "스페이스X IPO '과열 경고음'… 단타 투기세력 몰려",
+          "date": "2026-06-11",
+          "url": "http://www.4th.kr/news/articleView.html?idxno=2113062",
+          "text": "직후 주가 변동성이 커질 수 있다는 경고가 나왔다. 미 CNBC의 간판 진행자인 짐 크레이머는 10일(현지시간)... 그는 이번 상장을 코카콜라나 구글 IPO에 참여하는 것과 비슷하다 고 표현했다. 다만 모든 직원이 주식을...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "미국증시 DOW도 '뚝'...경기방어주 '웃고', 경기민감주 '추락'",
+          "date": "2026-06-10",
+          "url": "http://www.choicenews.co.kr/news/articleView.html?idxno=166409",
+          "text": "이날엔 일부 경기방어주가 급등세를 보인 반면 일부 경기민감주는 급락세를 나타냈다. 이날 주요 종목 중 코카콜라(+2.77%) 월마트(+1.44%) P G(+0.26%) 등 다우존스 지수 내 3대 필수소비 종목이 모두 급등 또는...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "월드컵 열기에 물만났네…힐튼·코카콜라 주가 훨훨 - 네이트",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBKeVZtd2VLNzIzS0t4TzNUQ2toblo1T2gxREhkWnNydEhqOWR0N1M3UUwyWFg1VHBQOWR6aURzZG1SeVB2c0JNbFdxcGgtRFY1bDEyRnpVZDFBcXB2dmlYZA?oc=5",
+          "text": "월드컵 열기에 물만났네…힐튼·코카콜라 주가 훨훨 네이트",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "번스타인, 코카콜라 주식 커버리지 중립 등급으로 개시 By Investing.com - Investing.com 한국어",
+          "date": "2026-06-11",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBtTmVfZUFDTWhUNFV1cGc3bUhHM2RQbmpBamRISWdwbDZ1TTg4VnhRQTNXd19QM3F0bWYzSTF4S1ZqNk1Gd0E1bW4wbVlBZHRiOHNydGhNXzZQYWdBZW1tcFhDZ1dfOHpyZ1E1WmJaSlQtUF91?oc=5",
+          "text": "번스타인, 코카콜라 주식 커버리지 중립 등급으로 개시 By Investing.com Investing.com 한국어",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "최근 주가 상승 후 코카콜라(KO)를 고려하기에는 너무 늦었나요? - simplywall.st",
+          "date": "2026-06-10",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOT09FSzZrZDFzWk9xQWVMRndtRFNXTHdYQzBfZGN5cEthM3pjR3ZlYjJPVGxsckdqVEFUbk1FWlVfVVVKcjJhdnlKTFp1NjNqdFp5bFhGX05vV2Q0cjBfbXVCWVZncTVZa2pESmF3OXlXUUFwZE8yMHVOOTVzbW9ic0lPeTRmVlVtMTFXX1F6Tnlaa2VWdFJ4UVZNQXHSAaIBQVVfeXFMTmdMVmFmV183V3FGNkJFcGNaT1ZWbW9YU3dpbHZIUkFIV3dlWW9SY1VIbVFaaDg4dW4tNDBmek10UWpzVVRqMnNCaU40N3Z4V05fb1c2Sko3WEM4MHBLR1BBWHBpNko2R3huUS01TDdLR0JwSmdJMWRDdE9LbF9EY2Ztcm1XVGJZbjJpWFhQVElzMDB6UWNSeXhKemVEVHlzVW1B?oc=5",
+          "text": "최근 주가 상승 후 코카콜라(KO)를 고려하기에는 너무 늦었나요? simplywall.st",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "Morgan Stanley Names Coca Cola Stock Top Beverage Pick Predicting Massive Long Term Organic Sales Growth - TIKR.com",
+          "date": "2026-06-11",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOSkRqcm5QZmRXSElfanpyQ1F2dWVWUl9VQXZ4ZktfNVo2aHhIQmNJVFV3OEpMWnhUNEo4VG1OTWluckt6Wms4V2xaNnZKZzFqZVVyQXpXX0ZUSnk5VF9mSnBOV3pDcUcwTGRCMFJrUHU2TzlBejlCNDZGUzRlT2ZTQWwxMTFhRXhUQ0c3VXhwa1h4RTQtZ18wVnhISXg5dnpsTUlOdEFCVVI2TnFWN3RTaDNycXhXVlZLSXJMaEloUVdUODdyNGRaZUNXTzJlSVJRZWtTV2xOWnYxYVE?oc=5",
+          "text": "Morgan Stanley Names Coca Cola Stock Top Beverage Pick Predicting Massive Long Term Organic Sales Growth TIKR.com",
+          "isGeneric": true
+        }
+      ]
     },
     {
       "t": "NEE",
       "n": "NextEra Energy, Inc.",
       "m": "US",
       "s": "UTIL",
-      "cap": 181.46852864,
-      "vol": 25.325562,
-      "div": 2.86,
-      "per": 22.083757,
-      "pbr": 3.285752,
+      "cap": 179.341197312,
+      "vol": 9.97118,
+      "div": 2.9000001,
+      "per": 21.824873,
+      "pbr": 3.2472336,
       "psr": null,
-      "evEbitda": 20.853,
-      "peg": 1.92,
+      "evEbitda": 20.703,
+      "peg": 1.9,
       "netMargin": 29.369,
       "operatingMargin": 30.175,
       "roe": 10.325,
@@ -310,20 +958,101 @@
       "payoutRatio": 58.95,
       "week52High": 98.75,
       "week52Low": 67.2,
-      "weight": 0.0755
+      "news": [
+        {
+          "source": "naver",
+          "title": "‘노 젓는 K-전력기기… 美 인프라 대란 속 숨은 리스크는’",
+          "date": "2026-06-11",
+          "url": "https://www.g-enews.com/view.php?ud=202606111418172606fbbec65dfb_1",
+          "text": "특히 재생에너지의 간헐성으로는 24시간 AI 연산을 감당하기 어려운 만큼, 무중단 전력을 공급하는 원자력이 다시 부상하면서 콘스텔레이션 에너지, 넥스트에라 에너지 등 대형 유틸리티 기업들의 주가는 강세를...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "김효식 삼성액티브 팀장 변압기주는 더 갈 수 있나…답은 EPS 성장률에...",
+          "date": "2026-06-11",
+          "url": "https://www.smarttoday.co.kr/ko-kr/articles/108273",
+          "text": "높아진 주가 수준을 이익 증가로 설명할 수 있는지가 핵심 변수로 부상했다. 삼성액티브자산운용 김효식... 김 팀장은 2022년 미국 대형 유틸리티 업체 넥스트에라에너지가 HD현대일렉트릭에 1600억원 규모 초고압 변압기...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "빅테크 쏠림의 끝 보인다…S P 500 '상승 착시' 속 숨은 대안 3선",
+          "date": "2026-06-03",
+          "url": "https://www.g-enews.com/view.php?ud=202606031632187240fbbec65dfb_1",
+          "text": "이 ETF의 최대 보유 종목인 넥스트에라 에너지(NEE), 서던 컴퍼니(SO), 듀크 에너지(DUK)의 베타 수치는 모두 1.0 미만이다. 주가 변동성이 전체 시장보다 작아 리스크가 낮으며, 데이터센터 운영사들과 체결한 장기 고정...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[미국 특징주] 넥스트파워, 배터리 기업 프레발론 3.65억달러에 인수",
+          "date": "2026-05-29",
+          "url": "https://www.newspim.com/news/view/20260529000675",
+          "text": "넥스트파워 주가 및 거래량 [자료=업체] 댄 슈가(Dan Shugar) 넥스트파워 최고경영자(CEO)는 인터뷰에서... 지난주에는 넥스트에라 에너지(NextEra Energy Inc.)가 도미니언 에너지(Dominion Energy Inc.)를 약 670억 달러의...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "엔비디아 팔고 여기로 떴다…큰손들이 쓸어 담은 4.11% 상승 반도체의 ...",
+          "date": "2026-05-21",
+          "url": "https://www.wikitree.co.kr/articles/1137827",
+          "text": "미국 뉴욕증시 주요 3대 지수가 일제히 상승 마감하며 랠리를 이어 S P500 지수는 주간 기준 연속 상승세를... 유틸리티 섹터에서는 넥스트에라 에너지가 1.61% 상승하는 등 필수 공공재 성격을 띤 종목들에 매수세가...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[시카고 현지연결] 뉴욕증시 오늘 장 특징주 : 넥스트에라 에너지(NEE)",
+          "date": "2026-05-21",
+          "url": "https://biz.sbs.co.kr/article_hub/20000312043?division=NAVER",
+          "text": "특정 고객 매출 집중도 높아…높은 주가 변동성은 유의 - 호실적에도 차익실현 집중 시기, 구조적 성장 길목 확보 - 블룸 '초고속 전력 기술력'+넥스트에라 '인프라' 강조 (자세한 내용은 동영상을 시청하시기 바랍니다.)",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "NextEra Energy Fell 5% This Week. Here’s How Much the Stock Could Rise in 2026 - TIKR.com",
+          "date": "2026-05-23",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQS243VmJ1NFJub2hQb2hRTzQ0WF9UWEdSTWZwaUVZQUpubjNkOHlsbTYtVDJhWWlGRVQ5V3VUTjdYYlhqV3hOdll3Z1hDaVZvRTB4dGYxc3RpUjJpRExXS3dhaVBTQjhNZEJQeE8zUVVveXJ0dktfNW96RXliVlg0V3hXR0c4NFJVS1hBZWxqU19taGdfTW1xaXpjTktLZWRzblZfWi1GZw?oc=5",
+          "text": "NextEra Energy Fell 5% This Week. Here’s How Much the Stock Could Rise in 2026 TIKR.com",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "최근 주가 하락 이후 넥스트에라 에너지(NEE)를 재평가할 때인가? - simplywall.st",
+          "date": "2026-06-02",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSXh0SDVqYXJrdFhPa0x0Z21sYUtPOS05clFCeWxGM1V1QmVaNm1fY0hfdjFmVTdaQ1NzZjU4dkF2RWloZVNGNm82TXhfRDFwcTBLTUlGSHJsYmg1Ym9MQXViOHhCSzFVcE1yTGhUZXdUWGMxZjNrMWgxQ3IwOWk4eFlEb2ZLZ0FTcmd6WFQtbnItbzBH0gGaAUFVX3lxTE5idVpGeVZ4TG42Y3R2bUl6LW82UDdRVkpWcXc5VkkzazNXOWNlUXhIbFhPaXlNYTB5d3FBbUZmTExheXc0dWMyMkxlakM0RmVlZ2g2MGNuVHMyc1MyRVBVbjh6Wm1WaWtfbTRFdWZ5V1NjY1I1SjFYc29nZTBsNGpybkFBUGwtSTV3aGNmX0NDTHdFRlJFVE1TdGc?oc=5",
+          "text": "최근 주가 하락 이후 넥스트에라 에너지(NEE)를 재평가할 때인가? simplywall.st",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "넥스트에라 에너지 주가, 오늘 하락하는 이유는? By Investing.com - Investing.com 한국어",
+          "date": "2026-05-18",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5jVF83WS1DVE1zekJ2U0hobkZQS203WWxFOWtjYTBWREMtRzM5OFlKMEV0YnVralZjRlJ3Z1FMVjVTV1RDeWl6a3A1UjVjcjE2djdjeXc5WFBab05NOWFPSl80Qmsta0ZTb1lhUmw3LUt3V080WEIw?oc=5",
+          "text": "넥스트에라 에너지 주가, 오늘 하락하는 이유는? By Investing.com Investing.com 한국어",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "넥스트에라, 구글 클라우드와 기술협력 확대…프리마켓서 주가 2%↑ - 연합인포맥스",
+          "date": "2025-12-09",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5sVUJYQkR3WVphUzZnXzRVNk1kQ2ZNemdJekJQNldENktma2Iya1NEVFVpaDBXYmZDaFRYQVNiNTNrTFVySWFYYUd5WkQwOC04czZzMGtrell3THpPay1OVzB2SHE3MUNpRVc0b0t3WGo?oc=5",
+          "text": "넥스트에라, 구글 클라우드와 기술협력 확대…프리마켓서 주가 2%↑ 연합인포맥스",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "O",
       "n": "Realty Income Corporation",
       "m": "US",
       "s": "RE",
-      "cap": 57.143140352,
-      "vol": 14.686942,
-      "div": 5.3000003,
-      "per": 50.229507,
-      "pbr": 1.4596732,
+      "cap": 58.485932032,
+      "vol": 4.720786,
+      "div": 5.1799998,
+      "per": 51.409836,
+      "pbr": 1.4939737,
       "psr": null,
-      "evEbitda": 17.037,
+      "evEbitda": 17.294,
       "peg": 5.68,
       "netMargin": 18.899,
       "operatingMargin": 45.525999999999996,
@@ -336,22 +1065,103 @@
       "epsGrowth": 17.9,
       "payoutRatio": 265,
       "week52High": 67.94,
-      "week52Low": 55.52,
-      "weight": 0.0604
+      "week52Low": 55.86,
+      "news": [
+        {
+          "source": "naver",
+          "title": "“삼성전자 전부 판 이유” 김승호 회장이 직접 밝힌다",
+          "date": "2026-05-09",
+          "url": "https://www.mk.co.kr/article/12042280",
+          "text": "―삼성전자가 핫(Hot)한데 전부 팔았나 ▷원래는 좀 더 보유하려 했는데 주가가 너무 빨리 올라 팔았다. 나는... 중 리얼티인컴(주식명 O)에 50% 투자하고, 나머지는 S P500 ETF(SPY)에 투자할 것이다. 개별 주식은 공부가 꽤...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "은퇴족 안정성·현금흐름 '황금밸런스' … 미국 ETF·고배당株 반반 투자...",
+          "date": "2026-04-26",
+          "url": "https://www.mk.co.kr/article/12027672",
+          "text": "그래서 비트마인에 대해선 소위 '물타기'(주가가 하락해도 계속 매집)를 한 것이다. 김 회장은 투자자로서... 김 회장은 미국 S P500 추종 상장지수펀드(ETF)와 '리얼티인컴'(주식명 O)에 50%씩 배분하면 수익률에서 상위 15...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "금융 전문가 은퇴 전 월배당·보험·퇴직소득세 감면 준비해야",
+          "date": "2026-04-15",
+          "url": "https://www.newsfreezone.co.kr/news/articleView.html?idxno=685310",
+          "text": "하면 주가수익률에 배당수익률이 더해져 은퇴 후에 투자 수익률이 극대화된다 며 배당금을 은퇴 후 소득 대체원으로 활용할 수도 있다 고 전했다. 미국 주요 배당귀족주로는 암코어, T.로위 프라이스, 리얼티인컴...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[GAM]전쟁과 변동성에 배당주 모멘텀 ① 월가 추천 4개 배당성장주",
+          "date": "2026-03-17",
+          "url": "https://www.newspim.com/news/view/20260317000766",
+          "text": "리얼티 인컴은 55년에 걸친 배당 지급 기록과 28년 연속 배당 인상을 달성했다고 밝혔는데, 이는 안정적인 임대 수익과 보수적인 배당 성향을 바탕으로 이뤄진 결과다. 배당수익률은 시장 금리와 주가 수준에 따라...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "미국 뉴욕증시 하락 마감…중동 긴장·GDP 둔화 부담",
+          "date": "2026-03-13",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16003946",
+          "text": "기술주 중심의 성장주가 약세를 보였고 투자자들은 연방준비제도(Fed)의 금리 경로와 유가 상승... 이어 팔란티어 테크 484억원, 마이크론 테크놀로지 96억원, 리얼티인컴 43억원 등이 뒤를 이었다. 보관금액 상위...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "‘닷컴버블’ 공포 속 솟구친 ‘배당귀족’... 서학개미 ‘성장주 편향...",
+          "date": "2026-03-03",
+          "url": "https://www.g-enews.com/view.php?ud=2026030319233219262bd56fbc3c_1",
+          "text": "특히 디지털 결제 기업 블록(Block)이 AI 도입에 따른 ‘4000명 감원’을 발표하자, 기술주가 일자리를 뺏고... 41년 연속 배당을 늘린 엑슨모빌(XOM)이나 매월 배당금을 지급하는 리얼티 인컴(O)이 대표적이다....",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "최근 주가 하락 이후 부동산 인컴(O)이 매력적인 진입 포인트를 제공하고 있는가? - simplywall.st",
+          "date": "2026-05-08",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQTXJWdDBwOFFRWFBGWDFLZDRma1gxdGJ1WlgtaVhiXzdUUUotN2NMZzNlVmFhQXBINUtwLWlOY1RGTjhmdkptQ0U2eUMtTHZrdEtvM0JzOEx1QzdtazhWbGRKNXc3cXVDZGtwNXZqOVlHaXJaVHh3bU1NcXdWQVVWajVQbm01QXpaWUxTWUlobjg0VknSAZgBQVVfeXFMT1RlN0l1SFVMMEZzVUxFcGxMWDN3NzJwT3JhMUpoNTVJRHRwc0N2TW5jQVV2NHdjN05KemZXaXIyZVR2RlpCNlNJU0Fmb0hyN3hpVE10VXptRDZsa19sb0FRWjI0bzFBWkp2a0FBVXVrT3lZZ3NyaWUyNUZiMHRaUGY2WGtackdrNmJXUnNnaUFlZmctaUs4bks?oc=5",
+          "text": "최근 주가 하락 이후 부동산 인컴(O)이 매력적인 진입 포인트를 제공하고 있는가? simplywall.st",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "리얼티인컴 임원 부쇼어, 46만 달러 상당 주식 매도 - Investing.com 한국어",
+          "date": "2026-04-03",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5qU0c5OGxpOExvRVRHSlNMMEJmZVVESXNPV0t3VHZCa21QNlNhRGxUSk9wOGZFMFExMmxOa3F4bkx1bHREeW9zc0FfRjBBT3cyWTdEUm1IblhmRW9CVU01RnBubGVyUFpxQW5JTUZOb0szdk9DV3hSVm5tdw?oc=5",
+          "text": "리얼티인컴 임원 부쇼어, 46만 달러 상당 주식 매도 Investing.com 한국어",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "Realty Income Closes Apollo’s $1 Billion Deal: What’s Next? - TIKR.com",
+          "date": "2026-04-06",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQUTRKU0RsN2wzVmxIMGdGLWZZTm9EemoybzBlRjhkSFVQbkVnMjl5RFY5NUFUZ2hXTERCUWxacVdPWjZKbExMTWFMTTl2TlV4TDc0dS1mN0x4c2RmZlhOaXdHMGF2cjhkaVRyc2lidkprT3JCRFZjRXVWUVZyOE40NGs3T1BtaWdzbXJN?oc=5",
+          "text": "Realty Income Closes Apollo’s $1 Billion Deal: What’s Next? TIKR.com",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "주식 배당으로 연 1억5000만원 버는 40대, 어디 투자했나 봤더니.. - v.daum.net",
+          "date": "2026-05-21",
+          "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFByamV4QlQ0blpzWnhtTGd6RGRUZ3BfSDJfdnNxc19GTEp5VmI3enFQNUZVbXJNdnpmWmg3a2cyZ09ueUpQbEE?oc=5",
+          "text": "주식 배당으로 연 1억5000만원 버는 40대, 어디 투자했나 봤더니.. v.daum.net",
+          "isGeneric": true
+        }
+      ]
     },
     {
       "t": "ALB",
       "n": "Albemarle Corporation",
       "m": "US",
       "s": "MATERIALS",
-      "cap": 20.80603136,
-      "vol": 2.54117,
-      "div": 0.9199999999999999,
+      "cap": 20.098422784,
+      "vol": 2.847973,
+      "div": 0.95,
       "per": null,
-      "pbr": 2.7310865,
+      "pbr": 2.638203,
       "psr": null,
-      "evEbitda": 22.684,
-      "peg": 1.08,
+      "evEbitda": 22.021,
+      "peg": 1.04,
       "netMargin": -4.2379998,
       "operatingMargin": 24.786,
       "roe": -1.82,
@@ -363,28 +1173,109 @@
       "epsGrowth": null,
       "payoutRatio": 57.97,
       "week52High": 221,
-      "week52Low": 53.7,
-      "weight": 0.0755
+      "week52Low": 55.9,
+      "news": [
+        {
+          "source": "naver",
+          "title": "코스피 4020선 흔들… 美 증시 혼조·환율 상승 압박",
+          "date": "2025-12-05",
+          "url": "https://www.newsclaim.co.kr/news/articleView.html?idxno=3051763",
+          "text": "서울 외환시장에서 원·달러 환율은 전 거래일 주간거래 종가보다 1.2원 상승한 1474.7원에 거래를... 반면 아마존은 USPS와의 계약 종료 검토 이슈 등 단기 불확실성 탓에 1.4% 하락했고, 알베말과 라이온델바젤...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "美 정부, 지분 인수 추진에 캐나다 리튬광산 업체 주가 90% 폭등",
+          "date": "2025-09-24",
+          "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=02036886642303728",
+          "text": "캐나다 리튬 광산업체 리튬 아메리카스 주가가 미국 도널드 트럼프 행정부의 지분 투자 추진 소식에 하루... 이날 리튬아메리카스 외에도 알베말, 시그마 리튬, SQM 등 다른 리튬 관련 주식도 동반 상승했다.",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "코스피, 미 증시 훈풍 타고 상승 출발… 나스닥·S P 사상 최고치",
+          "date": "2025-09-16",
+          "url": "https://www.newsclaim.co.kr/news/articleView.html?idxno=3049043",
+          "text": "서울 외환시장에서 원·달러 환율은 전 거래일 주간거래 종가보다 2.9원 떨어진 1386.1원에 출발했다.... 리튬 기업 알베말 역시 기관 매수 확대에 힘입어 6.7% 상승했다. 반면 코르테바는 사업부 분리 검토 소식에...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "美 증시, 실적 시즌 돌입… 옵션 시장 변동성 급등",
+          "date": "2025-02-12",
+          "url": "https://www.tokenpost.kr/article-220597",
+          "text": "한편, 장 마감 후 실적 발표가 예정된 기업으로는 알베말(ALB), 시스코 시스템즈(CSCO), 트레이드 데스크(TTD)... 전문가들은 옵션 시장을 통해 실적 발표에 따른 주가 방향성을 미리 가늠할 수 있지만, 옵션 거래에는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "바클레이즈 中 '바주카포식' 부양책에 따른 美 수혜주는",
+          "date": "2024-10-01",
+          "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4326895",
+          "text": "리튬 관련 기업인 알베말도 중국의 부양책으로 혜택을 받을 수 있는 실적 부진 종목 가운데 하나다. 중국 노출도가 29%인 이 리튬 공급업체의 주가는 2024년에 전기차 수요 둔화와 공급 과잉에 따른 가격 하락...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "마이크론 긍정적 전망에 월가 상승 출발 전망, 파월 발언 주목",
+          "date": "2024-09-26",
+          "url": "https://www.econotimes.com/----------1688622",
+          "text": "거래에서 주가가 17% 급등했다. 이러한 낙관론은 다른 반도체 주식에도 영향을 미쳐, 엔비디아(Nvidia... 6%, 리튬 채굴업체인 알베말(Albemarle, 뉴욕증권거래소: ALB)은 4.4%, 아카디움(Arcadium)은 3.5% 상승했는데, 이는...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "Albemarle Stock Leads S&P 500 Losses As Lithium Producer Sinks 8% - TIKR.com",
+          "date": "2026-03-04",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQT21ONDlMNmdnN0xpY1VhVUdIS3AwemM1SXp5dDJYLWUwelpwZmwxc01kUFI3ZzBDaGJoNjZ1MGNZal9NTTdhVFJRRG10QWprVHZEYUVuUzZ3bWlXY0J0b1M4M3RWLWhZWkhaZ2s4dG1lNUpIOW9VWnZhZ0YyaUI2bVRRLXRzb0ZibVhmR28xeVJ5ZmxXZ0RmVm9xZXdrQQ?oc=5",
+          "text": "Albemarle Stock Leads S&P 500 Losses As Lithium Producer Sinks 8% TIKR.com",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "글로벌 리튬 공급 과잉 우려에 알베말 6% 급락하며 전기차 밸류체인 위기론 확산 : 금융 - 재경일보",
+          "date": "2026-06-04",
+          "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1LSHp1dzBWMkVGRHJ6dEJ2U3l1MHlIeFZJNnhWcUdpbHNFU1R5RmxDWFdHR2RlZlRrcVBYYjExYVF6a0RvWDlQaEln?oc=5",
+          "text": "글로벌 리튬 공급 과잉 우려에 알베말 6% 급락하며 전기차 밸류체인 위기론 확산 : 금융 재경일보",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "After a 6% Fall on Lithium Gluts, Can Albemarle Stock Recover in 2026? - TIKR.com",
+          "date": "2026-01-23",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUTZmWEhmNWZZc2lKOG9jaE9od3dEYW9NcGdJWGJxZF83WjNZV0V4LVBUMGZnWEFVRDNjeXJDTDVQY0NkZDVnOXRmVVdsNUlYVFctUV9ReXNNWXlURHYyM2Z1cHlsY1gyQ29pTE9sWHRxRTF6WFZRQ0pyUmxuQUJMeVg1VlZ0QXBaNE9oYnVZemREUmM1UmxCbFV1bXo?oc=5",
+          "text": "After a 6% Fall on Lithium Gluts, Can Albemarle Stock Recover in 2026? TIKR.com",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "알베말 주가 7% 급등...중국 리튬업체 생산중단 영향 - wowglobal.co.kr",
+          "date": "2025-07-18",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE92U3JqU3VQeGpQWlExbmVyUl9GZGEwR3dNNG41Y1RBNjV0VnUtX1RacmxNTlY3NE5XeURRUU9MTUtZNUlUOGFaMF96aGJqU1RLRkdXX25aS0ZTVkxLYTVPYlJLaHlKaTJH?oc=5",
+          "text": "알베말 주가 7% 급등...중국 리튬업체 생산중단 영향 wowglobal.co.kr",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "005930",
       "n": "삼성전자",
       "m": "KR",
       "s": "IT",
-      "cap": 1762.9,
-      "per": 28.21,
-      "pbr": 4.85,
-      "vol": 47.7,
-      "div": 0.48,
+      "cap": 1629,
+      "per": 26.07,
+      "pbr": 4.48,
+      "vol": 31,
+      "div": 0.52,
       "roe": 18.9,
       "operatingMargin": 42.8,
       "debtRatio": 6,
-      "week52High": 354500,
-      "week52Low": 56200,
-      "psr": 5.9,
-      "evEbitda": 14.1,
-      "peg": 0.18,
-      "pcr": 21,
+      "week52High": 370000,
+      "week52Low": 56900,
+      "psr": 5.5,
+      "evEbitda": 14.4,
+      "peg": 0.38,
+      "pcr": 19.4,
       "roa": 10.2,
       "netMargin": 21.5,
       "grossMargin": 47.7,
@@ -393,40 +1284,121 @@
       "currentRatio": 2.54,
       "quickRatio": 1.96,
       "fcf": 51.98,
-      "fcfYield": 2.95,
+      "fcfYield": 3.19,
       "eps": 12372,
       "payoutRatio": null,
-      "beta": 1.33,
+      "beta": 1.49,
       "roic": 17.8,
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 349000,
-      "chg": 10.09,
+      "price": 322500,
+      "chg": 7.86,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:15.230Z",
-      "weight": 0.0453
+      "asOf": "2026-06-14T17:17:42.699Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "[단독] 1주일 넘어가는 레미콘 파업… 협상 재개했지만 타결 난망",
+          "date": "2026-06-14",
+          "url": "https://www.kmib.co.kr/article/view.asp?arcid=1781424184&code=11151400&cp=nv",
+          "text": "협상의 주요 동력은 삼성전자와 SK하이닉스 등 반도체공장이 건설 중인 평택과 용인 등 경기 남부 상황이다. 건설경기 침체기에도 이들 현장에는 레미콘 수요가 꾸준해서다. 레미콘 운송비는 본래 권역별로 따로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "남의 게임 레벨 올려주는 부업까지… 청년 절반 “기회 되면 해외로”",
+          "date": "2026-06-14",
+          "url": "https://www.chosun.com/economy/economy_general/2026/06/15/WT5MSNL3HRB2BI5W4TAWQNEQQ4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "text": "‘삼전·닉스(삼성전자·SK하이닉스)’ 같은 일부 대기업을 제외하고 상당수 청년은 집값·주가 상승률은커녕 물가 상승세도 따라잡을 수 없는 앞선 세대와의 임금 격차에 좌절하고 있다. 벌어지는 임금·소득 격차...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[사설] AI 통제 나선 미국, 한국 기술주권 경고음이다",
+          "date": "2026-06-14",
+          "url": "https://www.hankyung.com/article/2026061452551",
+          "text": "한국인터넷진흥원, 삼성전자, SK하이닉스 등은 앤스로픽의 미토스 접근 협의체 ‘프로젝트 글라스윙’의 참여 대상으로 알려졌지만, 미국 정부의 조치로 무용지물이 될 처지다. 이번 사태가 한국에 주는 경고는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "삼성전자, 세계 랜드마크서 '마이크로 RGB' 알린다…AI TV 기술 부각",
+          "date": "2026-06-14",
+          "url": "https://www.apnews.kr/news/articleView.html?idxno=3049068",
+          "text": "©AP신문(AP뉴스)/이미지 제공 = 삼성전자 ▲삼성전자는 서울 명동 신세계스퀘어를 비롯해 미국 뉴욕 타임스 스퀘어, 영국 런던 피카딜리 광장, 홍콩 센트럴 엔터테인먼트 빌딩 등 세계 주요 도심 랜드마크에서...",
+          "isGeneric": false
+        },
+        {
+          "source": "naver",
+          "title": "샘 올트먼 방한 연기 사법리스크 때문이었나",
+          "date": "2026-06-14",
+          "url": "https://www.kmib.co.kr/article/view.asp?arcid=1781427325&code=11151400&cp=nv",
+          "text": "올트먼 CEO는 당초 14~15일 한국을 방문해 삼성전자 네이버 카카오 등 주요 기업 경영진을 만나 AI 서비스 협력 확대 방안 등을 논의할 예정이었다. 그러나 방한 이틀 전인 지난 12일 돌연 일정을 연기했다. 오픈AI는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "“지금은 美 전력 ETF에 분산 투자… 국내 주식 비중은 8%뿐”",
+          "date": "2026-06-14",
+          "url": "https://www.chosun.com/economy/money/2026/06/15/AH6DJ67CIFEINEI3SYA3NWM54Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "text": "국내 주식 비중은 전체의 8% 정도로, 대부분 삼성전자와 SK하이닉스다. 그는 “요즘 새롭게 관심을 두고 있는 분야는 전력”이라고 했다. “구체적으로는 세 가지 상장지수펀드(ETF)에 분산 투자하고 있어요. 미국...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "“아무리 출렁거려도 결국 갈 주식”…‘엄지척’ 리포트 쏟아지는 삼성전기 - 매일경제",
+          "date": "2026-06-13",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1GZE42enUxWTc1dEU5Xy1HaHRTQWNhSDF3LUF6aTlkd0hYQUdGdFJlZVJrWmk5c0ZNSURLUTB1dlQtaV9IWWVCRld5eF9ESUVic2c?oc=5",
+          "text": "“아무리 출렁거려도 결국 갈 주식”…‘엄지척’ 리포트 쏟아지는 삼성전기 매일경제",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "AI 슈퍼사이클 효과…삼성전기·LG이노텍 2분기 실적 훈풍 - v.daum.net",
+          "date": "2026-06-13",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0zSkRRbnRRVHdUOVhhRk1nVHpYRlJhLWg5N2dJRTNJWWRqWXJjRXI4dTM3bzZkVjZZbFE0SU1Fa0t1d2Y3SVcwdmxJeHhzX1k?oc=5",
+          "text": "AI 슈퍼사이클 효과…삼성전기·LG이노텍 2분기 실적 훈풍 v.daum.net",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "삼성전기, AI 시대 핵심 제품 '실리콘 캐패시터' 본격 양산 - 한국경제",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1abTlBT25wOFo0RlVsUUJMYngzaS1fUm8tOENrNlhHelJ1eXVucDRXdUpuTDRndG05OFF5b3FEc0R4QXNuai0wMkI3X0pmZHc1RC1OWlBpcVVqZ9IBVEFVX3lxTE5qQVU1X1g5Qm9vWk1fdGZBX28yUnJRcWU1ZGpLdTB3dU83bG1mMUxtbXdkMmJrbDJnanFwamFUZWVKbEpzYTRCZ1ZZRHlhSEgzWFE5aw?oc=5",
+          "text": "삼성전기, AI 시대 핵심 제품 '실리콘 캐패시터' 본격 양산 한국경제",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "\"엔비디아가 안 산다는데요?\"…삼성 발칵 뒤집은 소문의 실체 [인더스토리] - 한국경제",
+          "date": "2026-06-13",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5DdnlvM1NBMUZrMTRueHYtdEpIYVZraTctdjN4UHluTU9hZVpsZWR5Zi1VWm5pRkhKdEY5cWFIdTkyOUJuYzdfNk9SRGFHQW8tY3RDcTRlTWdwQdIBVEFVX3lxTFBSRjJ6TVRNbGU5V0d6end3ZkFHQmNyclZmUEU2eThNOENiLTN2V0JGdkUzdS1IVXBLdkVPUDZvYWI0WVhTNGR5SVVXV1BybVJieTBVNw?oc=5",
+          "text": "\"엔비디아가 안 산다는데요?\"…삼성 발칵 뒤집은 소문의 실체 [인더스토리] 한국경제",
+          "isGeneric": true
+        }
+      ]
     },
     {
       "t": "000660",
       "n": "SK하이닉스",
       "m": "KR",
       "s": "IT",
-      "cap": 1290.3,
-      "per": 22.83,
-      "pbr": 9.94,
-      "vol": 6,
-      "div": 0.13,
+      "cap": 1174,
+      "per": 20.77,
+      "pbr": 9.04,
+      "vol": 5.3,
+      "div": 0.14,
       "roe": 61.2,
       "operatingMargin": 71.5,
       "debtRatio": 13,
-      "week52High": 2398000,
-      "week52Low": 203000,
-      "psr": 12.7,
-      "evEbitda": 17.7,
-      "peg": 3.3,
-      "pcr": 23.7,
+      "week52High": 2407000,
+      "week52Low": 238000,
+      "psr": 11.6,
+      "evEbitda": 16.3,
+      "peg": 3.04,
+      "pcr": 21.6,
       "roa": 27.9,
       "netMargin": 56.9,
       "grossMargin": 68.3,
@@ -435,7 +1407,7 @@
       "currentRatio": 2.62,
       "quickRatio": 2.17,
       "fcf": 19.85,
-      "fcfYield": 1.54,
+      "fcfYield": 1.69,
       "eps": 103521,
       "payoutRatio": null,
       "beta": 2.03,
@@ -443,74 +1415,236 @@
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 2363000,
-      "chg": 1.29,
+      "price": 2150000,
+      "chg": 2.33,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:16.124Z",
-      "weight": 0.0377
+      "asOf": "2026-06-14T17:17:43.523Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "[단독] 1주일 넘어가는 레미콘 파업… 협상 재개했지만 타결 난망",
+          "date": "2026-06-14",
+          "url": "https://www.kmib.co.kr/article/view.asp?arcid=1781424184&code=11151400&cp=nv",
+          "text": "협상의 주요 동력은 삼성전자와 SK하이닉스 등 반도체공장이 건설 중인 평택과 용인 등 경기 남부 상황이다. 건설경기 침체기에도 이들 현장에는 레미콘 수요가 꾸준해서다. 레미콘 운송비는 본래 권역별로 따로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "이천시립도서관, 경기도 공공도서관 운영평가 1위…독서문화 혁신으로...",
+          "date": "2026-06-14",
+          "url": "http://www.newstown.co.kr/news/articleView.html?idxno=706109",
+          "text": "여기에 SK하이닉스를 비롯한 지역 기관 및 중·고등학교와의 협력 사업을 지속적으로 확대하면서 공공도서관의 사회적 가치와 지역 연계 기능도 한층 강화했다. 이천시는 이번 성과를 계기로 시민 누구나 일상에서 지식과...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "남의 게임 레벨 올려주는 부업까지… 청년 절반 “기회 되면 해외로”",
+          "date": "2026-06-14",
+          "url": "https://www.chosun.com/economy/economy_general/2026/06/15/WT5MSNL3HRB2BI5W4TAWQNEQQ4/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "text": "‘삼전·닉스(삼성전자·SK하이닉스)’ 같은 일부 대기업을 제외하고 상당수 청년은 집값·주가 상승률은커녕 물가 상승세도 따라잡을 수 없는 앞선 세대와의 임금 격차에 좌절하고 있다. 벌어지는 임금·소득 격차...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[사설] AI 통제 나선 미국, 한국 기술주권 경고음이다",
+          "date": "2026-06-14",
+          "url": "https://www.hankyung.com/article/2026061452551",
+          "text": "한국인터넷진흥원, 삼성전자, SK하이닉스 등은 앤스로픽의 미토스 접근 협의체 ‘프로젝트 글라스윙’의 참여 대상으로 알려졌지만, 미국 정부의 조치로 무용지물이 될 처지다. 이번 사태가 한국에 주는 경고는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "“지금은 美 전력 ETF에 분산 투자… 국내 주식 비중은 8%뿐”",
+          "date": "2026-06-14",
+          "url": "https://www.chosun.com/economy/money/2026/06/15/AH6DJ67CIFEINEI3SYA3NWM54Y/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "text": "국내 주식 비중은 전체의 8% 정도로, 대부분 삼성전자와 SK하이닉스다. 그는 “요즘 새롭게 관심을 두고 있는 분야는 전력”이라고 했다. “구체적으로는 세 가지 상장지수펀드(ETF)에 분산 투자하고 있어요. 미국...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "“1인 1 AI 에이전트로 AX 전속력 돌입할 때”",
+          "date": "2026-06-14",
+          "url": "https://www.chosun.com/economy/industry-company/2026/06/15/JVMKJ3A23JDPRAVZIAUTYMQWLA/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "text": "AI 팩토리는 SK하이닉스의 HBM과 엔비디아의 GPU를 결합해 AI 연산·학습 인프라를 제공하는 데이터센터형 사업이다. AI 반도체 사업을 넘어 데이터센터·전력·통신망·에너지 인프라까지 영역을 확장한다는 구상이...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "SK하이닉스, 이르면 8월 ADR 상장…코리아 디스카운트 해소 기대 - 조선비즈 - Chosunbiz",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPdS1JQ0NRVnN0dkdTcXBOTm9lSzVzd3lpS04yU0Jpem9vVTdMNFg4RVVuXzV1WnFlWG9QZU9OVHFrMWpTNENsTHppYy1neTZDUFBYeUFNRjUzVUtDM3FhMlZwcG5pNlpyTW5xMURCcGJfVE1oVW00ZWtKMUtmZzh6VGNn0gGWAUFVX3lxTFB5RG9pLXdpcVJyRnBpTmF2cEhHR2Q5b0xNeWotc2NEVnU0Uk5QTERCUEJHUEFROUlZTnZZZ3hwNldjLUh0aEUzMmkyZ3VYWVU1S29Rd2VnaTdsWXEwQTRKZ2VYN3NVNGFsRVRpOWZvaWRLNENtOGJMSU5EeVdyR2k2b0t4aDMyYjBuYTNNT0RaekNzR1hpQQ?oc=5",
+          "text": "SK하이닉스, 이르면 8월 ADR 상장…코리아 디스카운트 해소 기대 - 조선비즈 Chosunbiz",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "[SK하이닉스 ADR②] 신주 발행의 명암…주주환원 카드 성패 가를 듯 - 연합인포맥스",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5pWlRKc0dzRUVTdWhkRlAxZE9MWTRIaEJuRXNJcVhPMkNNQTY3eC1qV01maDYwVjVRci1uRzc1bWhPQnVBdkRhRXR5ajI0dXpPbUdBRTJNMUZtNno0RWUxNW4xa2NjQng2TUdoVEdlQVY?oc=5",
+          "text": "[SK하이닉스 ADR②] 신주 발행의 명암…주주환원 카드 성패 가를 듯 연합인포맥스",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "SK하이닉스 美 ADR 상장 임박…투자 탄력 붙을 듯 - 네이트",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBBWEZJdmxRdGZGbnZqVXF6VGtMNE14WHpTT3hVbjRKRGVORjRnSVQtQU9TQ21KLWdGVU9LcnUxMUR1RXYxRFQyY0Q3aFlpM2IyU3NVQXpPRWlVYkZjSFpWOFdBRmhxeTlNMWw3eUtPZVVJYnNSSm9ucw?oc=5",
+          "text": "SK하이닉스 美 ADR 상장 임박…투자 탄력 붙을 듯 네이트",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "엔비디아 대항 독자 AI칩 시장 급성장 전망, 삼성전자·SK하이닉스 HBM 수요 더 늘어난다 - 비즈니스포스트",
+          "date": "2026-06-13",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1SZm5YSUdYb0lmcUkwdlhrSV80aUZsWVZJTDlwbHlqZUdUWlQ1TjY4eU5YSUpvSThCTzRmWEVXSkNiRGdqZTJ5XzJjQ1lnVERlaWFiMHZ3TWx0cTlGZk5JQzZVb0NuZVNFLWxWclFPRDZhWmc?oc=5",
+          "text": "엔비디아 대항 독자 AI칩 시장 급성장 전망, 삼성전자·SK하이닉스 HBM 수요 더 늘어난다 비즈니스포스트",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "005380",
       "n": "현대자동차",
       "m": "KR",
       "s": "CONS_DISC",
-      "cap": 151.1,
-      "per": 23.12,
-      "pbr": 1.64,
-      "vol": 2.8,
-      "div": 1.33,
+      "cap": 122.3,
+      "per": 18.71,
+      "pbr": 1.33,
+      "vol": 1.5,
+      "div": 1.65,
       "roe": 7.5,
       "operatingMargin": 5.5,
       "debtRatio": 140,
       "week52High": 783000,
-      "week52Low": 183100,
-      "psr": 1,
-      "evEbitda": 21.6,
+      "week52Low": 196200,
+      "psr": 0.8,
+      "evEbitda": 19.4,
       "peg": 4.13,
       "pcr": null,
       "roa": 1.8,
       "netMargin": 4.6,
       "grossMargin": 17.7,
       "revenueGrowth": 3.4,
-      "epsGrowth": -26.3,
+      "epsGrowth": -43.1,
       "currentRatio": 1.31,
       "quickRatio": 1.03,
       "fcf": -2.94,
-      "fcfYield": -1.95,
+      "fcfYield": -2.41,
       "eps": 32437,
       "payoutRatio": null,
-      "beta": 1.54,
+      "beta": 1.64,
       "roic": 3.1,
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 750000,
-      "chg": 3.73,
+      "price": 607000,
+      "chg": 1.68,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:17.081Z",
-      "weight": 0.0491
+      "asOf": "2026-06-14T17:17:44.399Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "FITI시험연구원, '소재부터 배터리 팩까지'…미래 모빌리티 신뢰성 혁신...",
+          "date": "2026-06-14",
+          "url": "https://www.etnews.com/20260612000184",
+          "text": "이러한 글로벌 OEM 대응 역량을 인정받아 현대자동차와도 긴밀히 협력하며, 국내외 완성차 품질 기준을 강화하는 든든한 버팀목 역할을 하고 있다. 특히, 정부의 '5극 3특 국가 균형성장' 발전 전략에 발맞춰 미래...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[전기차 전환을 넘어 모빌리티 혁명으로 (14)] LG그룹, 근육에서 두뇌까...",
+          "date": "2026-06-14",
+          "url": "https://www.news2day.co.kr/article/20260614500001",
+          "text": "클로이드 범용화가 관건이다 생태계 플랫폼 선점이 핵심이다 피지컬 AI 인프라 기업 도약 테슬라와 현대자동차의 보스턴 다이내믹스를 중심으로 한 휴머노이드 로봇 경쟁이 2025년 말부터 본격화되고 있다. 테슬라...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "정의선, ‘르망 24시’ 찾아 제네시스 레이싱팀 격려",
+          "date": "2026-06-14",
+          "url": "https://www.donga.com/news/Economy/article/all/20260614/134109264/2",
+          "text": "정의선 현대자동차그룹 회장이 세계 최고 권위의 내구 레이스 대회인 프랑스 ‘르망 24시’ 현장을 방문했다. 14일 현대차그룹에 따르면 정 회장은 13일(현지 시간) 프랑스 르망의 라사르트 서킷에서 열린 르망 24시...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "제네시스, 한국 최초 ‘르망 24시’ 참가",
+          "date": "2026-06-14",
+          "url": "https://www.kmib.co.kr/article/view.asp?arcid=1781422539&code=11151400&cp=nv",
+          "text": "호세 무뇨스 현대자동차 사장은 “르망 24시는 극한의 환경에서 차량 성능을 검증하는 중요한 무대”라며 “레이스를 통해 얻은 경험은 향후 마그마 퍼포먼스 차량 개발에 적극 반영할 것”이라고 말했다.",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[르망 24시] 제네시스, 데뷔전서 13위 완주…韓 모터스포츠 새 역사 쓰다",
+          "date": "2026-06-14",
+          "url": "https://biz.heraldcorp.com/article/10771345?ref=naver",
+          "text": "[제네시스 마그마 레이싱] [헤럴드경제(르망)=정경수 기자] 현대자동차그룹의 럭셔리 브랜드 제네시스가 세계 최고 권위의 내구 레이스인 ‘르망 24시간’ 하이퍼카 클래스 데뷔전을 완주로 마무리했다. 첫 도전에서...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "현대차노조, 임협 교섭 결렬 선언…파업 수순",
+          "date": "2026-06-14",
+          "url": "https://www.ksilbo.co.kr/news/articleView.html?idxno=1059446",
+          "text": "금속노조 현대자동차지부(현대차 노조)가 올해 임금 협상 교섭 결렬을 선언하고 파업 수순에 들어간다. 현대차 노조는 지난 12일 울산공장 본관에서 열린 제11차 교섭에서 임협 결렬을 선언했다고 14일 밝혔다. 노조는...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "BPA·현대차 스마트항만 협력 - v.daum.net",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5Fd1lDQlI1WHVQRzBvejhVdWd3NzVRWHpLTUJaNnUtZ3BSRE9CdHBfaHNoOEdIV2l6WFE0QjdjMlJsZ2hoMnBkeUJ0U3VhQzQ?oc=5",
+          "text": "BPA·현대차 스마트항만 협력 v.daum.net",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "현대자동차 에픽게임즈 월드컵 파트너십 - Hyundai Motor Group",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNbndiVDZiLXEtcktQOThESXVrN3h4dVQyUnZVekh1dkM2MnpTblVPZGxRZloxYmItaDNEZTBjMFFtRHFRcWQ1bVlHS1NiejZrUnpZMkhRU2h4SVI3S3I4bUV3RWRNUmtqSHMtOUhsRlQ3TE5EdE9qUUVOY0JaT08tVUlWTzJFUUd6MU93Vl9OTWdkQ3VZSVl3VE13?oc=5",
+          "text": "현대자동차 에픽게임즈 월드컵 파트너십 Hyundai Motor Group",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "BPA, 현대그룹과 AI 스마트항만 협력 - 경남매일",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5YQ1piNjlVaEdxUVFQbDNYYmZPRHFIa010eFh3RXM1WUh1NVBkUC1tNHZoVUVtZERZZ0VoOVNVVGNTeDB0cWdCTjFXcjlBOXdUbWtWR3JfSWVfeURtUmo0eTdWQnlKbU5ya2c?oc=5",
+          "text": "BPA, 현대그룹과 AI 스마트항만 협력 경남매일",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "2026년 6월 기준 업데이트된 현대자동차 가격표입니다. - Vietnam.vn",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPRkJoeHdjMGJYSFMyWGR0ZWF2VDUyVVBna0RzU1VEM0U5ZnFEeG5yUUwxZFMwbFFfRXBLb0JfUThsem0xUWM5M2pmRVhrSm94WnlRam5Ic1RIenh4dUVZdjI5MTk0VnQ5bDcyeDJEeU1VSjNxaXFnU2lWT3Z1M25XNG5RaDhJcElR?oc=5",
+          "text": "2026년 6월 기준 업데이트된 현대자동차 가격표입니다. Vietnam.vn",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "035420",
       "n": "네이버",
       "m": "KR",
       "s": "COMMS",
-      "cap": 31.2,
-      "per": 23.57,
-      "pbr": 1.38,
-      "vol": 14.5,
-      "div": 0.97,
+      "cap": 28.4,
+      "per": 21.44,
+      "pbr": 1.25,
+      "vol": 5.2,
+      "div": 1.07,
       "roe": 5.7,
       "operatingMargin": 16.7,
       "debtRatio": 17,
       "week52High": 304000,
-      "week52Low": 185500,
-      "psr": 3.2,
-      "evEbitda": 11,
-      "peg": 28.17,
-      "pcr": 13.6,
+      "week52Low": 190800,
+      "psr": 3,
+      "evEbitda": 11.7,
+      "peg": 29.94,
+      "pcr": 12.4,
       "roa": 3.3,
       "netMargin": 14.5,
       "grossMargin": 100,
@@ -519,7 +1653,7 @@
       "currentRatio": 1.2,
       "quickRatio": 0.96,
       "fcf": 1.12,
-      "fcfYield": 3.59,
+      "fcfYield": 3.94,
       "eps": 11521,
       "payoutRatio": null,
       "beta": 1.13,
@@ -527,32 +1661,113 @@
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 271500,
-      "chg": 16.03,
+      "price": 247000,
+      "chg": 10.27,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:17.973Z",
-      "weight": 0.0302
+      "asOf": "2026-06-14T17:17:45.270Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "넷플릭스에서 볼 수 있는 독립영화 5",
+          "date": "2026-06-14",
+          "url": "https://www.esquirekorea.co.kr/article/1904403",
+          "text": "/ 출처: 네이버영화 포토 지금은 대세 톱배우가 된 이제훈과 박정민의 장편영화 데뷔작이자 파릇파릇한 신인... / 출처: 네이버영화 포토 학점 2.1에 토익 점수 하나 없이 제대한 복학생 ‘만섭’. 〈족구왕〉은 취업 준비와...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "‘2026 FIFA 북중미 월드컵’ 네덜란드 vs 일본 중계…몇 시, 어디서?",
+          "date": "2026-06-14",
+          "url": "https://www.wikitree.co.kr/articles/1141339",
+          "text": "치지직·JTBC·KBS 확인 이번 네덜란드와 일본의 경기는 네이버 스트리밍 플랫폼 치지직을 통해 볼 수 있다. 네이버는 2026 FIFA 북중미 월드컵 전 경기를 생중계한다. 모바일이나 온라인 환경에서 경기를 시청하려면...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "샘 올트먼 방한 연기 사법리스크 때문이었나",
+          "date": "2026-06-14",
+          "url": "https://www.kmib.co.kr/article/view.asp?arcid=1781427325&code=11151400&cp=nv",
+          "text": "올트먼 CEO는 당초 14~15일 한국을 방문해 삼성전자 네이버 카카오 등 주요 기업 경영진을 만나 AI 서비스 협력 확대 방안 등을 논의할 예정이었다. 그러나 방한 이틀 전인 지난 12일 돌연 일정을 연기했다. 오픈AI는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[MZ 톡톡] 열심 서사",
+          "date": "2026-06-14",
+          "url": "https://www.hankyung.com/article/2026061452691",
+          "text": "최근 숏폼 영상 알고리즘을 평정한 콘텐츠가 참 동적이다. 흰 민소매를 입고 까마득한 후배 걸그룹의 안무를 몸이 부서져라 소화하는 전직 아이돌 이준, ‘꽃미남 배우’로 많은 것을 이뤘음에도 사십 대 중반에...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "경기도, '같거나 비슷한' 지하차도 명칭 28건 조치",
+          "date": "2026-06-14",
+          "url": "http://www.joygm.com/news/articleView.html?idxno=215232",
+          "text": "아울러 경기도는 명칭이 변경된 지하차도의 명판 교체를 완료하고, 네이버지도·카카오맵 등 주요 지도서비스에도 변경된 명칭이 반영되도록 조치해 주민 혼선을 최소화했다. 또한 지하차도 입·출구와 지하차도 내부에...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[취재후] 분산된 여행 유통, 기회인가 부담인가",
+          "date": "2026-06-14",
+          "url": "https://www.traveltimes.co.kr/news/articleView.html?idxno=415992",
+          "text": "초반에는 네이버가 꽤 흡수했다. 트래픽이 크니 여행사들도 기대를 걸었다. 다 그런데 네이버가 여행사들한테 늘 편한 채널은 아니지 않나? 손 맞다. 입점 조건도 까다롭고 수수료 부담도 있다. 특히 API 연동 압박이...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "삼성전자 감사 페스티벌, 네이버에서…환급·적립 혜택도 - 뉴스1",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBENjhlOFFhZjZ6RGpjdVNrOXpEdGcxdXpZTDRSdWU1UXduN05KSmhlSGFDbkFRM3ZkMzZ2cVVvVWthek1tQjZQd04weEFoT0dNZklfYURIbnhUelVsOHk2QlQtRDhiY240?oc=5",
+          "text": "삼성전자 감사 페스티벌, 네이버에서…환급·적립 혜택도 뉴스1",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "네이버도 NC AI도 뛰어들었다…떠오르는 신시장 '국방 AI' - v.daum.net",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1YemFFYXV5dzBzOGhxLXlCYl9TUTl5VW9VVWZxZEZna1Q4WGg3RUVJLWdxVXNpbDNUMnVIbHFiUGV5Z0JpUjhMaElYZERIMkE?oc=5",
+          "text": "네이버도 NC AI도 뛰어들었다…떠오르는 신시장 '국방 AI' v.daum.net",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "인천신보 블로그, 네이버 메이트 선정 - 경기일보",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB0RFNYZ0J3Y0NCNjhWX3JJX3ZaU3FkZkQwcDB5VGNrbFpDdXdMeEJ0YVhXWWtsdVNtMmlDdVJDZ0RZNklIQU0wTWFMby1RVnBWaGJEQWhOQTJiT3c?oc=5",
+          "text": "인천신보 블로그, 네이버 메이트 선정 경기일보",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "[속보] 샘 올트먼 방한 돌연 연기…삼성·카카오·네이버 회동도 미뤄져 - 중앙일보",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE93d1dGdXdxb2JobF91Ujl5RzE2RlBLXzdxNDduc25zbnlVT2poWWQ4VHBNZklWUHdvYkd2OG9HVlVLUEQxQWMyOGpHelJUdW80QUtOTUFn?oc=5",
+          "text": "[속보] 샘 올트먼 방한 돌연 연기…삼성·카카오·네이버 회동도 미뤄져 중앙일보",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "035720",
       "n": "카카오",
       "m": "KR",
       "s": "COMMS",
-      "cap": 14.5,
-      "per": 38.43,
-      "pbr": 1.64,
-      "vol": 11.8,
+      "cap": 14.1,
+      "per": 37.35,
+      "pbr": 1.59,
+      "vol": 4.1,
       "div": 0.18,
       "roe": 3.9,
       "operatingMargin": 10.9,
       "debtRatio": 20,
       "week52High": 71600,
-      "week52Low": 38500,
-      "psr": 2.3,
-      "evEbitda": 9.5,
+      "week52Low": 36500,
+      "psr": 2.2,
+      "evEbitda": 9.4,
       "peg": 1.2,
-      "pcr": 12.6,
+      "pcr": 12.2,
       "roa": 1.8,
       "netMargin": 5.9,
       "grossMargin": 94,
@@ -561,82 +1776,244 @@
       "currentRatio": 1.18,
       "quickRatio": 1.12,
       "fcf": 2.41,
-      "fcfYield": 16.65,
+      "fcfYield": 17.14,
       "eps": 1111,
       "payoutRatio": null,
-      "beta": 1.27,
+      "beta": 1.15,
       "roic": 3.2,
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 42700,
-      "chg": 1.79,
+      "price": 41500,
+      "chg": 5.6,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:18.855Z",
-      "weight": 0.0302
+      "asOf": "2026-06-14T17:17:46.140Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "다영, 강렬 비주얼로 전한 현장 근황…솔로 행보 이어간다",
+          "date": "2026-06-14",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16093524",
+          "text": "2020년 카카오TV 드라마 '연애혁명'에서 오아람 역을 맡아 본격적으로 연기에 도전했고, 2021년 tvN 드라마 '여신강림'에서는 채니 역 특별 출연을 통해 또래 캐릭터를 자연스럽게 그려냈다. 이와 함께 각종 예능과...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "李대통령 부정선거론은 국민 모욕하는 반사회적 행태",
+          "date": "2026-06-14",
+          "url": "https://www.nocutnews.co.kr/news/6532725?utm_source=naver&utm_medium=article&utm_campaign=20260615124645",
+          "text": "※CBS노컷뉴스는 여러분의 제보로 함께 세상을 바꿉니다. 각종 비리와 부당대우, 사건사고와 미담 등 모든 얘깃거리를 알려주세요.이메일 : 카카오톡 : @노컷뉴스사이트 : https://url.kr/b71afn",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "샘 올트먼 방한 연기 사법리스크 때문이었나",
+          "date": "2026-06-14",
+          "url": "https://www.kmib.co.kr/article/view.asp?arcid=1781427325&code=11151400&cp=nv",
+          "text": "올트먼 CEO는 당초 14~15일 한국을 방문해 삼성전자 네이버 카카오 등 주요 기업 경영진을 만나 AI 서비스 협력 확대 방안 등을 논의할 예정이었다. 그러나 방한 이틀 전인 지난 12일 돌연 일정을 연기했다. 오픈AI는...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "최유진, 앞머리 싹둑 새 비주얼…8집 활동 속 변신",
+          "date": "2026-06-14",
+          "url": "https://www.topstarnews.net/news/articleView.html?idxno=16093452",
+          "text": "2021년에는 넷플릭스 '내일 지구가 망해버렸으면 좋겠어' 한현아 역, 카카오TV '펌킨타임' 한수지 역 등 OTT 작품에 연이어 출연하며 연기 스펙트럼을 넓혔다. 같은 해 카카오TV '그녀의 버킷리스트'에서 세현 역으로...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "시중은행 예금 금리도 年 3%대 진입",
+          "date": "2026-06-14",
+          "url": "https://www.donga.com/news/Economy/article/all/20260614/134109186/2",
+          "text": "인터넷은행 정기예금 최고 금리는 카카오뱅크 연 3.4%, 케이뱅크 연 3.41%, 토스뱅크 연 3.2%다. 전국 79개 저축은행 정기예금 평균금리는 연 3.44%로 1년 반 만에 가장 높은 수준이 됐다. 은행권 금리가 오르는 것은...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "경기도, '같거나 비슷한' 지하차도 명칭 28건 조치",
+          "date": "2026-06-14",
+          "url": "http://www.joygm.com/news/articleView.html?idxno=215232",
+          "text": "아울러 경기도는 명칭이 변경된 지하차도의 명판 교체를 완료하고, 네이버지도·카카오맵 등 주요 지도서비스에도 변경된 명칭이 반영되도록 조치해 주민 혼선을 최소화했다. 또한 지하차도 입·출구와 지하차도 내부에...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "샘 올트먼 방한 연기…삼성전자·네이버·카카오 일정 모두 취소 - 머니투데이 - 머니투데이",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBSaklBNmtGWmtLSjdUT3BzVGhsT1BVUVp3ZzZHbjV5c0ZVczNjb0lGWVdIdWd4Sm83QmlUTWo0UmdUamdlSmdxaGh6THMySG1sX0M0RDI3RlJqNHJhLUF1eXk0Z2NTLWvSAWxBVV95cUxNaGp6YXZORTZ1N2puRzNYV3RIbTRZZDJ2WkIwdk0xbEZqZzQ4bWp2aXBLTGNqZWxmSy1WN0NWd1dPNmFwZm5QcnEyUy1XT2poRGtSYVhlQVlzQkpDTlFJX3NfY3UxSThlN0FXamM?oc=5",
+          "text": "샘 올트먼 방한 연기…삼성전자·네이버·카카오 일정 모두 취소 - 머니투데이 머니투데이샘 알트만 오픈AI CEO, 방한 일정 취소...삼성전자·네이버·카카오 회동 연기 MTN 머니투데이방송[속보] 샘 올트먼 방한 돌연 연기…삼성·카카오·네이버 회동도 미뤄져 v.daum.net",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "네이버·SKT, 엔비디아와 AI 협력…카카오 첫 파업[뉴스잇(IT)쥬] - 뉴스1",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9yU3dHd29SeDQwOVlGMUR1M2w0dzdPaDVvcG8yWDcwUkRjdWd1NUozVkx6R1FQT1kxYjdzY3RWNlAxemJqQTBJV0FwRjFLUEowVjNmMjR1QW02N3ZwVTZabw?oc=5",
+          "text": "네이버·SKT, 엔비디아와 AI 협력…카카오 첫 파업[뉴스잇(IT)쥬] 뉴스1",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "직방 AI중개사, 카카오톡에서 쓴다 - 전자신문",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBmTGYxdHI1cHNWTjBIdC1LdEowalpwYlVON2lIOE1qRWFKNXgtV0hrN3RCR2xVV005ZXpJMjBxUUlKVnJFNEdOdDdfamx1Zw?oc=5",
+          "text": "직방 AI중개사, 카카오톡에서 쓴다 전자신문",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "춘천시, 자동차세 고지서 카카오톡으로 받는다 - 아시아경제",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5BWkRBTE5Fd2dsaHF6OVktYy1jc3JSUkdtRFdYMWhUcW1Cb0t2RmRtMEMySEtWM0lxRjFuU09UclZ6WFN1R2hlMUF4SndBam8yMkJJOW5qbF8zeFJCZUZYZQ?oc=5",
+          "text": "춘천시, 자동차세 고지서 카카오톡으로 받는다 아시아경제",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "207940",
       "n": "삼성바이오로직스",
       "m": "KR",
       "s": "HEALTH",
-      "cap": 49,
-      "per": 44.74,
-      "pbr": 8.04,
+      "cap": 46.1,
+      "per": 42.07,
+      "pbr": 7.56,
       "vol": 0.1,
       "div": 0,
       "roe": 18.3,
       "operatingMargin": 46.2,
       "debtRatio": 15,
       "week52High": 1987000,
-      "week52Low": 1300000,
-      "psr": 13.2,
-      "evEbitda": 22.5,
-      "peg": 2.04,
-      "pcr": 27.3,
+      "week52Low": 1228000,
+      "psr": 12.5,
+      "evEbitda": 21.4,
+      "peg": 1.94,
+      "pcr": 25.7,
       "roa": 9.4,
       "netMargin": 39,
       "grossMargin": 54.9,
       "revenueGrowth": 25.8,
-      "epsGrowth": 92.3,
+      "epsGrowth": 25.1,
       "currentRatio": 1.7,
       "quickRatio": 0.81,
       "fcf": 0.86,
-      "fcfYield": 1.75,
+      "fcfYield": 1.86,
       "eps": 30779,
       "payoutRatio": null,
-      "beta": 0.26,
+      "beta": 0.2,
       "roic": 15.9,
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 1377000,
-      "chg": 1.03,
+      "price": 1295000,
+      "chg": 0.7,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:19.904Z",
-      "weight": 0.0302
+      "asOf": "2026-06-14T17:17:47.002Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "[데스크 칼럼] 머슴살이도 역시 대감댁이 낫다지만…",
+          "date": "2026-06-14",
+          "url": "http://www.fntimes.com/html/view.php?ud=202606130051407954dd55077bc2_18",
+          "text": "삼성전자 뒤로는 현대자동차(7.9%), 네이버(4%), 삼성물산(3%), 한화에어로스페이스(2.4%), 오뚜기(1.9%), 카카오(1.8%), 삼성바이오로직스(1.7%), LG전자(1.7%)가 10위권에 랭크됐습니다. 취업플랫폼 '잡코리아'가 최근 ‘당장...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "25년 無노조 깨졌다…책임경영 시험대 오른 서정진 [셀트리온의 성장통...",
+          "date": "2026-06-14",
+          "url": "http://www.fntimes.com/html/view.php?ud=202606130035024840dd55077bc2_18",
+          "text": "K-바이오 양대 산맥의 평행이론 셀트리온이 마주한 노사 간 갈등은 K-바이오를 양분하고 있는 삼성바이오로직스와 닮아 있다. 삼성바이오로직스도 외형 성장을 거듭하며 무노조 경영을 유지해 왔으나, 회사가 성장함에...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "증시 역대급 불장에 양극화·변동성 심화",
+          "date": "2026-06-14",
+          "url": "https://www.idaegu.co.kr/news/articleView.html?idxno=550941",
+          "text": "시가총액 상위 종목 중에선 삼성바이오로직스(12위)가 올해 1월 15일 52주 신고가를 기록했으나 이후 지속 하락하며 지난 8일 신저가를 기록했다. 신고가 당시 삼성바이오로직스는 세계 최대 바이오 투자 행사 JP모건...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "삼성바이오 노사 16일 협상 재개… 인사제도 쟁점 의견 좁힐지 주목",
+          "date": "2026-06-14",
+          "url": "https://www.kyeongin.com/article/1765557",
+          "text": "회사 “인사권·경영권 침해” 주장 노조 “고용안정 최소 장치” 반박 요구안 평행선… 합의 진통 예상 노동조합 전면 파업 나흘째인 4일 오전 인천 연수구 삼성바이오로직스 공장에 출근한 직원들이 이동하고 있다. 2026....",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "역대급 널뛰기 증시…코스피 192개 종목 52주 신고가·신저가 동시 기록",
+          "date": "2026-06-14",
+          "url": "https://biz.heraldcorp.com/article/10771300?ref=naver",
+          "text": "삼성바이오로직스는 지난 1월 15일 52주 신고가를 기록한후 내려 지난 8일 신저가를 기록했다. 6·3지방선거 서울시장 테마주였던 에스제이그룹도 2월 신고가를 기록했으나 선거가 끝난 뒤 신저가로 급락했다. 반면...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "삼성·셀트리온·롯데 총출동…K-바이오, 바이오 USA서 글로벌 빅파마 잡...",
+          "date": "2026-06-14",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=525791",
+          "text": "삼성바이오로직스는 올해도 대규모 단독 부스를 마련하고 글로벌 고객 확보에 나선다. 삼성바이오로직스는 미국 록빌 캠퍼스를 비롯한 생산시설 확장 현황과 CDMO 경쟁력을 집중 소개할 예정이다. 특히 지난해 선보인...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "삼성바이오 노사 16일 협상 재개… 인사제도 쟁점 의견 좁힐지 주목 - 경인일보",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1Va0xKV0pQMkR5U254d0YtcWRRMXZvdkRpcEc1Nm15THgzNmpHcnotTXZvczdwdGV4VUhjd0VPUFk4UTdTSHVZbGJnT2ljTWlIbEE?oc=5",
+          "text": "삼성바이오 노사 16일 협상 재개… 인사제도 쟁점 의견 좁힐지 주목 경인일보",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "생계비·기금운용 집행부 마음대로?…삼성바이오 상생노조 규약 개정안 논란 - v.daum.net",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8tQVE5MHpNa1BhcHVRaGtDbWx6TUxwVVJ5UmhERHpHYlF6anVFSHlkY191RVhhbjIyanUwMHV0NjVfdGY3X1pUQ3dYVExUaFE?oc=5",
+          "text": "생계비·기금운용 집행부 마음대로?…삼성바이오 상생노조 규약 개정안 논란 v.daum.net",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "바이오USA 집결하는 K바이오…기술수출·수주 총력전 - 매일경제 마켓",
+          "date": "2026-06-13",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBsSzBjLUFHZm9sNE1weTBOZTQ1TGxPVVNQTlBOQm9abHp1Ri1GYTd5SWR3TkVkbFZKR3hBTGlIYnhUVTNOaUR4WmhvWEVPRTVrRHc?oc=5",
+          "text": "바이오USA 집결하는 K바이오…기술수출·수주 총력전 매일경제 마켓",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "D-7 ‘바이오 USA’ 韓 기업 총출동…기술수출·CDMO 빅딜 나올까 - 서울경제",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE40dVR1SDFidTZhX2h1ekJzenViWTRzY1BQd0dfakRjQ0l5cG5yWkFsTURHd2xobldJS01xYUxwSUo0aVltM0dYeHk2c2dIdXlLRXfSAVNBVV95cUxOVTVsVDBONExVcWxUTTVnOGVCdjJ6anFVQjBDVXNKdTBTdzZhaWd3NzM4bGFwNzk1ZjVxaTRMWDhZXzNLanJObGVxbE9SM0ZwU1djOA?oc=5",
+          "text": "D-7 ‘바이오 USA’ 韓 기업 총출동…기술수출·CDMO 빅딜 나올까 서울경제",
+          "isGeneric": true
+        }
+      ]
     },
     {
       "t": "068270",
       "n": "셀트리온",
       "m": "KR",
       "s": "HEALTH",
-      "cap": 32.2,
-      "per": 34.96,
-      "pbr": 2.37,
+      "cap": 30.5,
+      "per": 33.1,
+      "pbr": 2.25,
       "vol": 0.9,
-      "div": 0.39,
+      "div": 0.41,
       "roe": 7.3,
       "operatingMargin": 28.1,
       "debtRatio": 22,
-      "week52High": 251000,
-      "week52Low": 153462,
-      "psr": 9.4,
-      "evEbitda": 27.5,
+      "week52High": 239048,
+      "week52Low": 150857,
+      "psr": 8.9,
+      "evEbitda": 26,
       "peg": 0.85,
-      "pcr": 54.3,
+      "pcr": 51.5,
       "roa": 3.8,
       "netMargin": 28.4,
       "grossMargin": 60.7,
@@ -646,36 +2023,117 @@
       "quickRatio": 0.69,
       "fcf": 0.02,
       "fcfYield": 0.05,
-      "eps": 5484,
+      "eps": 5226,
       "payoutRatio": null,
-      "beta": 0.39,
+      "beta": 0.35,
       "roic": 6,
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 191700,
-      "chg": -0.62,
+      "price": 173000,
+      "chg": 4.09,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:21.153Z",
-      "weight": 0.0302
+      "asOf": "2026-06-14T17:17:47.873Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "25년 無노조 깨졌다…책임경영 시험대 오른 서정진 [셀트리온의 성장통...",
+          "date": "2026-06-14",
+          "url": "http://www.fntimes.com/html/view.php?ud=202606130035024840dd55077bc2_18",
+          "text": "셀트리온이 창립 25주년을 맞아 거대한 변곡점에 섰다. 분기 매출 1조 원 돌파와 1조8000억 원 규모 자사주 소각... 아울러 부진한 주가와 안갯속 승계 이슈까지, 셀트리온 앞에 놓인 과제가 적지 않다. 오너 중심의 벤처...",
+          "isGeneric": false
+        },
+        {
+          "source": "naver",
+          "title": "KLPGA 투어 2026시즌 우승자 명단…김민솔, 메르세데스-벤츠 제40회 한국...",
+          "date": "2026-06-14",
+          "url": "https://golfhankook.hankooki.com/news/articleView.html?idxno=20020760",
+          "text": "여자오픈---박민지 11--2026년 6월 5~7일--셀트리온 퀸즈 마스터즈---서교림 12--2026년 6월 11~14일--메르세데스-벤츠 제40회 한국여자오픈골프선수권대회---김민솔 (2승) /골프한국 www.golfhankook.com /뉴스팀",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "삼성·현대차·네이버 등 유럽 총출동…대통령 순방 '경제외교' 성과보...",
+          "date": "2026-06-14",
+          "url": "https://www.dongponews.net/news/articleView.html?idxno=58714",
+          "text": "삼성전자와 현대자동차, 네이버, LG화학, 셀트리온, 삼양식품 등 국내 대표 기업들이 이재명 대통령의 유럽... 삼양식품은 한국 라면과 이탈리아 파스타의 공동 연구개발 가능성을 제시했고, 셀트리온은 이탈리아를 유럽...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "삼성·셀트리온·롯데 총출동…K-바이오, 바이오 USA서 글로벌 빅파마 잡...",
+          "date": "2026-06-14",
+          "url": "https://www.joongangenews.com/news/articleView.html?idxno=525791",
+          "text": "셀트리온도 단독 부스를 운영하며 미국 시장에서 판매 중인 베그젤마와 유플라이마, 스테키마 등 주요 바이오시밀러 경쟁력을 알린다. 셀트리온은 이번 행사에서 AI 기반 신약개발 플랫폼과 연구개발 기술도 적극...",
+          "isGeneric": false
+        },
+        {
+          "source": "naver",
+          "title": "안용호 프로티움, 누적수주 500억…2028년 IPO 추진",
+          "date": "2026-06-14",
+          "url": "https://www.hankyung.com/article/2026061451941",
+          "text": "삼성바이오로직스 초대 연구개발(R D) 헤드 겸 사업부문장을 지낸 안 대표를 비롯해 삼성바이오에피스, SK바이오사이언스, 써모피셔사이언티픽코리아, 셀트리온 출신 인력이 모여 조직을 이끌고 있다. 안 대표는 회사의...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "한-이탈리아 산업계 수장 총출동… 첨단산업·에너지·바이오 3대 협력...",
+          "date": "2026-06-14",
+          "url": "https://www.hankookilbo.com/news/article/A2026061411540001124?did=NA",
+          "text": "또 김정수 삼양식품 회장, 최병우 패션그룹형지 회장, 서진석 셀트리온 대표, 허민호 코스맥스 대표 등 바이오·식품·패션·뷰티 업계도 참여했다. 이탈리아에선 자국 최대 조선 기업 핀칸티에리, 글로벌 방산·항공우주...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "셀트리온, 차세대 다중항체 신약 효능 입증..고형암 적응증 확대 - 메트로신문",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE00c2p4U2RrWDFydlZ4d3BFUUVqYzV6SkZmQ3VVODM2Q3lOdWhsNHJGQW1zNXU1dWl5TUlNYUlabzFjNW9zYWticF9fTVNYeDdxNC1uT1lBbHlwN21IWEdnTw?oc=5",
+          "text": "셀트리온, 차세대 다중항체 신약 효능 입증..고형암 적응증 확대 메트로신문",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "셀트리온·삼성바이오, 벤처투자 큰 손으로…선순환 구조 기대 - v.daum.net",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5melQ4SXQ2b25UME1OMk5uZEdmVFdZemZQMXMyQzJ1YkVBVjFnelgwNmtXdHhzNHBfVjZBY3RLUlhZcmJILUVNamtqdUZ5MUE?oc=5",
+          "text": "셀트리온·삼성바이오, 벤처투자 큰 손으로…선순환 구조 기대 v.daum.net",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "25년 無노조 깨졌다…책임경영 시험대 오른 서정진 [셀트리온의 성장통 ①] - 한국금융신문",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8ySXN2cTJhZEdlSjdyUXlrbDhla1RmUmlPSmJBbXU2dTFybV9hOXQzZkNXeDNFUVNqaVZzZ1Z2X0FjRU5SRlRnZmRBTHFsWDBpYWhIN0ZkWXVrZkRUNmttYVgzcTZKZFJPUGZMVzRKUjcxNHZHNUs2dmVKd3I?oc=5",
+          "text": "25년 無노조 깨졌다…책임경영 시험대 오른 서정진 [셀트리온의 성장통 ①] 한국금융신문",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "서울시, 셀트리온·대원제약과 바이오 스타트업 육성한다 - 헤럴드경제",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0wUlE3U0picW1OcFBhekJ3TzFlZUFfd0dfVjlRX0VrTHJrQTBIdDZBeGRWTmIyNlRYYlRXa1VhVTk2M0MyX0pGSDFCUVNIcnMzSEZOSFBR?oc=5",
+          "text": "서울시, 셀트리온·대원제약과 바이오 스타트업 육성한다 헤럴드경제",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "105560",
       "n": "KB금융",
       "m": "KR",
       "s": "FINANCIALS",
-      "cap": 41.5,
-      "per": 10.06,
-      "pbr": 0.92,
-      "vol": 1.7,
-      "div": 2.87,
+      "cap": 44,
+      "per": 10.19,
+      "pbr": 0.96,
+      "vol": 1.6,
+      "div": 2.71,
       "roe": 10,
       "operatingMargin": 60.7,
       "debtRatio": null,
-      "week52High": 172500,
-      "week52Low": 98600,
-      "psr": 3.3,
+      "week52High": 175700,
+      "week52Low": 104800,
+      "psr": 3.5,
       "evEbitda": null,
       "peg": 0.74,
       "pcr": null,
@@ -688,39 +2146,120 @@
       "quickRatio": null,
       "fcf": null,
       "fcfYield": null,
-      "eps": 15116,
+      "eps": 15817,
       "payoutRatio": null,
-      "beta": 0.77,
+      "beta": 0.68,
       "roic": null,
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 152100,
-      "chg": 1,
+      "price": 161200,
+      "chg": 6.4,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:22.380Z",
-      "weight": 0.0604
+      "asOf": "2026-06-14T17:17:48.731Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "3년째 소득 증가율 1%대… “성실이 성공 보장” 25%뿐",
+          "date": "2026-06-14",
+          "url": "https://www.chosun.com/economy/economy_general/2026/06/15/GUUOSBT3LFGZBFOVY6NOW4TH2A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+          "text": "본지와 KB금융 청년 플랫폼 ‘KB 영 유스(KB Young Youth)’가 지난 3월 전국 남녀 1만2362명을 상대로 실시한 ‘청년 실태·인식 정밀 설문조사’ 결과, ‘성실히 일하면 성공한다는 가치가 우리 사회에서 유효하다’고...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[기자의 눈] 화재보험협회 새 수장, 현장 경험에 거는 기대",
+          "date": "2026-06-14",
+          "url": "https://www.insnews.co.kr/news/articleView.html?idxno=91214",
+          "text": "김 신임 이사장은 1991년 금융권에 발을 들인 이후 KB금융지주에서 리스크관리총괄 전무(CRO)와 재무총괄 부사장(CFO) 등 핵심 요직을 두루 거쳤다. 특히 2021년부터 3년간 KB손해보험의 대표이사로서 보험업계에 대한 이해도...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "은행 안가는 고액자산가들, PB는 찾는다",
+          "date": "2026-06-14",
+          "url": "https://www.insnews.co.kr/news/articleView.html?idxno=91236",
+          "text": "KB금융지주 경영연구소의 '2025 한국 부자 보고서'에 따르면 금융자산 10억원 이상을 보유한 국내 부자는 지난해 47만6000명으로 집계됐다. 2011년 13만명 수준과 비교하면 15년 만에 약 3.7배 증가한 규모다. 이들이 보유한...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[IN PLUS People] 계약보다 신뢰 우선… 법인 대표 관점서 답 찾는다",
+          "date": "2026-06-14",
+          "url": "https://www.insnews.co.kr/news/articleView.html?idxno=91203",
+          "text": "KB금융그룹의 일원으로서 KB국민은행, KB증권, KB손해보험 등과 협업할 수 있는 구조다. 그는 KB STAR WM은 단순한 소개가 아니라 은행과 증권의 프라이빗뱅커(PB)와 함께 고객의 문제를 파악하고 해결책을 제시한다 며...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "오늘의 경기 (6월 15일)",
+          "date": "2026-06-14",
+          "url": "https://www.idaegu.co.kr/news/articleView.html?idxno=550980",
+          "text": "△배구= 한국실업연맹 ＆ 프로 퓨처스 챔프전 단양대회(10시·충북 단양체육관) △컬링= KB금융 한국선수권대회 및 국가대표 선발전(9시·경북 의성컬링센터) △레슬링= 양정모 올림픽 제패 기념 전국대회(9시·강원도...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[사설] 원화 스테이블코인, 문제는 '발행'이 아니라 '유통'이다",
+          "date": "2026-06-14",
+          "url": "https://www.tokenpost.kr/news/insights/369199",
+          "text": "KB금융은 토스·빗썸과, 신한은 삼성금융과, 우리·농협은 카카오와의 협력을 타진하고 있다. 은행은 예금과 결제·외환 인프라를, 플랫폼과 거래소는 수천만 이용자를 이미 손에 쥐고 있다. 유통이 가장 어려운 과제라면...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "KB 양종희 '연임 변수' 지배구조 개선안 임박 - v.daum.net",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBpa0lKR3BvZ04yVEJObEZFUHE1TnYtb3BGeHpkT0NlTHpCN0Q4bmM1Um5HZWlEVV9PRzNWeWtMX3JSRWpMaFQxRThkMHZpUDQ?oc=5",
+          "text": "KB 양종희 '연임 변수' 지배구조 개선안 임박 v.daum.net",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "KB국민은행, 블록체인 디지털 채권 발행 - 남도일보",
+          "date": "2026-06-14",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBsOEw2TkNVX3I4ajBYWmVaVUFDcE5EN1Z2VnhnckpQNjdoQXc2VkFUM1RDRFRKRXBkODM3YzV4ZGxia080ZzdFQS1Fbk9URXlvbE12OWFrcklManRFN21RS3hqWHVEb2t5V0VDTtIBcEFVX3lxTE5KRWJMeFRNcHN5VlZkYmRTR3l1emFCVXJCbWdkSnEzallkdWpOdkZ2V1g1X1drUUF6YzhreENTR21HRmRpcFdfeTc5SFVFWDNzMGo2aVR0UDAybzBkNUppc3ZyOUJXY2d3aEZMSjlrWmc?oc=5",
+          "text": "KB국민은행, 블록체인 디지털 채권 발행 남도일보",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "\"KB금융, 2분기 순익 2조 '역대 최대' 전망…목표가↑\"-하나 - 한국경제",
+          "date": "2026-06-11",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE05enB6al9pM2FzR1YtQzM3TFdLdlpKeThMMEFnaTZuemZBMjNSRTNlR05NWlJoYW1rZTlpNTdjbkpOYWo1U1AxOURzckNUMFJ0cGxqZU9rZWRDUdIBVEFVX3lxTE00ZHJiNUY4UzlZM1VnN3dwdWNnREtIQjRnaGdyYmJuUXlKWHVpSjFsVmlURC1KdjBkcGVSZkloZkhpUUNPeEdzcE1Td0hXeGJZckFBdA?oc=5",
+          "text": "\"KB금융, 2분기 순익 2조 '역대 최대' 전망…목표가↑\"-하나 한국경제",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "'윤종규 사단' 귀환…KB금융 출신 OB 금의환향 이어지나 - 블로터",
+          "date": "2026-06-12",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9lRkpBTTFSS3BtWGsxdjdjclk4WUFlcWFGdlVjeWpkYjFJUC1BbjE4MUZ4N2tURUlYV0ktM29sR2w5RUMxRV9Oek1RdGJMRmZLRExLRXJxTTE0RkNjd3N0bVBiNGV0NlE00gFsQVVfeXFMTjMyM050NDV2V0RCM19oV2hGMWhGejFOcFRGOXl3N1hpVzUwQjk2cVBXeDNaLV9Ma2k1UWN1RWh6RUtFRkNfM25WMlVzSVJWeXZCOWNfNGFYTzJZYnotTHJXUXExM3R3Y2lnNmNt?oc=5",
+          "text": "'윤종규 사단' 귀환…KB금융 출신 OB 금의환향 이어지나 블로터",
+          "isGeneric": false
+        }
+      ]
     },
     {
       "t": "010950",
       "n": "S-Oil",
       "m": "KR",
       "s": "ENERGY",
-      "cap": 9.4,
-      "per": 12.95,
-      "pbr": 1.27,
-      "vol": 0.6,
-      "div": 0.31,
+      "cap": 10,
+      "per": 13.78,
+      "pbr": 1.36,
+      "vol": 0.4,
+      "div": 0.3,
       "roe": 10.3,
       "operatingMargin": 13.8,
       "debtRatio": 88,
       "week52High": 177100,
-      "week52Low": 54500,
+      "week52Low": 57500,
       "psr": 0.4,
-      "evEbitda": 8.3,
+      "evEbitda": 8.6,
       "peg": null,
-      "pcr": 4.6,
+      "pcr": 4.9,
       "roa": 3.5,
       "netMargin": 2.8,
       "grossMargin": 6.8,
@@ -729,23 +2268,256 @@
       "currentRatio": 0.77,
       "quickRatio": 0.3,
       "fcf": -0.82,
-      "fcfYield": -8.73,
+      "fcfYield": -8.21,
       "eps": 8083,
       "payoutRatio": null,
-      "beta": 0.92,
+      "beta": 0.76,
       "roic": 5.5,
       "opmTrend3y": 0,
       "gpmTrend3y": 0,
       "shareholderReturn": 0,
-      "price": 104700,
-      "chg": -2.51,
+      "price": 111400,
+      "chg": -1.5,
       "source": "live",
       "sourceLabel": "Yahoo Finance + Naver Finance",
-      "asOf": "2026-06-01T09:42:23.936Z",
-      "weight": 0.0604
+      "asOf": "2026-06-14T17:17:49.588Z",
+      "news": [
+        {
+          "source": "naver",
+          "title": "건설현장 원청교섭 절차 개선 촉구 건설산업연맹 기자회견 진행",
+          "date": "2026-06-11",
+          "url": "http://worknworld.kctu.org/news/articleView.html?idxno=509405",
+          "text": "이민수 전국플랜트건설노동조합 수석부위원장은 플랜트건설노조는 포스코, 에스오일 등 4개 발주사와 10대 원청 건설사를 상대로 원청교섭을 요구했지만 3개월이 지나도록 전혀 이뤄지지 않고 있다. 노동부가 건설현장...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "코스피·코스닥 급락, 미-이란 군사 긴장에 외국인 매도세까지",
+          "date": "2026-06-11",
+          "url": "https://www.tokenpost.kr/news/market/368099",
+          "text": "시가총액 상위 종목 가운데서는 SK스퀘어(-4.65%), 현대차(-4.65%), LG에너지솔루션(-3.76%), 삼성생명(-3.80%), 삼성전기(-2.44%) 등 다수가 내렸고, 삼성화재(1.95%), 한미반도체(1.48%), 에스오일(0.63%) 정도만 강세를 보였다....",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "[교육 NOW] 성균관대-에쓰오일-GST, 데이터센터 액침냉각 실증 협력 협...",
+          "date": "2026-06-05",
+          "url": "https://www.ebn.co.kr/news/articleView.html?idxno=1711445",
+          "text": "성균관대-S-OIL-GST, 데이터센터 액침냉각 실증 협력 협약 성균관대학교 슈퍼컴퓨팅센터는 에스오일(S-OIL), 글로벌스탠다드테크놀로지(GST)와 인공지능(AI) 데이터센터용 액침냉각 기술 실증 및 협력 강화를 위한 업무협약을...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "HMM, 컨테이너 넘어 에너지 물류 확장··· VLCC 6척 발주, 20척 규모 선...",
+          "date": "2026-06-03",
+          "url": "https://www.seoulfn.com/news/articleView.html?idxno=630194",
+          "text": "에스오일과는 오는 2030년 1분기까지 2131억원 규모의 장기 운송 계약을 유지하고 있다. 도합 1조7830억원의 고정 물량을 확보해 둔 셈이다. HMM 관계자는 중국 조선소가 국내 조선소 대비 약 30% 가량 선가가...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "에너지 물류 키운다 …HMM, 원유운반선 선대 확장",
+          "date": "2026-06-02",
+          "url": "https://www.widedaily.com/news/articleView.html?idxno=295058",
+          "text": "에스오일(S-Oil)과도 2030년 1분기까지 원유 장기운송계약(2131억원)을 유지 중이다. 세 계약을 합산하면 1조7830억원 규모의 고정 물량이 있다. HMM 관계자는 포트폴리오 다변화를 위해 벌크 부문을 계속 확장하고...",
+          "isGeneric": true
+        },
+        {
+          "source": "naver",
+          "title": "에너지 물류 키운다 …HMM, 원유운반선 선대 확장",
+          "date": "2026-06-02",
+          "url": "https://www.newsis.com/view/NISX20260602_0003653042",
+          "text": "에스오일(S-Oil)과도 2030년 1분기까지 원유 장기운송계약(2131억원)을 유지 중이다. 세 계약을 합산하면 1조7830억원 규모의 고정 물량이 있다. HMM 관계자는 포트폴리오 다변화를 위해 벌크 부문을 계속 확장하고...",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "\"전날 추락사고 났는데 또 들어갔다”···에쓰오일 샤힌 현장, 이틀 연속 인명사고 - 뉴스프리존",
+          "date": "2026-05-26",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5leWE1azlKTlJRTmE0a0JRNXQ4aFNUc3gxRGZtOXU1RFVweHkyQl9hUzZZOWQyNmZyd2ltRWQtbEM3aFNwVzZEQlFOWVFmSXZockVrenhEUVN1VmZLVGdwdjJNdFlrMDQzRzFnMkdkTjMyX2M?oc=5",
+          "text": "\"전날 추락사고 났는데 또 들어갔다”···에쓰오일 샤힌 현장, 이틀 연속 인명사고 뉴스프리존",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "S-OIL, 『인터배터리 2026』서 액침냉각유 선보여 - S-OIL STORY",
+          "date": "2026-03-12",
+          "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPRVpQb0JzakxnOTZEZUdhN2hLRXBDZWM0TU4xNFp4czVudVZyYlF4endiNVBlc3djVVQ0XzRHT1RjRDBYTHhpYnpVcnBteHRYNUpRU3JxdUw1ajY1NVNTeVhJM1gwcFF4MzdkbEZkR0g2QnJ0aTFMRWdTU19RbDV6TWNEdUhUR3dvb1I1T0dwWHNZMzkyYmxJVk1KSEUwdlBzQU5UQ0d5NVZYZEhvcVF0RnExcmFzTkcxelU3RU5VOVVxaDFsd25qUlB3OEVuVHVCbFIxN0U2b1BiZC1LMzE1MXBOOHoxQXFwQmM5S054S3JDRUdRRThNZnVmR2M2UQ?oc=5",
+          "text": "S-OIL, 『인터배터리 2026』서 액침냉각유 선보여 S-OIL STORY",
+          "isGeneric": true
+        },
+        {
+          "source": "google_rss",
+          "title": "“에스오일, 유가 안정화 이후 본격 반등 전망” - 매일경제",
+          "date": "2026-05-12",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9IeFk4azBKbHFjV1JZMjdJaUV0Y0stTVlKdDAxNUpvT2Ftb2diU3k0QnpTdWNGM3d4dlBqNFZaZks5NnVFZ0NhUXZaTW5lZEFYTlE?oc=5",
+          "text": "“에스오일, 유가 안정화 이후 본격 반등 전망” 매일경제",
+          "isGeneric": false
+        },
+        {
+          "source": "google_rss",
+          "title": "이란전쟁에 원유 숏티지 2027년까지…\"S-Oil·SK이노 역대급 수혜\" - 연합인포맥스",
+          "date": "2026-05-25",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1FU3A2bGJyY3ZFdUhPc0xGUTM1V3FrUHc1dWNIZFdoaEZaeFVLMG1jekNfbGtqR3Q1UWI0Z2hKb1pxRnN0cGphNzhTb1haV2VkSl9OWklzbXY3NzE1SkpqaDRhdmFlUzVKNnVmM1UzaGo?oc=5",
+          "text": "이란전쟁에 원유 숏티지 2027년까지…\"S-Oil·SK이노 역대급 수혜\" 연합인포맥스",
+          "isGeneric": true
+        }
+      ]
     }
   ],
   "documents": [
+    {
+      "source": "dart",
+      "title": "최대주주등소유주식변동신고서              ",
+      "date": "20260608",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608800918",
+      "text": "[기타공시] 삼성전자 공시: 최대주주등소유주식변동신고서               (접수일: 2026.06.08). 제출인: 삼성전자. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608800918",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260608800918",
+        "stockCode": "005930",
+        "filerName": "삼성전자",
+        "corpCls": "Y",
+        "disclosureType": "기타공시",
+        "badge": "공시",
+        "badgeColor": "#4b5563",
+        "priority": 99,
+        "formattedDate": "2026.06.08"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260608",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608000002",
+      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.08). 제출인: 박태훈. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608000002",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260608000002",
+        "stockCode": "005930",
+        "filerName": "박태훈",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.08"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260605",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000586",
+      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.05). 제출인: 윤장현. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000586",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260605000586",
+        "stockCode": "005930",
+        "filerName": "윤장현",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.05"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260605",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000073",
+      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.05). 제출인: 김이수. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000073",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260605000073",
+        "stockCode": "005930",
+        "filerName": "김이수",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.05"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260605",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000061",
+      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.05). 제출인: 이지훈. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000061",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260605000061",
+        "stockCode": "005930",
+        "filerName": "이지훈",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.05"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260604",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260604000077",
+      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.04). 제출인: 이헌. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260604000077",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260604000077",
+        "stockCode": "005930",
+        "filerName": "이헌",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.04"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "[기재정정]임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260602",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000421",
+      "text": "[지분공시] 삼성전자 공시: [기재정정]임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.02). 제출인: 김경석. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000421",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260602000421",
+        "stockCode": "005930",
+        "filerName": "김경석",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.02"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260602",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000150",
+      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.02). 제출인: 최인수. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000150",
+      "metadata": {
+        "corpName": "삼성전자",
+        "receiptNo": "20260602000150",
+        "stockCode": "005930",
+        "filerName": "최인수",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.02"
+      }
+    },
     {
       "source": "dart",
       "title": "대규모기업집단현황공시[연1회(동일인용)]",
@@ -762,25 +2534,6 @@
         "badge": "공정위",
         "badgeColor": "#9f1239",
         "priority": 7,
-        "formattedDate": "2026.06.01"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260601",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000369",
-      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.01). 제출인: 김경석. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000369",
-      "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260601000369",
-        "stockCode": "005930",
-        "filerName": "김경석",
-        "corpCls": "Y",
-        "disclosureType": "지분공시",
-        "badge": "지분",
-        "badgeColor": "#0f766e",
-        "priority": 3,
         "formattedDate": "2026.06.01"
       }
     },
@@ -805,135 +2558,116 @@
     },
     {
       "source": "dart",
-      "title": "대규모기업집단현황공시[연1회공시및1/4분기용(대표회사)]",
-      "date": "20260601",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000172",
-      "text": "[공정위공시] 삼성전자 공시: 대규모기업집단현황공시[연1회공시및1/4분기용(대표회사)] (접수일: 2026.06.01). 제출인: 삼성전자. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000172",
+      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "date": "20260609",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000465",
+      "text": "[지분공시] SK하이닉스 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.09). 제출인: 강춘호. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000465",
       "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260601000172",
-        "stockCode": "005930",
-        "filerName": "삼성전자",
+        "corpName": "SK하이닉스",
+        "receiptNo": "20260609000465",
+        "stockCode": "000660",
+        "filerName": "강춘호",
         "corpCls": "Y",
-        "disclosureType": "공정위공시",
-        "badge": "공정위",
-        "badgeColor": "#9f1239",
-        "priority": 7,
-        "formattedDate": "2026.06.01"
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.09"
       }
     },
     {
       "source": "dart",
       "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260601",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000001",
-      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.01). 제출인: 하지훈. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000001",
+      "date": "20260609",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000462",
+      "text": "[지분공시] SK하이닉스 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.09). 제출인: 김주선. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000462",
       "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260601000001",
-        "stockCode": "005930",
-        "filerName": "하지훈",
+        "corpName": "SK하이닉스",
+        "receiptNo": "20260609000462",
+        "stockCode": "000660",
+        "filerName": "김주선",
         "corpCls": "Y",
         "disclosureType": "지분공시",
         "badge": "지분",
         "badgeColor": "#0f766e",
         "priority": 3,
-        "formattedDate": "2026.06.01"
+        "formattedDate": "2026.06.09"
       }
     },
     {
       "source": "dart",
       "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001627",
-      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.05.29). 제출인: 김경석. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001627",
+      "date": "20260609",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000459",
+      "text": "[지분공시] SK하이닉스 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.09). 제출인: 최준기. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000459",
       "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260529001627",
-        "stockCode": "005930",
-        "filerName": "김경석",
+        "corpName": "SK하이닉스",
+        "receiptNo": "20260609000459",
+        "stockCode": "000660",
+        "filerName": "최준기",
         "corpCls": "Y",
         "disclosureType": "지분공시",
         "badge": "지분",
         "badgeColor": "#0f766e",
         "priority": 3,
-        "formattedDate": "2026.05.29"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "[기재정정]임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260526",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000244",
-      "text": "[지분공시] 삼성전자 공시: [기재정정]임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.05.26). 제출인: 조미선. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000244",
-      "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260526000244",
-        "stockCode": "005930",
-        "filerName": "조미선",
-        "corpCls": "Y",
-        "disclosureType": "지분공시",
-        "badge": "지분",
-        "badgeColor": "#0f766e",
-        "priority": 3,
-        "formattedDate": "2026.05.26"
+        "formattedDate": "2026.06.09"
       }
     },
     {
       "source": "dart",
       "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260526",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000141",
-      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.05.26). 제출인: 신용우. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000141",
+      "date": "20260609",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000454",
+      "text": "[지분공시] SK하이닉스 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.09). 제출인: 주영표. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000454",
       "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260526000141",
-        "stockCode": "005930",
-        "filerName": "신용우",
+        "corpName": "SK하이닉스",
+        "receiptNo": "20260609000454",
+        "stockCode": "000660",
+        "filerName": "주영표",
         "corpCls": "Y",
         "disclosureType": "지분공시",
         "badge": "지분",
         "badgeColor": "#0f766e",
         "priority": 3,
-        "formattedDate": "2026.05.26"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "주식등의대량보유상황보고서(일반)",
-      "date": "20260522",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260522000589",
-      "text": "[지분공시] 삼성전자 공시: 주식등의대량보유상황보고서(일반) (접수일: 2026.05.22). 제출인: 삼성물산. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260522000589",
-      "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260522000589",
-        "stockCode": "005930",
-        "filerName": "삼성물산",
-        "corpCls": "Y",
-        "disclosureType": "지분공시",
-        "badge": "지분",
-        "badgeColor": "#0f766e",
-        "priority": 3,
-        "formattedDate": "2026.05.22"
+        "formattedDate": "2026.06.09"
       }
     },
     {
       "source": "dart",
       "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260522",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260522000164",
-      "text": "[지분공시] 삼성전자 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.05.22). 제출인: 얀손헨릭. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260522000164",
+      "date": "20260609",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000450",
+      "text": "[지분공시] SK하이닉스 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.06.09). 제출인: 김현중. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000450",
       "metadata": {
-        "corpName": "삼성전자",
-        "receiptNo": "20260522000164",
-        "stockCode": "005930",
-        "filerName": "얀손헨릭",
+        "corpName": "SK하이닉스",
+        "receiptNo": "20260609000450",
+        "stockCode": "000660",
+        "filerName": "김현중",
         "corpCls": "Y",
         "disclosureType": "지분공시",
         "badge": "지분",
         "badgeColor": "#0f766e",
         "priority": 3,
-        "formattedDate": "2026.05.22"
+        "formattedDate": "2026.06.09"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "주식등의대량보유상황보고서(약식)",
+      "date": "20260609",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000049",
+      "text": "[지분공시] SK하이닉스 공시: 주식등의대량보유상황보고서(약식) (접수일: 2026.06.09). 제출인: CapitalResearchandManagementCompany. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609000049",
+      "metadata": {
+        "corpName": "SK하이닉스",
+        "receiptNo": "20260609000049",
+        "stockCode": "000660",
+        "filerName": "CapitalResearchandManagementCompany",
+        "corpCls": "Y",
+        "disclosureType": "지분공시",
+        "badge": "지분",
+        "badgeColor": "#0f766e",
+        "priority": 3,
+        "formattedDate": "2026.06.09"
       }
     },
     {
@@ -1014,116 +2748,59 @@
     },
     {
       "source": "dart",
-      "title": "분기보고서 (2026.03)",
-      "date": "20260515",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002287",
-      "text": "[정기공시] SK하이닉스 공시: 분기보고서 (2026.03) (접수일: 2026.05.15). 제출인: SK하이닉스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002287",
+      "title": "특수관계인으로부터기타유가증권매수",
+      "date": "20260610",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610000653",
+      "text": "[기타공시] 현대자동차 공시: 특수관계인으로부터기타유가증권매수 (접수일: 2026.06.10). 제출인: 현대자동차. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610000653",
       "metadata": {
-        "corpName": "SK하이닉스",
-        "receiptNo": "20260515002287",
-        "stockCode": "000660",
-        "filerName": "SK하이닉스",
-        "corpCls": "Y",
-        "disclosureType": "정기공시",
-        "badge": "정기",
-        "badgeColor": "#1d4ed8",
-        "priority": 2,
-        "formattedDate": "2026.05.15"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "주요사항보고서(자기주식처분결정)",
-      "date": "20260513",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000549",
-      "text": "[기타공시] SK하이닉스 공시: 주요사항보고서(자기주식처분결정) (접수일: 2026.05.13). 제출인: SK하이닉스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260513000549",
-      "metadata": {
-        "corpName": "SK하이닉스",
-        "receiptNo": "20260513000549",
-        "stockCode": "000660",
-        "filerName": "SK하이닉스",
+        "corpName": "현대자동차",
+        "receiptNo": "20260610000653",
+        "stockCode": "005380",
+        "filerName": "현대자동차",
         "corpCls": "Y",
         "disclosureType": "기타공시",
         "badge": "공시",
         "badgeColor": "#4b5563",
         "priority": 99,
-        "formattedDate": "2026.05.13"
+        "formattedDate": "2026.06.10"
       }
     },
     {
       "source": "dart",
-      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260508",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260508000567",
-      "text": "[지분공시] SK하이닉스 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.05.08). 제출인: 양명훈. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260508000567",
+      "title": "특수관계인에대한출자",
+      "date": "20260610",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610000640",
+      "text": "[기타공시] 현대자동차 공시: 특수관계인에대한출자 (접수일: 2026.06.10). 제출인: 현대자동차. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610000640",
       "metadata": {
-        "corpName": "SK하이닉스",
-        "receiptNo": "20260508000567",
-        "stockCode": "000660",
-        "filerName": "양명훈",
-        "corpCls": "Y",
-        "disclosureType": "지분공시",
-        "badge": "지분",
-        "badgeColor": "#0f766e",
-        "priority": 3,
-        "formattedDate": "2026.05.08"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "자기주식처분결과보고서",
-      "date": "20260507",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260507000542",
-      "text": "[기타공시] SK하이닉스 공시: 자기주식처분결과보고서 (접수일: 2026.05.07). 제출인: SK하이닉스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260507000542",
-      "metadata": {
-        "corpName": "SK하이닉스",
-        "receiptNo": "20260507000542",
-        "stockCode": "000660",
-        "filerName": "SK하이닉스",
+        "corpName": "현대자동차",
+        "receiptNo": "20260610000640",
+        "stockCode": "005380",
+        "filerName": "현대자동차",
         "corpCls": "Y",
         "disclosureType": "기타공시",
         "badge": "공시",
         "badgeColor": "#4b5563",
         "priority": 99,
-        "formattedDate": "2026.05.07"
+        "formattedDate": "2026.06.10"
       }
     },
     {
       "source": "dart",
-      "title": "최대주주등소유주식변동신고서              ",
-      "date": "20260506",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260506800689",
-      "text": "[기타공시] SK하이닉스 공시: 최대주주등소유주식변동신고서               (접수일: 2026.05.06). 제출인: SK하이닉스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260506800689",
+      "title": "[기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(대표회사)]",
+      "date": "20260601",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601001973",
+      "text": "[공정위공시] 현대자동차 공시: [기재정정]대규모기업집단현황공시[연1회공시및1/4분기용(대표회사)] (접수일: 2026.06.01). 제출인: 현대자동차. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601001973",
       "metadata": {
-        "corpName": "SK하이닉스",
-        "receiptNo": "20260506800689",
-        "stockCode": "000660",
-        "filerName": "SK하이닉스",
+        "corpName": "현대자동차",
+        "receiptNo": "20260601001973",
+        "stockCode": "005380",
+        "filerName": "현대자동차",
         "corpCls": "Y",
-        "disclosureType": "기타공시",
-        "badge": "공시",
-        "badgeColor": "#4b5563",
-        "priority": 99,
-        "formattedDate": "2026.05.06"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260506",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260506000496",
-      "text": "[지분공시] SK하이닉스 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.05.06). 제출인: 안현. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260506000496",
-      "metadata": {
-        "corpName": "SK하이닉스",
-        "receiptNo": "20260506000496",
-        "stockCode": "000660",
-        "filerName": "안현",
-        "corpCls": "Y",
-        "disclosureType": "지분공시",
-        "badge": "지분",
-        "badgeColor": "#0f766e",
-        "priority": 3,
-        "formattedDate": "2026.05.06"
+        "disclosureType": "공정위공시",
+        "badge": "공정위",
+        "badgeColor": "#9f1239",
+        "priority": 7,
+        "formattedDate": "2026.06.01"
       }
     },
     {
@@ -1261,59 +2938,40 @@
     },
     {
       "source": "dart",
-      "title": "기업설명회(IR)개최(안내공시)              ",
-      "date": "20260520",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260520800521",
-      "text": "[기타공시] 현대자동차 공시: 기업설명회(IR)개최(안내공시)               (접수일: 2026.05.20). 제출인: 현대자동차. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260520800521",
+      "title": "[기재정정]단일판매ㆍ공급계약체결              ",
+      "date": "20260609",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609800652",
+      "text": "[기타공시] 삼성바이오로직스 공시: [기재정정]단일판매ㆍ공급계약체결               (접수일: 2026.06.09). 제출인: 삼성바이오로직스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260609800652",
       "metadata": {
-        "corpName": "현대자동차",
-        "receiptNo": "20260520800521",
-        "stockCode": "005380",
-        "filerName": "현대자동차",
+        "corpName": "삼성바이오로직스",
+        "receiptNo": "20260609800652",
+        "stockCode": "207940",
+        "filerName": "삼성바이오로직스",
         "corpCls": "Y",
         "disclosureType": "기타공시",
         "badge": "공시",
         "badgeColor": "#4b5563",
         "priority": 99,
-        "formattedDate": "2026.05.20"
+        "formattedDate": "2026.06.09"
       }
     },
     {
       "source": "dart",
-      "title": "기업설명회(IR)개최(안내공시)              ",
-      "date": "20260518",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260518800599",
-      "text": "[기타공시] 현대자동차 공시: 기업설명회(IR)개최(안내공시)               (접수일: 2026.05.18). 제출인: 현대자동차. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260518800599",
+      "title": "지속가능경영보고서등관련사항(자율공시)              ",
+      "date": "20260601",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801853",
+      "text": "[기타공시] 삼성바이오로직스 공시: 지속가능경영보고서등관련사항(자율공시)               (접수일: 2026.06.01). 제출인: 삼성바이오로직스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801853",
       "metadata": {
-        "corpName": "현대자동차",
-        "receiptNo": "20260518800599",
-        "stockCode": "005380",
-        "filerName": "현대자동차",
+        "corpName": "삼성바이오로직스",
+        "receiptNo": "20260601801853",
+        "stockCode": "207940",
+        "filerName": "삼성바이오로직스",
         "corpCls": "Y",
         "disclosureType": "기타공시",
         "badge": "공시",
         "badgeColor": "#4b5563",
         "priority": 99,
-        "formattedDate": "2026.05.18"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "분기보고서 (2026.03)",
-      "date": "20260515",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002418",
-      "text": "[정기공시] 현대자동차 공시: 분기보고서 (2026.03) (접수일: 2026.05.15). 제출인: 현대자동차. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515002418",
-      "metadata": {
-        "corpName": "현대자동차",
-        "receiptNo": "20260515002418",
-        "stockCode": "005380",
-        "filerName": "현대자동차",
-        "corpCls": "Y",
-        "disclosureType": "정기공시",
-        "badge": "정기",
-        "badgeColor": "#1d4ed8",
-        "priority": 2,
-        "formattedDate": "2026.05.15"
+        "formattedDate": "2026.06.01"
       }
     },
     {
@@ -1470,51 +3128,13 @@
     },
     {
       "source": "dart",
-      "title": "동일인등출자계열회사와의상품ㆍ용역거래변경",
-      "date": "20260424",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260424000564",
-      "text": "[내부거래] 삼성바이오로직스 공시: 동일인등출자계열회사와의상품ㆍ용역거래변경 (접수일: 2026.04.24). 제출인: 삼성바이오로직스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260424000564",
-      "metadata": {
-        "corpName": "삼성바이오로직스",
-        "receiptNo": "20260424000564",
-        "stockCode": "207940",
-        "filerName": "삼성바이오로직스",
-        "corpCls": "Y",
-        "disclosureType": "내부거래",
-        "badge": "내부",
-        "badgeColor": "#064e3b",
-        "priority": 6,
-        "formattedDate": "2026.04.24"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "연결재무제표기준영업(잠정)실적(공정공시)              ",
-      "date": "20260422",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422800406",
-      "text": "[기타공시] 삼성바이오로직스 공시: 연결재무제표기준영업(잠정)실적(공정공시)               (접수일: 2026.04.22). 제출인: 삼성바이오로직스. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260422800406",
-      "metadata": {
-        "corpName": "삼성바이오로직스",
-        "receiptNo": "20260422800406",
-        "stockCode": "207940",
-        "filerName": "삼성바이오로직스",
-        "corpCls": "Y",
-        "disclosureType": "기타공시",
-        "badge": "공시",
-        "badgeColor": "#4b5563",
-        "priority": 99,
-        "formattedDate": "2026.04.22"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "투자설명서(일괄신고)",
-      "date": "20260601",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000318",
-      "text": "[발행공시] 케이비증권 공시: 투자설명서(일괄신고) (접수일: 2026.06.01). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000318",
+      "title": "[기재정정]증권발행실적보고서",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000662",
+      "text": "[발행공시] 케이비증권 공시: [기재정정]증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000662",
       "metadata": {
         "corpName": "케이비증권",
-        "receiptNo": "20260601000318",
+        "receiptNo": "20260612000662",
         "stockCode": "003450",
         "filerName": "케이비증권",
         "corpCls": "E",
@@ -1522,37 +3142,18 @@
         "badge": "발행",
         "badgeColor": "#b45309",
         "priority": 4,
-        "formattedDate": "2026.06.01"
+        "formattedDate": "2026.06.12"
       }
     },
     {
       "source": "dart",
-      "title": "일괄신고추가서류(파생결합사채-주가연계파생결합사채)",
-      "date": "20260601",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000225",
-      "text": "[기타공시] 케이비증권 공시: 일괄신고추가서류(파생결합사채-주가연계파생결합사채) (접수일: 2026.06.01). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000225",
+      "title": "[발행조건확정]증권신고서(채무증권)",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000661",
+      "text": "[발행공시] 케이비증권 공시: [발행조건확정]증권신고서(채무증권) (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000661",
       "metadata": {
         "corpName": "케이비증권",
-        "receiptNo": "20260601000225",
-        "stockCode": "003450",
-        "filerName": "케이비증권",
-        "corpCls": "E",
-        "disclosureType": "기타공시",
-        "badge": "공시",
-        "badgeColor": "#4b5563",
-        "priority": 99,
-        "formattedDate": "2026.06.01"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "투자설명서(일괄신고)",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001821",
-      "text": "[발행공시] 케이비증권 공시: 투자설명서(일괄신고) (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001821",
-      "metadata": {
-        "corpName": "케이비증권",
-        "receiptNo": "20260529001821",
+        "receiptNo": "20260612000661",
         "stockCode": "003450",
         "filerName": "케이비증권",
         "corpCls": "E",
@@ -1560,75 +3161,18 @@
         "badge": "발행",
         "badgeColor": "#b45309",
         "priority": 4,
-        "formattedDate": "2026.05.29"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "일괄신고추가서류(파생결합증권-주가연계증권)",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001730",
-      "text": "[기타공시] 케이비증권 공시: 일괄신고추가서류(파생결합증권-주가연계증권) (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001730",
-      "metadata": {
-        "corpName": "케이비증권",
-        "receiptNo": "20260529001730",
-        "stockCode": "003450",
-        "filerName": "케이비증권",
-        "corpCls": "E",
-        "disclosureType": "기타공시",
-        "badge": "공시",
-        "badgeColor": "#4b5563",
-        "priority": 99,
-        "formattedDate": "2026.05.29"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "투자설명서(일괄신고)",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001447",
-      "text": "[발행공시] 케이비증권 공시: 투자설명서(일괄신고) (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001447",
-      "metadata": {
-        "corpName": "케이비증권",
-        "receiptNo": "20260529001447",
-        "stockCode": "003450",
-        "filerName": "케이비증권",
-        "corpCls": "E",
-        "disclosureType": "발행공시",
-        "badge": "발행",
-        "badgeColor": "#b45309",
-        "priority": 4,
-        "formattedDate": "2026.05.29"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "투자설명서(일괄신고)",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001438",
-      "text": "[발행공시] 케이비증권 공시: 투자설명서(일괄신고) (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001438",
-      "metadata": {
-        "corpName": "케이비증권",
-        "receiptNo": "20260529001438",
-        "stockCode": "003450",
-        "filerName": "케이비증권",
-        "corpCls": "E",
-        "disclosureType": "발행공시",
-        "badge": "발행",
-        "badgeColor": "#b45309",
-        "priority": 4,
-        "formattedDate": "2026.05.29"
+        "formattedDate": "2026.06.12"
       }
     },
     {
       "source": "dart",
       "title": "증권발행실적보고서",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001432",
-      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001432",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000361",
+      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000361",
       "metadata": {
         "corpName": "케이비증권",
-        "receiptNo": "20260529001432",
+        "receiptNo": "20260612000361",
         "stockCode": "003450",
         "filerName": "케이비증권",
         "corpCls": "E",
@@ -1636,18 +3180,18 @@
         "badge": "발행",
         "badgeColor": "#b45309",
         "priority": 4,
-        "formattedDate": "2026.05.29"
+        "formattedDate": "2026.06.12"
       }
     },
     {
       "source": "dart",
       "title": "증권발행실적보고서",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001403",
-      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001403",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000359",
+      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000359",
       "metadata": {
         "corpName": "케이비증권",
-        "receiptNo": "20260529001403",
+        "receiptNo": "20260612000359",
         "stockCode": "003450",
         "filerName": "케이비증권",
         "corpCls": "E",
@@ -1655,45 +3199,159 @@
         "badge": "발행",
         "badgeColor": "#b45309",
         "priority": 4,
-        "formattedDate": "2026.05.29"
+        "formattedDate": "2026.06.12"
       }
     },
     {
       "source": "dart",
-      "title": "일괄신고추가서류(파생결합사채-주가연계파생결합사채)",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001394",
-      "text": "[기타공시] 케이비증권 공시: 일괄신고추가서류(파생결합사채-주가연계파생결합사채) (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001394",
+      "title": "증권발행실적보고서",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000356",
+      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000356",
       "metadata": {
         "corpName": "케이비증권",
-        "receiptNo": "20260529001394",
+        "receiptNo": "20260612000356",
         "stockCode": "003450",
         "filerName": "케이비증권",
         "corpCls": "E",
-        "disclosureType": "기타공시",
-        "badge": "공시",
-        "badgeColor": "#4b5563",
-        "priority": 99,
-        "formattedDate": "2026.05.29"
+        "disclosureType": "발행공시",
+        "badge": "발행",
+        "badgeColor": "#b45309",
+        "priority": 4,
+        "formattedDate": "2026.06.12"
       }
     },
     {
       "source": "dart",
-      "title": "일괄신고추가서류(파생결합증권-주가연계증권)",
-      "date": "20260529",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001390",
-      "text": "[기타공시] 케이비증권 공시: 일괄신고추가서류(파생결합증권-주가연계증권) (접수일: 2026.05.29). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001390",
+      "title": "증권발행실적보고서",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000352",
+      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000352",
       "metadata": {
         "corpName": "케이비증권",
-        "receiptNo": "20260529001390",
+        "receiptNo": "20260612000352",
         "stockCode": "003450",
         "filerName": "케이비증권",
         "corpCls": "E",
+        "disclosureType": "발행공시",
+        "badge": "발행",
+        "badgeColor": "#b45309",
+        "priority": 4,
+        "formattedDate": "2026.06.12"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "증권발행실적보고서",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000347",
+      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000347",
+      "metadata": {
+        "corpName": "케이비증권",
+        "receiptNo": "20260612000347",
+        "stockCode": "003450",
+        "filerName": "케이비증권",
+        "corpCls": "E",
+        "disclosureType": "발행공시",
+        "badge": "발행",
+        "badgeColor": "#b45309",
+        "priority": 4,
+        "formattedDate": "2026.06.12"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "증권발행실적보고서",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000345",
+      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000345",
+      "metadata": {
+        "corpName": "케이비증권",
+        "receiptNo": "20260612000345",
+        "stockCode": "003450",
+        "filerName": "케이비증권",
+        "corpCls": "E",
+        "disclosureType": "발행공시",
+        "badge": "발행",
+        "badgeColor": "#b45309",
+        "priority": 4,
+        "formattedDate": "2026.06.12"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "증권발행실적보고서",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000339",
+      "text": "[발행공시] 케이비증권 공시: 증권발행실적보고서 (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000339",
+      "metadata": {
+        "corpName": "케이비증권",
+        "receiptNo": "20260612000339",
+        "stockCode": "003450",
+        "filerName": "케이비증권",
+        "corpCls": "E",
+        "disclosureType": "발행공시",
+        "badge": "발행",
+        "badgeColor": "#b45309",
+        "priority": 4,
+        "formattedDate": "2026.06.12"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "투자설명서(일괄신고)",
+      "date": "20260612",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000283",
+      "text": "[발행공시] 케이비증권 공시: 투자설명서(일괄신고) (접수일: 2026.06.12). 제출인: 케이비증권. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260612000283",
+      "metadata": {
+        "corpName": "케이비증권",
+        "receiptNo": "20260612000283",
+        "stockCode": "003450",
+        "filerName": "케이비증권",
+        "corpCls": "E",
+        "disclosureType": "발행공시",
+        "badge": "발행",
+        "badgeColor": "#b45309",
+        "priority": 4,
+        "formattedDate": "2026.06.12"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "최대주주등소유주식변동신고서              ",
+      "date": "20260610",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610800111",
+      "text": "[기타공시] 삼성SDI 공시: 최대주주등소유주식변동신고서               (접수일: 2026.06.10). 제출인: 삼성SDI. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260610800111",
+      "metadata": {
+        "corpName": "삼성SDI",
+        "receiptNo": "20260610800111",
+        "stockCode": "006400",
+        "filerName": "삼성SDI",
+        "corpCls": "Y",
         "disclosureType": "기타공시",
         "badge": "공시",
         "badgeColor": "#4b5563",
         "priority": 99,
-        "formattedDate": "2026.05.29"
+        "formattedDate": "2026.06.10"
+      }
+    },
+    {
+      "source": "dart",
+      "title": "기업지배구조보고서공시              ",
+      "date": "20260601",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801676",
+      "text": "[기타공시] 삼성SDI 공시: 기업지배구조보고서공시               (접수일: 2026.06.01). 제출인: 삼성SDI. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601801676",
+      "metadata": {
+        "corpName": "삼성SDI",
+        "receiptNo": "20260601801676",
+        "stockCode": "006400",
+        "filerName": "삼성SDI",
+        "corpCls": "Y",
+        "disclosureType": "기타공시",
+        "badge": "공시",
+        "badgeColor": "#4b5563",
+        "priority": 99,
+        "formattedDate": "2026.06.01"
       }
     },
     {
@@ -1847,127 +3505,29 @@
         "priority": 99,
         "formattedDate": "2026.03.31"
       }
-    },
-    {
-      "source": "dart",
-      "title": "임원ㆍ주요주주특정증권등소유상황보고서",
-      "date": "20260330",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260330001339",
-      "text": "[지분공시] 삼성SDI 공시: 임원ㆍ주요주주특정증권등소유상황보고서 (접수일: 2026.03.30). 제출인: 오재균. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260330001339",
-      "metadata": {
-        "corpName": "삼성SDI",
-        "receiptNo": "20260330001339",
-        "stockCode": "006400",
-        "filerName": "오재균",
-        "corpCls": "Y",
-        "disclosureType": "지분공시",
-        "badge": "지분",
-        "badgeColor": "#0f766e",
-        "priority": 3,
-        "formattedDate": "2026.03.30"
-      }
-    },
-    {
-      "source": "dart",
-      "title": "사외이사의선임ㆍ해임또는중도퇴임에관한신고",
-      "date": "20260318",
-      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001095",
-      "text": "[기타공시] 삼성SDI 공시: 사외이사의선임ㆍ해임또는중도퇴임에관한신고 (접수일: 2026.03.18). 제출인: 삼성SDI. 원문: https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001095",
-      "metadata": {
-        "corpName": "삼성SDI",
-        "receiptNo": "20260318001095",
-        "stockCode": "006400",
-        "filerName": "삼성SDI",
-        "corpCls": "Y",
-        "disclosureType": "기타공시",
-        "badge": "공시",
-        "badgeColor": "#4b5563",
-        "priority": 99,
-        "formattedDate": "2026.03.18"
-      }
-    },
-    {
-      "source": "naver",
-      "title": "'시총 7000조' 코스피 신기록에도…건설주 7%대 나홀로 폭락, 왜?",
-      "date": "2026-06-01",
-      "url": "https://realty.chosun.com/site/data/html_dir/2026/06/01/2026060102816.html",
-      "text": "코스피 지수가 장 초반 사상 처음으로 8600선을 돌파하며 시가총액 7000조원 시대를 열었지만, 현대건설과... 국내 주식시장이 사상 최고치를 경신하는 와중에 대형 건설사들의 주가는 5~7%대 큰 폭의 하락세를...",
-      "metadata": {
-        "query": "코스피 주식"
-      }
-    },
-    {
-      "source": "naver",
-      "title": "[속보]'삼전 주도' 코스피 또 사상 최고치…8,788 마감에 '9천피' 육박",
-      "date": "2026-06-01",
-      "url": "https://www.ikbc.co.kr/article/view/kbc202606010041",
-      "text": "두 종목의 시총이 코스피에서 차지하는 비중은 각각 28.4%, 24.38%를 기록하며 52%를 넘어섰습니다. 특히 '대장주' 삼성전자는 이날 국내 주식시장에서 10.09% 오른 34만 9천 원에 마감했습니다. 지난달 6일(14.41%) 이후...",
-      "metadata": {
-        "query": "코스피 주식"
-      }
-    },
-    {
-      "source": "naver",
-      "title": "코스피 매수·매도 불균형, 코로나 이후 최고…포모에 변동성도↑",
-      "date": "2026-06-01",
-      "url": "https://www.mt.co.kr/stock/2026/06/01/2026060115075560452",
-      "text": "코스피 지수가 8000을 넘어 9000을 향해 갈 정도로 상승세지만 특정 종목 쏠림이 심하다는 의미다. 그만큼... 국내 주식시장이 언제든지 급격한 테일리스크(Tail Risk, 발생 가능성이 낮지만 발생하면 극단적 결과...",
-      "metadata": {
-        "query": "코스피 주식"
-      }
-    },
-    {
-      "source": "naver",
-      "title": "[더벨][마이다스운용 ETF 2.0] “독립계 운용사 '자기색깔' 중요…성과로...",
-      "date": "2026-06-01",
-      "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202605281553024200101193",
-      "text": "그는 “경우의 수가 정해진 게임에선 AI가 무적이지만 주식 운용은 게임의 규칙 자체가 계속 바뀌는 영역”... 그는 이번 코스피 상승장을 예로 들며 삼성전자와 SK하이닉스가 이렇게 오르는 장세는 과거에 없었다 며...",
-      "metadata": {
-        "query": "코스피 주식"
-      }
-    },
-    {
-      "source": "naver",
-      "title": "'빚투' 신용잔고 하루만에 1조원↑…첫 38조원대 올라",
-      "date": "2026-06-01",
-      "url": "https://www.yna.co.kr/view/AKR20260601130500008?input=1195m",
-      "text": "신용 잔고는 투자자가 주식 투자를 위해 증권사로부터 자금을 빌린 뒤 갚지 않은 금액으로, 통상 주가 상승을 기대하는 투자자가 많을수록 늘어난다. 신용 잔고 증가는 코스피가 9,000선에 육박하는 등...",
-      "metadata": {
-        "query": "코스피 주식"
-      }
-    },
-    {
-      "source": "naver",
-      "title": "[속보]젠슨 황 ‘괴물 PC’에 올라탔다…삼성전자 10% 급등",
-      "date": "2026-06-01",
-      "url": "https://www.munhwa.com/article/11592711?ref=naver",
-      "text": "연합뉴스 삼성전자가 1일 국내 주식시장에서 10% 급등하며 마감했다. 삼성전자는 이날 10.09% 오른... ‘톱2’인 삼성전자와 SK하이닉스의 강세로 코스피는 이날 사상 처음 8700선을 돌파했다. 두 종목의 시총이...",
-      "metadata": {
-        "query": "코스피 주식"
-      }
     }
   ],
   "extractedRisks": [
     {
       "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601001179",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608800918",
       "company": "삼성전자",
       "ticker": "005930",
       "sector": "전자",
-      "riskType": "규제",
+      "riskType": "주식 변동",
       "riskSeverity": "low",
-      "summary": "대규모기업집단현황공시 제출",
+      "summary": "삼성전자의 최대주주등소유주식변동신고서가 제출되었습니다.",
       "keywords": [
-        "대규모기업집단",
-        "공시"
+        "삼성전자",
+        "주식 변동"
       ],
       "upstream": [],
       "downstream": [],
-      "asOf": "2026-06-01"
+      "asOf": "2026-06-08"
     },
     {
       "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000369",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260608000002",
       "company": "삼성전자",
       "ticker": "005930",
       "sector": "전자",
@@ -1980,63 +3540,28 @@
       ],
       "upstream": [],
       "downstream": [],
-      "asOf": "2026-06-01"
+      "asOf": "2026-06-08"
     },
     {
       "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601800268",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000586",
       "company": "삼성전자",
       "ticker": "005930",
       "sector": "전자",
-      "riskType": "기업지배구조",
+      "riskType": "주식 소유",
       "riskSeverity": "low",
-      "summary": "삼성전자가 기업지배구조보고서를 공시했습니다.",
-      "keywords": [
-        "기업지배구조",
-        "삼성전자"
-      ],
-      "upstream": [],
-      "downstream": [],
-      "asOf": "2026-06-01"
-    },
-    {
-      "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000172",
-      "company": "삼성전자",
-      "ticker": "005930",
-      "sector": "전자",
-      "riskType": "규제",
-      "riskSeverity": "low",
-      "summary": "대규모 기업집단 현황 공시",
-      "keywords": [
-        "대규모 기업집단",
-        "공시"
-      ],
-      "upstream": [],
-      "downstream": [],
-      "asOf": "2026-06-01"
-    },
-    {
-      "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260601000001",
-      "company": "삼성전자",
-      "ticker": "005930",
-      "sector": "전자부품",
-      "riskType": "주주 구조",
-      "riskSeverity": "low",
-      "summary": "삼성전자 임원 및 주요주주 특정증권 등 소유 상황 보고서가 제출되었습니다.",
+      "summary": "삼성전자 임원ㆍ주요주주특정증권등소유상황보고서 제출",
       "keywords": [
         "삼성전자",
-        "주주 구조",
-        "임원"
+        "주식 소유"
       ],
       "upstream": [],
       "downstream": [],
-      "asOf": "2026-06-01"
+      "asOf": "2026-06-05"
     },
     {
       "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260529001627",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000073",
       "company": "삼성전자",
       "ticker": "005930",
       "sector": "전자부품",
@@ -2049,29 +3574,28 @@
       ],
       "upstream": [],
       "downstream": [],
-      "asOf": "2026-05-29"
+      "asOf": "2026-06-05"
     },
     {
       "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000244",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260605000061",
       "company": "삼성전자",
       "ticker": "005930",
-      "sector": "전자",
+      "sector": "전자부품",
       "riskType": "주주 구조",
       "riskSeverity": "low",
-      "summary": "삼성전자 임원 및 주요 주주 특정 증권 등 소유 상황 보고서가 제출되었습니다.",
+      "summary": "임원ㆍ주요주주특정증권등소유상황보고서 제출",
       "keywords": [
         "삼성전자",
-        "주주 구조",
-        "임원"
+        "주주 구조"
       ],
       "upstream": [],
       "downstream": [],
-      "asOf": "2026-05-26"
+      "asOf": "2026-06-05"
     },
     {
       "source": "dart",
-      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000141",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260604000077",
       "company": "삼성전자",
       "ticker": "005930",
       "sector": "전자",
@@ -2084,8 +3608,42 @@
       ],
       "upstream": [],
       "downstream": [],
-      "asOf": "2026-05-26"
+      "asOf": "2026-06-04"
+    },
+    {
+      "source": "dart",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000421",
+      "company": "삼성전자",
+      "ticker": "005930",
+      "sector": "전자",
+      "riskType": "주식 소유",
+      "riskSeverity": "low",
+      "summary": "삼성전자 임원 및 주요 주주의 특정 증권 등 소유 상황 보고서가 제출되었습니다.",
+      "keywords": [
+        "삼성전자",
+        "주식 소유",
+        "임원"
+      ],
+      "upstream": [],
+      "downstream": [],
+      "asOf": "2026-06-02"
+    },
+    {
+      "source": "dart",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000150",
+      "company": "삼성전자",
+      "ticker": "005930",
+      "sector": "전자부품",
+      "riskType": "주식 소유",
+      "riskSeverity": "low",
+      "summary": "임원ㆍ주요주주특정증권등소유상황보고서 제출",
+      "keywords": [
+        "삼성전자",
+        "주식 소유"
+      ],
+      "upstream": [],
+      "downstream": [],
+      "asOf": "2026-06-02"
     }
-  ],
-  "generated_at": "2026-06-01T09:42:24.347Z"
+  ]
 }

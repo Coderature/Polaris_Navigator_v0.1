@@ -2,8 +2,8 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { fetchDartReports } from './crawl/dartCrawler.js';
-import { fetchNaverFinanceNews } from './crawl/naverNewsCrawler.js';
 import { extractPdfDocuments } from './crawl/pdfExtract.js';
+import { attachNewsToStocks } from './crawl/stockNewsCollector.js';
 import { fetchKrStocks } from './crawl/krStockCrawler.js';
 import { fetchUsStocks } from './crawl/usStockCrawler.js';
 import { extractFinancialRisks } from './llm/extractor.js';
@@ -39,31 +39,28 @@ async function main() {
     console.log(`  ✓ ${company}: ${docs.length}건`);
   }
 
-  console.log('3/6 네이버 금융 뉴스 크롤링 시작...');
-  const newsDocs = await fetchNaverFinanceNews('코스피 주식', 6);
-  console.log(`  ✓ ${newsDocs.length}건`);
-
-  console.log('4/6 PDF 자료 추출 시작...');
+  console.log('3/6 PDF 자료 추출 시작...');
   const pdfDocs = await extractPdfDocuments([]);
 
-  console.log('5/6 KR 실시간 주가 수집 시작...');
+  console.log('4/6 KR 실시간 주가 수집 시작...');
   const krStocks = await fetchKrStocks();
   console.log(`  ✓ ${krStocks.length}개 종목 시세 수집`);
 
-  const documents = [...dartDocs, ...newsDocs, ...pdfDocs];
-  console.log(`총 ${documents.length}건 문서 확보`);
+  const mergedStocks: StockRow[] = [
+    ...usStocks,
+    ...krStocks,
+  ];
+
+  console.log('5/6 종목별 뉴스 수집 시작...');
+  await attachNewsToStocks(mergedStocks);
+
+  const documents = [...dartDocs, ...pdfDocs];
+  console.log(`총 ${documents.length}건 문서 확보 (DART·PDF, 뉴스는 종목별 news 필드)`);
 
   console.log('6/6 LLM 기반 리스크 추출 수행...');
   const extractedRisks = await extractFinancialRisks(documents.slice(0, 8));
 
   const existing = await loadExistingTreemapData();
-
-  // US + KR 주식 병합
-  const krTickerSet = new Set(krStocks.map((s) => s.t));
-  const mergedStocks: StockRow[] = [
-    ...usStocks,
-    ...krStocks,
-  ];
 
   const output: PipelineOutput = {
     generatedAt: new Date().toISOString(),

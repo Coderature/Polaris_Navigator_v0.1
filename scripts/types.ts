@@ -31,6 +31,15 @@ export interface SectorDef {
   color: string;
 }
 
+export interface StockNewsItem {
+  source: string;
+  title: string;
+  date: string;
+  url: string;
+  text: string;
+  isGeneric: boolean;
+}
+
 export interface StockRow {
   t: string;
   n: string;
@@ -41,6 +50,7 @@ export interface StockRow {
   pbr: number | null;
   vol: number;
   div: number;
+  news?: StockNewsItem[];
   halted?: boolean;
   chg?: number;
   price?: number;
