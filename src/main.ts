@@ -2,7 +2,6 @@ import './styles.css';
 import * as THREE from 'three';
 import { loadTreemapData } from './data/loadTreemapData';
 import { initQuotesClient } from './data/quotesClient';
-import { generateStockSummary } from './data/groqSummary';
 import {
   type MarketCode,
   type SectorDef,
@@ -189,11 +188,6 @@ function fmtPrice(p: number, market: MarketCode): string {
   return `$${p.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
-function sectorRankFor(stocks: StockRow[], st: StockRow): string {
-  const same = stocks.filter((s) => s.s === st.s).sort((a, b) => b.cap - a.cap);
-  const i = same.findIndex((s) => s.t === st.t) + 1;
-  return `${i} / ${same.length}`;
-}
 
 function restingFootprintXZ(g: THREE.Group): number {
   const xz = g.userData.footprintRestXZ as number | undefined;
@@ -210,52 +204,6 @@ function resetBuildingInteractionScale(mesh: THREE.Group) {
   mesh.scale.set(xz, 1, xz);
 }
 
-function renderSummary(md: string): string {
-  const lines = md.split('\n');
-  const parts: string[] = [];
-  let bullets: string[] = [];
-
-  const flushBullets = () => {
-    if (bullets.length) {
-      parts.push(`<ul class="ai-bullets">${bullets.map((b) => `<li>${b}</li>`).join('')}</ul>`);
-      bullets = [];
-    }
-  };
-
-  for (const raw of lines) {
-    const line = raw.trim();
-    if (!line) { flushBullets(); continue; }
-
-    const headerMatch = line.match(/^\*\*(.+?)\*\*\s*$/);
-    if (headerMatch) {
-      flushBullets();
-      parts.push(`<div class="ai-section-title">${headerMatch[1]}</div>`);
-      continue;
-    }
-
-    const bulletMatch = line.match(/^[-•]\s+(.+)/);
-    if (bulletMatch) {
-      bullets.push(bulletMatch[1].replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'));
-      continue;
-    }
-
-    flushBullets();
-    parts.push(`<p class="ai-para">${line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</p>`);
-  }
-  flushBullets();
-  return parts.join('');
-}
-
-function aiSummary(stocks: StockRow[], sectors: SectorDef[], st: StockRow): string {
-  const sec = sectors.find((s) => s.id === st.s)!;
-  const dir = st.halted ? '거래정지 상태' : st.chg! >= 0 ? `오늘 +${st.chg!.toFixed(2)}%` : `오늘 ${st.chg!.toFixed(2)}%`;
-  const cap = fmtBn(st.cap);
-  return `
-    <p style="margin:0 0 8px"><b style="color:var(--text-primary)">${st.n}</b>은 ${sec.ko} 섹터에 속하며 시가총액 약 <b>$${cap}</b> 규모로 ${sectorRankFor(stocks, st)} 위치입니다.</p>
-    <p style="margin:0 0 8px">${dir}의 등락률을 기록하고 있고, PER ${st.per ?? '—'} / PBR ${st.pbr ?? '—'} 수준의 밸류에이션 지표를 보입니다.</p>
-    <p style="margin:0;color:var(--text-tertiary);font-size:12px">※ 본 요약은 제공된 수치 데이터를 기반으로 생성된 정보 정리이며, 향후 가격에 대한 어떠한 단정도 포함하지 않습니다.</p>
-  `;
-}
 
 function waitForConsent(): Promise<void> {
   return new Promise((resolve) => {
@@ -326,9 +274,6 @@ async function main() {
   const pPrice = document.getElementById('p-price')!;
   const pChg = document.getElementById('p-chg')!;
   const pWatch = document.getElementById('p-watch')!;
-  const aiStatus = document.getElementById('ai-status')!;
-  const aiContent = document.getElementById('ai-content')!;
-  const aiDisclaimer = document.getElementById('ai-disclaimer')!;
   const hintEl = document.getElementById('hint')!;
 
 
@@ -338,7 +283,6 @@ async function main() {
   let downY = 0;
   let dragDist = 0;
   let isDown = false;
-  let aiTimer: ReturnType<typeof setTimeout> | null = null;
   let currentStock: StockRow | null = null;
 
   const appDataSource = stocks.every((s) => s.source === 'live')
@@ -722,51 +666,6 @@ async function main() {
     pWatch.classList.toggle('on', isWatched(st.t));
     pWatch.textContent = isWatched(st.t) ? '★ Saved' : '☆ Save';
 
-    // ── AI 요약 ──
-    const aiDot = document.getElementById('ai-dot')!;
-    aiDot.classList.add('loading');
-    aiStatus.textContent = 'Groq AI 요약 생성 중…';
-    aiContent.innerHTML = `
-    <div class="skel skel-line w90"></div>
-    <div class="skel skel-line w70"></div>
-    <div class="skel skel-line w80"></div>
-    <div class="skel skel-line w50"></div>`;
-    if (aiTimer) clearTimeout(aiTimer);
-    const matchRisk = (r: { company: string; ticker?: string }) =>
-      r.company.includes(st.n) || st.n.includes(r.company) || r.ticker === st.t;
-    const relatedDocs = documents.filter(
-      (d) => d.title.includes(st.n) || st.n.includes(String(d.metadata?.corpName ?? '')),
-    );
-    const sectorPeers = stocks
-      .filter((s) => s.s === st.s && s.t !== st.t)
-      .sort((a, b) => b.cap - a.cap)
-      .slice(0, 4)
-      .map((s) => ({ name: s.n, cap: s.cap, chg: s.chg ?? 0 }));
-
-    generateStockSummary({
-      name: st.n,
-      sector: secById[st.s]?.ko ?? st.s,
-      market: st.m,
-      cap: `$${fmtBn(st.cap)}`,
-      chg: st.chg ?? 0,
-      per: st.per,
-      pbr: st.pbr,
-      div: st.div,
-      vol: st.vol,
-      risks: extractedRisks.filter(matchRisk),
-      documents: relatedDocs,
-      sectorPeers,
-    }).then((summary) => {
-      aiDot.classList.remove('loading');
-      aiStatus.textContent = 'Groq AI · llama-3.3-70b';
-      aiContent.innerHTML = renderSummary(summary);
-      aiDisclaimer.textContent = '⚠ AI 생성 요약이며 투자 조언이 아닙니다.';
-    }).catch(() => {
-      aiDot.classList.remove('loading');
-      aiStatus.textContent = '요약 · 규칙 기반 (폴백)';
-      aiContent.innerHTML = aiSummary(stocks, sectors, st);
-      aiDisclaimer.textContent = '⚠ 규칙 기반 요약이며 투자 조언이 아닙니다.';
-    });
   }
 
   function closePanel() {
@@ -777,7 +676,6 @@ async function main() {
       highlighted = null;
     }
     currentStock = null;
-    if (aiTimer) clearTimeout(aiTimer);
   }
 
   const navViewToggle = document.getElementById('navViewToggle')!;
